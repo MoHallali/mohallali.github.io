@@ -790,6 +790,49 @@ function applySiteData() {
       }
     }
   }
+
+  // 7. Dynamic Services
+  if (d.services && d.services.length) {
+    const sContainer = document.getElementById('services-grid-container') || document.querySelector('.services__grid');
+    if (sContainer) {
+      sContainer.innerHTML = d.services.map(s => {
+        const title = currentLang === 'ar' ? (s.titleAr || s.title) : (s.titleEn || s.title || s.titleAr);
+        const desc = currentLang === 'ar' ? (s.descAr || s.desc) : (s.descEn || s.desc || s.descAr);
+        const feats = currentLang === 'ar' ? (s.featuresAr || s.features || []) : (s.featuresEn || s.features || s.featuresAr || []);
+        const featsHtml = feats.map(f => `<li class="service__feature"><i class="ri-check-line"></i> ${escapeHTML(f)}</li>`).join('');
+        return `
+          <div class="service__card">
+            <div class="service__icon-wrap"><i class="${escapeHTML(s.icon || 'ri-tools-line')}"></i></div>
+            <h3 class="service__title">${escapeHTML(title)}</h3>
+            <p class="service__desc">${escapeHTML(desc)}</p>
+            <ul class="service__features">
+              ${featsHtml}
+            </ul>
+            <div class="service__software">${escapeHTML(s.software || '')}</div>
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  // 8. Dynamic Workflow
+  if (d.workflow && d.workflow.length) {
+    const wContainer = document.getElementById('workflow-grid-container') || document.querySelector('.workflow__grid');
+    if (wContainer) {
+      wContainer.innerHTML = d.workflow.map((w, idx) => {
+        const num = w.num || (idx < 9 ? `0${idx+1}` : `${idx+1}`);
+        const title = currentLang === 'ar' ? (w.titleAr || w.title) : (w.titleEn || w.title || w.titleAr);
+        const desc = currentLang === 'ar' ? (w.descAr || w.desc) : (w.descEn || w.desc || w.descAr);
+        return `
+          <div class="workflow__step">
+            <div class="step__number">${escapeHTML(num)}</div>
+            <h3 class="step__title">${escapeHTML(title)}</h3>
+            <p class="step__desc">${escapeHTML(desc)}</p>
+          </div>
+        `;
+      }).join('');
+    }
+  }
 }
 
 /*=============== 1. LANGUAGE ENGINE (AR / EN) ===============*/

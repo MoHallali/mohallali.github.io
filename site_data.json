@@ -212,5 +212,158 @@
       "rating": 5,
       "avatar": "assets/img/avatar-1789672356.jpg"
     }
+  ],
+  "services": [
+    {
+      "id": "srv-1",
+      "icon": "ri-smartphone-line",
+      "titleAr": "صناعة الفيديوهات الفيروسية (Shorts & Reels)",
+      "titleEn": "Viral Shorts & Reels Production",
+      "descAr": "تفكيك وتصميم ريلز وتيك توك بأسلوب أليكس هورموزي وإيمان قادزي: خطافات بصرية ساحرة (Hooks)، نصوص متحركة ديناميكية، وتأثيرات صوتية تجعل المشاهد يكمل حتى النهاية.",
+      "descEn": "Deconstructing and editing high-retention TikToks and Reels in the style of Alex Hormozi & Iman Gadzhi: magnetic visual hooks, dynamic kinetic typography, and immersive SFX.",
+      "featuresAr": [
+        "خطافات أول 3 ثوانٍ قوية",
+        "نصوص متحركة ملونة وإيموجي 3D",
+        "هندسة صوتية وتأثيرات SFX"
+      ],
+      "featuresEn": [
+        "High-retention first 3-second hooks",
+        "Kinetic typography & 3D emojis",
+        "Multi-layered sound design & SFX"
+      ],
+      "software": "Software: CapCut Pro / Premiere / AE"
+    },
+    {
+      "id": "srv-2",
+      "icon": "ri-youtube-line",
+      "titleAr": "مونتاج يوتيوب عالي الاحتفاظ (Retention Editing)",
+      "titleEn": "High-Retention YouTube Long-Form",
+      "descAr": "هيكلة الفيديوهات الطويلة، إدارة الرتم (Pacing)، إدراج البي رول السينمائي، تصميم الصوت (Sound Design)، لضمان رفع متوسط مدة المشاهدة إلى مستويات قياسية.",
+      "descEn": "Long-form video structuring, pacing arcs, cinematic B-roll selection, and rich sound design engineered to maximize average view duration.",
+      "featuresAr": [
+        "ترتيب درامي وبناء السرد",
+        "انتقاء وترتيب البي رول المناسب",
+        "استبعاد لحظات الملل تماماً"
+      ],
+      "featuresEn": [
+        "Narrative arc & story pacing",
+        "Cinematic B-roll orchestration",
+        "Zero boring moments guarantee"
+      ],
+      "software": "Software: Premiere Pro / DaVinci"
+    },
+    {
+      "id": "srv-3",
+      "icon": "ri-palette-line",
+      "titleAr": "التلوين السينمائي الاحترافي (Color Grading)",
+      "titleEn": "Professional Cinema Color Grading",
+      "descAr": "تلوين لقطات الكاميرات الاحترافية (Sony, RED, Arri, Blackmagic) عبر DaVinci Resolve، مع ضبط درجات البشرة وتطبيق لوكات ألوان سينمائية مميزة.",
+      "descEn": "Cinema-grade color grading for professional camera sensors (Sony, RED, Arri, Blackmagic) in DaVinci Resolve with precise skin tone balance and film looks.",
+      "featuresAr": [
+        "إدارة الألوان ACES / Color Space",
+        "لوكات هوليوود (Teal & Orange / Film Look)",
+        "تصحيح ألوان البشرة الطبيعية"
+      ],
+      "featuresEn": [
+        "ACES & Color Space Transform",
+        "Hollywood Film Looks (Teal & Orange)",
+        "Natural skin tone preservation"
+      ],
+      "software": "Software: DaVinci Resolve Studio"
+    },
+    {
+      "id": "srv-4",
+      "icon": "ri-shape-line",
+      "titleAr": "الموشن جرافيك والمؤثرات البصرية (Motion Graphics & VFX)",
+      "titleEn": "Motion Graphics & Visual Effects (VFX)",
+      "descAr": "تحريك العناصر ثنائية وثلاثية الأبعاد، تتبع الحركة (Camera Tracking)، تصميم العناوين السينمائية، شاشات العرض المستقبلية (HUDs)، وإزالة العيوب باحترافية.",
+      "descEn": "2D/3D element animation, camera tracking, cinematic titles, futuristic HUD overlays, and seamless screen replacements.",
+      "featuresAr": [
+        "3D Camera Tracking",
+        "عناوين متحركة وهوية بصرية",
+        "عزل الشاشات الخضراء وتنظيف المشاهد"
+      ],
+      "featuresEn": [
+        "3D Camera Tracking",
+        "Kinetic titles & visual identity",
+        "Clean plate & green screen removal"
+      ],
+      "software": "Software: After Effects / Blender"
+    },
+    {
+      "id": "srv-5",
+      "icon": "ri-headphone-line",
+      "titleAr": "تصميم وهندسة الصوت (Sound Design & Foley)",
+      "titleEn": "Cinematic Sound Design & Foley",
+      "descAr": "الصوت يشكل 50% من نجاح أي فيديو. نقوم بتنقية الصوت، موازنة الترددات، إضافة المؤثرات الصوتية (Risers, Impacts, Whooshes) وخلق تجربة سمعية محيطية غامرة.",
+      "descEn": "Audio is 50% of the cinematic experience. Noise reduction, EQ balancing, custom sound effects (Risers, Impacts, Whooshes), and immersive audioscapes.",
+      "featuresAr": [
+        "إزالة التشويش وتنقية الصوت بالذكاء الاصطناعي",
+        "طبقات مؤثرات Foley واقعية",
+        "موازنة صوت المعلق مع الموسيقى"
+      ],
+      "featuresEn": [
+        "AI audio cleanup & noise removal",
+        "Multi-layered realistic Foley SFX",
+        "Vocal & music dynamic balancing"
+      ],
+      "software": "Software: Soundly / Audition / Fairlight"
+    },
+    {
+      "id": "srv-6",
+      "icon": "ri-image-edit-line",
+      "titleAr": "تصميم أغلفة اليوتيوب والتغليف البصري (Packaging & CTR)",
+      "titleEn": "High-CTR Thumbnail Design & Packaging",
+      "descAr": "مساعدتك في اختيار اللقطات الأكثر جذباً، وتصميم الأغلفة المصغرة (Thumbnails) التي تضمن أعلى نسبة نقر إلى الظهور (High CTR).",
+      "descEn": "Selecting viral screenshot frames and designing clickable YouTube thumbnails engineered for maximum Click-Through Rate (CTR).",
+      "featuresAr": [
+        "تحليل المنافسين ومعدلات النقر",
+        "تباين ألوان قوي وملفت للنظر",
+        "نماذج مصغرة مهيأة لكافة الأجهزة"
+      ],
+      "featuresEn": [
+        "Competitor CTR analysis",
+        "High-contrast visual hierarchy",
+        "Multi-device viewport testing"
+      ],
+      "software": "Software: Photoshop / Midjourney"
+    }
+  ],
+  "workflow": [
+    {
+      "num": "01",
+      "titleAr": "1. الإحاطة واستلام المواد",
+      "titleEn": "1. Briefing & Asset Handover",
+      "descAr": "رفع الملفات الخام والملاحظات عبر Google Drive أو Frame.io وتحديد الهدف والرؤية الفنية.",
+      "descEn": "Upload raw footage and creative brief via Google Drive or Frame.io, aligning on goals and visual direction."
+    },
+    {
+      "num": "02",
+      "titleAr": "2. بناء القصة والقص الأولي",
+      "titleEn": "2. Story Arc & Rough Cut",
+      "descAr": "انتقاء أفضل اللقطات، ترتيب السرد، ضبط التوقيت والإيقاع (Rough Cut & Pacing).",
+      "descEn": "Curating select takes, structuring narrative tension, and tuning timeline pacing (Rough Cut & Pacing)."
+    },
+    {
+      "num": "03",
+      "titleAr": "3. السحر البصري والصوتي",
+      "titleEn": "3. Visual & Sound Magic",
+      "descAr": "إضافة التلوين، المؤثرات البصرية، النصوص المتحركة، وهندسة الصوت الفائقة.",
+      "descEn": "Injecting cinema-grade grading, visual effects, kinetic typography, and high-impact sound design."
+    },
+    {
+      "num": "04",
+      "titleAr": "4. المراجعة والتعديلات",
+      "titleEn": "4. Review & Revisions",
+      "descAr": "مراجعة العميل للفيديو مع إمكانية إضافة الملاحظات وتعديلها بسرعة فائقة.",
+      "descEn": "Client review round with seamless feedback integration and lightning-fast turnaround times."
+    },
+    {
+      "num": "05",
+      "titleAr": "5. التسليم النهائي 4K",
+      "titleEn": "5. Final 4K Delivery",
+      "descAr": "تصدير الفيديو بأعلى جودة ممكنة جاهزاً للنشر المباشر وتحقيق النجاح.",
+      "descEn": "Master render export in highest 4K ProRes quality, ready for immediate publication."
+    }
   ]
 }

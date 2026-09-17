@@ -12,7 +12,7 @@
   <meta property="og:image" content="assets/img/hero-editor.svg">
 
   <!-- SECURITY HARDENING HEADERS & CSP -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https: blob:; media-src 'self' https: blob:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://www.instagram.com; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' file: https: data: blob: 'unsafe-inline' 'unsafe-eval'; script-src 'self' file: 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' file: 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' file: https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' file: data: https: blob:; media-src 'self' file: https: blob:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://www.instagram.com; connect-src 'self' file: https:; object-src 'none'; base-uri 'self'; form-action 'self';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <!-- CUSTOM CSS -->
-  <link rel="stylesheet" href="assets/css/style.css?v=1789683207">
+  <link rel="stylesheet" href="../assets/css/style.css?v=1789684780">
 </head>
 <body>
 
@@ -49,7 +49,7 @@
     <nav class="nav container">
       <a href="#hero" class="nav__logo" aria-label="SATURN">
         <div class="logo-icon-wrap">
-          <img src="assets/img/brand-logo.png" alt="SATURN Logo" class="nav__logo-img">
+          <img src="../assets/img/brand-logo.png" alt="SATURN Logo" class="nav__logo-img">
         </div>
         <span id="brand-logo-text">SATURN</span>
       </a>
@@ -142,7 +142,7 @@
         <div class="hero__visual">
           <div class="hero__frame">
             <div class="hero__image-inner">
-              <img src="assets/img/hero-editor.jpg" alt="Master Video Editor" class="hero__img">
+              <img src="../assets/img/hero-editor.jpg" alt="Master Video Editor" class="hero__img">
             </div>
 
             <!-- Floating Badge 1 -->
@@ -246,7 +246,7 @@
             </div>
 
             <div class="spotlight-media" onclick="openVideoModal('showreel')">
-              <img src="https://img.youtube.com/vi/euCoUp4_go0/maxresdefault.jpg" alt="Masterpiece Work" onerror="this.src='assets/img/showreel-cover.svg'">
+              <img src="https://img.youtube.com/vi/euCoUp4_go0/maxresdefault.jpg" alt="Masterpiece Work" onerror="this.src='../assets/img/showreel-cover.svg'">
               <div class="spotlight-overlay"></div>
               <div class="spotlight-play-center">
                 <div class="play-ring-pulse" aria-label="Play Masterpiece">
@@ -292,7 +292,7 @@
             </div>
 
             <div class="spotlight-media" onclick="openVideoModal('abdulrahman-tribute')">
-              <img src="assets/img/abdulrahman-thumb.jpg" alt="عبد الرحمان عطيف" onerror="this.src='assets/img/showreel-cover.svg'">
+              <img src="../assets/img/abdulrahman-thumb.jpg" alt="عبد الرحمان عطيف" onerror="this.src='../assets/img/showreel-cover.svg'">
               <div class="spotlight-overlay"></div>
               <div class="spotlight-play-center">
                 <div class="play-ring-pulse play-ring-pulse--tribute" aria-label="Play Tribute">
@@ -350,14 +350,14 @@
           <div class="slider-container" style="--pos: 50%;">
             <!-- After Image (Graded / Cinematic) -->
             <div class="slider-img img-after">
-              <img src="assets/img/after-graded.jpg" alt="After Color Grading">
+              <img src="../assets/img/after-graded.jpg" alt="After Color Grading">
               <span class="slider-tag-lut">LUT: CINEMA 709</span>
               <span class="slider-badge badge-after" data-i18n="badge_graded">تلوين سينمائي + VFX</span>
             </div>
 
             <!-- Before Image (RAW Log footage) -->
             <div class="slider-img img-before">
-              <img src="assets/img/before-raw.png" alt="Before RAW Log">
+              <img src="../assets/img/before-raw.png" alt="Before RAW Log">
               <span class="slider-tag-rec"><span class="slider-rec-dot"></span>REC [S-LOG]</span>
               <span class="slider-badge badge-before" data-i18n="badge_raw">التصوير الخام S-LOG</span>
             </div>
@@ -379,7 +379,7 @@
       </div>
     </section>
 
-                                                                                                                                                                                <!-- PROJECTS SECTION (HABIB / PANDA CODERS INCREDIBLE PROJECTS STYLE) -->
+                                                                                                                                                                                                    <!-- PROJECTS SECTION (HABIB / PANDA CODERS INCREDIBLE PROJECTS STYLE) -->
     <section class="projects section" id="projects">
       <div class="container">
         <div class="section__header" style="text-align: center;">
@@ -464,7 +464,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-1')">
-                  <img src="https://img.youtube.com/vi/euCoUp4_go0/hqdefault.jpg" alt="القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!" class="projects__img" onerror="this.src='assets/img/project-1.svg'" />
+                  <img src="https://img.youtube.com/vi/euCoUp4_go0/hqdefault.jpg" alt="القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!" class="projects__img" onerror="this.src='../assets/img/project-1.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -544,7 +544,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-2')">
-                  <img src="https://img.youtube.com/vi/60f8xluWIBw/hqdefault.jpg" alt="ليلة القبض على رفيق بن لادن في اليمن" class="projects__img" onerror="this.src='assets/img/project-2.svg'" />
+                  <img src="https://img.youtube.com/vi/60f8xluWIBw/hqdefault.jpg" alt="ليلة القبض على رفيق بن لادن في اليمن" class="projects__img" onerror="this.src='../assets/img/project-2.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -624,7 +624,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-3')">
-                  <img src="https://img.youtube.com/vi/8UJ69GTNXpI/hqdefault.jpg" alt="من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل" class="projects__img" onerror="this.src='assets/img/project-3.svg'" />
+                  <img src="https://img.youtube.com/vi/8UJ69GTNXpI/hqdefault.jpg" alt="من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل" class="projects__img" onerror="this.src='../assets/img/project-3.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -704,7 +704,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-4')">
-                  <img src="assets/img/project-4.jpg" alt="مدينة بلا رجال" class="projects__img" onerror="this.src='assets/img/project-4.svg'" />
+                  <img src="../assets/img/project-4.jpg" alt="مدينة بلا رجال" class="projects__img" onerror="this.src='../assets/img/project-4.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -763,15 +763,11 @@
           </p>
         </div>
 
-        <div class="services__grid">
-          
-          <!-- Service 1 -->
+        <div class="services__grid" id="services-grid-container">
           <div class="service__card">
             <div class="service__icon-wrap"><i class="ri-smartphone-line"></i></div>
-            <h3 class="service__title" data-i18n="service_1_title">صناعة الفيديوهات الفيروسية (Shorts & Reels)</h3>
-            <p class="service__desc" data-i18n="service_1_desc">
-              تفكيك وتصميم ريلز وتيك توك بأسلوب أليكس هورموزي وإيمان قادزي: خطافات بصرية ساحرة (Hooks)، نصوص متحركة ديناميكية، وتأثيرات صوتية تجعل المشاهد يكمل حتى النهاية.
-            </p>
+            <h3 class="service__title">صناعة الفيديوهات الفيروسية (Shorts & Reels)</h3>
+            <p class="service__desc">تفكيك وتصميم ريلز وتيك توك بأسلوب أليكس هورموزي وإيمان قادزي: خطافات بصرية ساحرة (Hooks)، نصوص متحركة ديناميكية، وتأثيرات صوتية تجعل المشاهد يكمل حتى النهاية.</p>
             <ul class="service__features">
               <li class="service__feature"><i class="ri-check-line"></i> خطافات أول 3 ثوانٍ قوية</li>
               <li class="service__feature"><i class="ri-check-line"></i> نصوص متحركة ملونة وإيموجي 3D</li>
@@ -780,13 +776,10 @@
             <div class="service__software">Software: CapCut Pro / Premiere / AE</div>
           </div>
 
-          <!-- Service 2 -->
           <div class="service__card">
             <div class="service__icon-wrap"><i class="ri-youtube-line"></i></div>
-            <h3 class="service__title" data-i18n="service_2_title">مونتاج يوتيوب عالي الاحتفاظ (Retention Editing)</h3>
-            <p class="service__desc" data-i18n="service_2_desc">
-              هيكلة الفيديوهات الطويلة، إدارة الرتم (Pacing)، إدراج البي رول السينمائي، تصميم الصوت (Sound Design)، لضمان رفع متوسط مدة المشاهدة إلى مستويات قياسية.
-            </p>
+            <h3 class="service__title">مونتاج يوتيوب عالي الاحتفاظ (Retention Editing)</h3>
+            <p class="service__desc">هيكلة الفيديوهات الطويلة، إدارة الرتم (Pacing)، إدراج البي رول السينمائي، تصميم الصوت (Sound Design)، لضمان رفع متوسط مدة المشاهدة إلى مستويات قياسية.</p>
             <ul class="service__features">
               <li class="service__feature"><i class="ri-check-line"></i> ترتيب درامي وبناء السرد</li>
               <li class="service__feature"><i class="ri-check-line"></i> انتقاء وترتيب البي رول المناسب</li>
@@ -795,13 +788,10 @@
             <div class="service__software">Software: Premiere Pro / DaVinci</div>
           </div>
 
-          <!-- Service 3 -->
           <div class="service__card">
             <div class="service__icon-wrap"><i class="ri-palette-line"></i></div>
-            <h3 class="service__title" data-i18n="service_3_title">التلوين السينمائي الاحترافي (Color Grading)</h3>
-            <p class="service__desc" data-i18n="service_3_desc">
-              تلوين لقطات الكاميرات الاحترافية (Sony, RED, Arri, Blackmagic) عبر DaVinci Resolve، مع ضبط درجات البشرة وتطبيق لوكات ألوان سينمائية مميزة.
-            </p>
+            <h3 class="service__title">التلوين السينمائي الاحترافي (Color Grading)</h3>
+            <p class="service__desc">تلوين لقطات الكاميرات الاحترافية (Sony, RED, Arri, Blackmagic) عبر DaVinci Resolve، مع ضبط درجات البشرة وتطبيق لوكات ألوان سينمائية مميزة.</p>
             <ul class="service__features">
               <li class="service__feature"><i class="ri-check-line"></i> إدارة الألوان ACES / Color Space</li>
               <li class="service__feature"><i class="ri-check-line"></i> لوكات هوليوود (Teal & Orange / Film Look)</li>
@@ -810,13 +800,10 @@
             <div class="service__software">Software: DaVinci Resolve Studio</div>
           </div>
 
-          <!-- Service 4 -->
           <div class="service__card">
             <div class="service__icon-wrap"><i class="ri-shape-line"></i></div>
-            <h3 class="service__title" data-i18n="service_4_title">الموشن جرافيك والمؤثرات البصرية (Motion Graphics & VFX)</h3>
-            <p class="service__desc" data-i18n="service_4_desc">
-              تحريك العناصر ثنائية وثلاثية الأبعاد، تتبع الحركة (Camera Tracking)، تصميم العناوين السينمائية، شاشات العرض المستقبلية (HUDs)، وإزالة العيوب باحترافية.
-            </p>
+            <h3 class="service__title">الموشن جرافيك والمؤثرات البصرية (Motion Graphics & VFX)</h3>
+            <p class="service__desc">تحريك العناصر ثنائية وثلاثية الأبعاد، تتبع الحركة (Camera Tracking)، تصميم العناوين السينمائية، شاشات العرض المستقبلية (HUDs)، وإزالة العيوب باحترافية.</p>
             <ul class="service__features">
               <li class="service__feature"><i class="ri-check-line"></i> 3D Camera Tracking</li>
               <li class="service__feature"><i class="ri-check-line"></i> عناوين متحركة وهوية بصرية</li>
@@ -825,13 +812,10 @@
             <div class="service__software">Software: After Effects / Blender</div>
           </div>
 
-          <!-- Service 5 -->
           <div class="service__card">
             <div class="service__icon-wrap"><i class="ri-headphone-line"></i></div>
-            <h3 class="service__title" data-i18n="service_5_title">تصميم وهندسة الصوت (Sound Design & Foley)</h3>
-            <p class="service__desc" data-i18n="service_5_desc">
-              الصوت يشكل 50% من نجاح أي فيديو. نقوم بتنقية الصوت، موازنة الترددات، إضافة المؤثرات الصوتية (Risers, Impacts, Whooshes) وخلق تجربة سمعية محيطية غامرة.
-            </p>
+            <h3 class="service__title">تصميم وهندسة الصوت (Sound Design & Foley)</h3>
+            <p class="service__desc">الصوت يشكل 50% من نجاح أي فيديو. نقوم بتنقية الصوت، موازنة الترددات، إضافة المؤثرات الصوتية (Risers, Impacts, Whooshes) وخلق تجربة سمعية محيطية غامرة.</p>
             <ul class="service__features">
               <li class="service__feature"><i class="ri-check-line"></i> إزالة التشويش وتنقية الصوت بالذكاء الاصطناعي</li>
               <li class="service__feature"><i class="ri-check-line"></i> طبقات مؤثرات Foley واقعية</li>
@@ -840,13 +824,10 @@
             <div class="service__software">Software: Soundly / Audition / Fairlight</div>
           </div>
 
-          <!-- Service 6 -->
           <div class="service__card">
             <div class="service__icon-wrap"><i class="ri-image-edit-line"></i></div>
-            <h3 class="service__title" data-i18n="service_6_title">تصميم أغلفة اليوتيوب والتغليف البصري (Packaging & CTR)</h3>
-            <p class="service__desc" data-i18n="service_6_desc">
-              مساعدتك في اختيار اللقطات الأكثر جذباً، وتصميم الأغلفة المصغرة (Thumbnails) التي تضمن أعلى نسبة نقر إلى الظهور (High CTR).
-            </p>
+            <h3 class="service__title">تصميم أغلفة اليوتيوب والتغليف البصري (Packaging & CTR)</h3>
+            <p class="service__desc">مساعدتك في اختيار اللقطات الأكثر جذباً، وتصميم الأغلفة المصغرة (Thumbnails) التي تضمن أعلى نسبة نقر إلى الظهور (High CTR).</p>
             <ul class="service__features">
               <li class="service__feature"><i class="ri-check-line"></i> تحليل المنافسين ومعدلات النقر</li>
               <li class="service__feature"><i class="ri-check-line"></i> تباين ألوان قوي وملفت للنظر</li>
@@ -854,7 +835,6 @@
             </ul>
             <div class="service__software">Software: Photoshop / Midjourney</div>
           </div>
-
         </div>
       </div>
     </section>
@@ -875,38 +855,36 @@
           </p>
         </div>
 
-        <div class="workflow__grid">
-          
+        <div class="workflow__grid" id="workflow-grid-container">
           <div class="workflow__step">
             <div class="step__number">01</div>
-            <h3 class="step__title" data-i18n="step_1_title">1. الإحاطة واستلام المواد</h3>
-            <p class="step__desc" data-i18n="step_1_desc">رفع الملفات الخام والملاحظات عبر Google Drive أو Frame.io وتحديد الهدف والرؤية الفنية.</p>
+            <h3 class="step__title">1. الإحاطة واستلام المواد</h3>
+            <p class="step__desc">رفع الملفات الخام والملاحظات عبر Google Drive أو Frame.io وتحديد الهدف والرؤية الفنية.</p>
           </div>
 
           <div class="workflow__step">
             <div class="step__number">02</div>
-            <h3 class="step__title" data-i18n="step_2_title">2. بناء القصة والقص الأولي</h3>
-            <p class="step__desc" data-i18n="step_2_desc">انتقاء أفضل اللقطات، ترتيب السرد، ضبط التوقيت والإيقاع (Rough Cut & Pacing).</p>
+            <h3 class="step__title">2. بناء القصة والقص الأولي</h3>
+            <p class="step__desc">انتقاء أفضل اللقطات، ترتيب السرد، ضبط التوقيت والإيقاع (Rough Cut & Pacing).</p>
           </div>
 
           <div class="workflow__step">
             <div class="step__number">03</div>
-            <h3 class="step__title" data-i18n="step_3_title">3. السحر البصري والصوتي</h3>
-            <p class="step__desc" data-i18n="step_3_desc">إضافة التلوين، المؤثرات البصرية، النصوص المتحركة، وهندسة الصوت الفائقة.</p>
+            <h3 class="step__title">3. السحر البصري والصوتي</h3>
+            <p class="step__desc">إضافة التلوين، المؤثرات البصرية، النصوص المتحركة، وهندسة الصوت الفائقة.</p>
           </div>
 
           <div class="workflow__step">
             <div class="step__number">04</div>
-            <h3 class="step__title" data-i18n="step_4_title">4. المراجعة والتعديلات</h3>
-            <p class="step__desc" data-i18n="step_4_desc">مراجعة العميل للفيديو مع إمكانية إضافة الملاحظات وتعديلها بسرعة فائقة.</p>
+            <h3 class="step__title">4. المراجعة والتعديلات</h3>
+            <p class="step__desc">مراجعة العميل للفيديو مع إمكانية إضافة الملاحظات وتعديلها بسرعة فائقة.</p>
           </div>
 
           <div class="workflow__step">
             <div class="step__number">05</div>
-            <h3 class="step__title" data-i18n="step_5_title">5. التسليم النهائي 4K</h3>
-            <p class="step__desc" data-i18n="step_5_desc">تصدير الفيديو بأعلى جودة ممكنة جاهزاً للنشر المباشر وتحقيق النجاح.</p>
+            <h3 class="step__title">5. التسليم النهائي 4K</h3>
+            <p class="step__desc">تصدير الفيديو بأعلى جودة ممكنة جاهزاً للنشر المباشر وتحقيق النجاح.</p>
           </div>
-
         </div>
       </div>
     </section>
@@ -943,7 +921,7 @@
               <p class="testimonial__quote">"من أفضل المونتيرين الذين تعاملت معهم. زاد معدل الاحتفاظ في قناتي بنسبة 45% في أول شهر فقط. سرعة خيالية وفهم عميق لما يريده الجمهور!"</p>
             </div>
             <div class="testimonial__author">
-              <img src="assets/img/avatar-1789671860.jpg" alt="عبد الرحمان عطيف" class="author-avatar" onerror="this.src='assets/img/avatar-1.svg'">
+              <img src="../assets/img/avatar-1789671860.jpg" alt="عبد الرحمان عطيف" class="author-avatar" onerror="this.src='../assets/img/avatar-1.svg'">
               <div>
                 <div class="author-name">عبد الرحمان عطيف</div>
                 <div class="author-role">صانع محتوى (500K مشترك)</div>
@@ -960,7 +938,7 @@
               <p class="testimonial__quote">"احترافية عالية، التزام دقيق بالمواعيد، وقدرة مذهلة على تحويل المقاطع الصوتية الخام إلى بودكاست مرئي جذاب ومشوق من أول دقيقة."</p>
             </div>
             <div class="testimonial__author">
-              <img src="assets/img/avatar-1789672075.jpg" alt="دزز" class="author-avatar" onerror="this.src='assets/img/avatar-2.svg'">
+              <img src="../assets/img/avatar-1789672075.jpg" alt="دزز" class="author-avatar" onerror="this.src='../assets/img/avatar-2.svg'">
               <div>
                 <div class="author-name">دزز</div>
                 <div class="author-role">صانع محتوى (3.09M مشترك)</div>
@@ -977,7 +955,7 @@
               <p class="testimonial__quote">"العمل معه اختصر عليّ شهوراً من التجربة والخطأ. استوعب ما يجذب جمهوري من أول مسودة، والنتيجة كانت قفزة في تفاعل واستمرار المشاهدين مع تسليم قياسي لكل المشاريع"</p>
             </div>
             <div class="testimonial__author">
-              <img src="assets/img/avatar-1789672464.jpg" alt="دكتور محمد شرف" class="author-avatar" onerror="this.src='assets/img/avatar-3.svg'">
+              <img src="../assets/img/avatar-1789672464.jpg" alt="دكتور محمد شرف" class="author-avatar" onerror="this.src='../assets/img/avatar-3.svg'">
               <div>
                 <div class="author-name">دكتور محمد شرف</div>
                 <div class="author-role">رائد أعمال ومؤسس وكالة</div>
@@ -994,7 +972,7 @@
               <p class="testimonial__quote">"فارق شاسع في جودة الإنتاج وتماسك الفيديوهات؛ نمو فوري بنسبة 150% في معدل إكمال المشاهدة، مع دقة في المواعيد وقراءة ممتازة لما يطلبه المتابعون."</p>
             </div>
             <div class="testimonial__author">
-              <img src="assets/img/avatar-1789672356.jpg" alt="عبدالله بودز" class="author-avatar" onerror="this.src='assets/img/avatar-4.svg'">
+              <img src="../assets/img/avatar-1789672356.jpg" alt="عبدالله بودز" class="author-avatar" onerror="this.src='../assets/img/avatar-4.svg'">
               <div>
                 <div class="author-name">عبدالله بودز</div>
                 <div class="author-role">صانع محتوى (1.66K مشترك)</div>
@@ -1215,7 +1193,7 @@
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-  <script src="assets/js/data.js?v=1789683207"></script>
-  <script src="assets/js/main.js?v=1789683207"></script>
+  <script src="../assets/js/data.js?v=1789684780"></script>
+  <script src="../assets/js/main.js?v=1789684780"></script>
 </body>
 </html>
