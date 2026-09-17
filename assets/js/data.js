@@ -71,11 +71,21 @@ window.SITE_DATA = {
     }
   ],
   "showreel": {
-    "titleAr": "شاهد ملخص أقوى أعمالي السينمائية",
-    "titleEn": "Watch Highlights Of My Best Visual Works",
-    "subtitleAr": "هذا واحد من ابرز اعمالي",
-    "subtitleEn": "This is one of my most prominent works.",
-    "url": "https://www.youtube.com/embed/euCoUp4_go0?autoplay=1"
+    "titleAr": "أقوى إنتاجاتي السينمائية.. وشـهادة أعتز بها",
+    "titleEn": "Masterpiece Production & Creator Tribute",
+    "subtitleAr": "شاهد أقوى مشروع وثائقي أنجزته، يليه اعتراف عفوي من صانع المحتوى عبد الرحمان عطيف في ختام الحلقة يصف فيه الشراكة والجهد المبذول.",
+    "subtitleEn": "Watch my prominent documentary masterpiece, followed by a genuine on-camera tribute from creator Abdulrahman Otaif.",
+    "url": "https://www.youtube.com/embed/euCoUp4_go0?autoplay=1",
+    "tribute": {
+      "titleAr": "شهادة واعتراف مباشر من صانع المحتوى عبد الرحمان عطيف",
+      "titleEn": "Live Testimonial & Praise from Creator Abdulrahman Otaif",
+      "creatorName": "عبد الرحمان عطيف",
+      "creatorTag": "D7MANc (500K Subs)",
+      "quoteAr": "أقسم بالله العلي العظيم رب أخٍ لم تلده أمك... رزقني الله بأخ مثلك، فشكراً يا محمد",
+      "quoteEn": "By Almighty God, you are a brother my mother never bore... I thank God for blessing me with a brother like you.",
+      "videoUrl": "assets/video/abdulrahman-testimonial.mp4",
+      "thumbUrl": "assets/img/abdulrahman-thumb.jpg"
+    }
   },
   "projects": [
     {

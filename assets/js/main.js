@@ -61,10 +61,24 @@ const translations = {
     metric_4_num: "99.4%",
     metric_4_text: "نسبة رضا العملاء والتقييمات الإيجابية",
 
-    // Showreel
-    showreel_badge: "العرض البصري الخاطف",
-    showreel_title: "شاهد ملخص أقوى <span>أعمالي السينمائية</span>",
-    showreel_subtitle: "لقطات مختارة في 90 ثانية من أقوى الإنتاجات البصرية، الإعلانات، والفيديوهات الفيروسية.",
+    // Showreel & Spotlight
+    showreel_badge: "أبرز الأعمال • إشادة الشركاء",
+    showreel_title: "أقوى إنتاجاتي السينمائية.. <span>وشـهادة أعتز بها</span>",
+    showreel_subtitle: "شاهد أقوى مشروع وثائقي أنجزته، يليه اعتراف عفوي من صانع المحتوى عبد الرحمان عطيف في ختام الحلقة يصف فيه الشراكة والجهد المبذول.",
+    spotlight_tab_both: "عرض شامل (جنباً إلى جنب)",
+    spotlight_tab_master: "العمل السينمائي الأقوى",
+    spotlight_tab_tribute: "إشادة عبد الرحمان عطيف",
+    spotlight_master_badge: "OFFICIAL MASTERPIECE",
+    spotlight_master_views: "+404K Views",
+    spotlight_master_title: "القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!",
+    spotlight_master_desc: "وثائقي يوتيوب سينمائي معتمد على رتم درامي سريع، خرائط تفاعلية متحركة، وتصميم صوتي متعدد الطبقات يحقق أعلى معدل احتفاظ.",
+    spotlight_master_action: "مشاهدة العمل الكامل",
+    spotlight_tribute_badge: "LIVE CREATOR TRIBUTE",
+    spotlight_tribute_creator: "عبد الرحمان عطيف",
+    spotlight_tribute_shoutout: "إشادة حية وأخوية",
+    spotlight_tribute_quote: "«أقسم بالله العلي العظيم رب أخٍ لم تلده أمك... رزقني الله بأخ مثلك، فشكراً يا محمد الله يديك الصحة والعافية ويقدرني ربي أكون عند حسن ظنك.»",
+    spotlight_tribute_desc: "كلمة عفوية مسجلة في ختام الحلقة مباشرة من صانع المحتوى عبد الرحمان عطيف يشيد فيها بمحمد هلالي، مؤكداً عمق الشراكة، الأمانة، والاحترافية.",
+    spotlight_tribute_action: "استمع للإشادة كاملة (فيديو)",
 
     // Before & After
     compare_badge: "القوة التحويلية للمونتاج",
@@ -193,10 +207,24 @@ const translations = {
     metric_4_num: "99.4%",
     metric_4_text: "Client Satisfaction & 5-Star Rating",
 
-    // Showreel
-    showreel_badge: "Visual Showcase",
-    showreel_title: "Watch Highlights Of My <span>Best Visual Works</span>",
-    showreel_subtitle: "Curated 90 seconds of high-retention storytelling, commercial cinematography, and viral edits.",
+    // Showreel & Spotlight
+    showreel_badge: "Featured Works • Partner Tribute",
+    showreel_title: "Masterpiece Production & <span>Creator Tribute</span>",
+    showreel_subtitle: "Experience my flagship documentary project, alongside an authentic on-camera tribute from 500K creator Abdulrahman Otaif praising our collaboration.",
+    spotlight_tab_both: "Side-by-Side View",
+    spotlight_tab_master: "Masterpiece Project",
+    spotlight_tab_tribute: "Creator Tribute",
+    spotlight_master_badge: "OFFICIAL MASTERPIECE",
+    spotlight_master_views: "+404K Views",
+    spotlight_master_title: "The Assassination of the First Woman to Rule an Islamic State",
+    spotlight_master_desc: "Cinematic YouTube documentary featuring high-velocity pacing, dynamic motion maps, and multi-layered sound design engineered for maximum retention.",
+    spotlight_master_action: "Watch Full Masterpiece",
+    spotlight_tribute_badge: "LIVE CREATOR TRIBUTE",
+    spotlight_tribute_creator: "Abdulrahman Otaif",
+    spotlight_tribute_shoutout: "Live On-Camera Shoutout",
+    spotlight_tribute_quote: "\"By Almighty God, you are a brother my mother never bore... I thank God for blessing me with a brother like you. Thank you Mohamed, and may God keep our bond strong.\"",
+    spotlight_tribute_desc: "An authentic, unscripted studio tribute recorded at the close of an episode by creator Abdulrahman Otaif, celebrating trust, storytelling craft, and creative chemistry.",
+    spotlight_tribute_action: "Watch Full Tribute (Video)",
 
     // Before & After
     compare_badge: "The Editing Transformation",
@@ -306,10 +334,17 @@ const professions = {
 // Project Video Sample Data (Used for Lightbox Modal)
 let projectVideos = {
   "showreel": {
-    "titleAr": "شاهد ملخص أقوى أعمالي السينمائية",
-    "titleEn": "Watch Highlights Of My Best Visual Works",
-    "tag": "Official Showreel",
+    "titleAr": "القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!",
+    "titleEn": "The Assassination of the First Woman to Rule an Islamic State",
+    "tag": "Official Masterpiece",
     "url": "https://www.youtube.com/embed/euCoUp4_go0?autoplay=1"
+  },
+  "abdulrahman-tribute": {
+    "titleAr": "شهادة وإشادة صانع المحتوى عبد الرحمان عطيف (قناة D7MANc)",
+    "titleEn": "Creator Abdulrahman Otaif's Live On-Camera Tribute",
+    "tag": "Live Creator Tribute",
+    "url": "assets/video/abdulrahman-testimonial.mp4",
+    "type": "video"
   },
   "proj-1": {
     "titleAr": "القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!",
@@ -345,6 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDynamicTyping();
   initBeforeAfterSlider();
   initVideoModal();
+  initSpotlightTabs();
   initProjectFilters();
   initSwiperTestimonials();
   initContactActions();
@@ -518,10 +554,20 @@ function applySiteData() {
 
     if (d.showreel.url) {
       projectVideos['showreel'] = {
-        titleAr: d.showreel.titleAr || "الشو ريل الرسمي",
-        titleEn: d.showreel.titleEn || "Official Showreel",
-        tag: "Official Showreel",
+        titleAr: d.showreel.titleAr || "القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!",
+        titleEn: d.showreel.titleEn || "The Assassination of the First Woman to Rule an Islamic State",
+        tag: "Official Masterpiece",
         url: d.showreel.url
+      };
+    }
+
+    if (d.showreel.tribute) {
+      projectVideos['abdulrahman-tribute'] = {
+        titleAr: d.showreel.tribute.titleAr || "شهادة وإشادة صانع المحتوى عبد الرحمان عطيف (قناة D7MANc)",
+        titleEn: d.showreel.tribute.titleEn || "Creator Abdulrahman Otaif's Live On-Camera Tribute",
+        tag: "Live Creator Tribute",
+        url: d.showreel.tribute.videoUrl || "assets/video/abdulrahman-testimonial.mp4",
+        type: "video"
       };
     }
   }
@@ -946,11 +992,12 @@ function toEmbedUrl(url) {
 function initVideoModal() {
   const modal = document.getElementById('video-modal');
   const iframe = document.getElementById('modal-iframe');
+  const videoEl = document.getElementById('modal-video');
   const modalTitle = document.getElementById('modal-video-title');
   const modalTag = document.getElementById('modal-video-tag');
   const closeBtn = document.getElementById('modal-close-btn');
 
-  if (!modal || !iframe) return;
+  if (!modal || (!iframe && !videoEl)) return;
 
   window.openVideoModal = function(videoId) {
     const videoData = projectVideos[videoId];
@@ -959,7 +1006,30 @@ function initVideoModal() {
     const isAr = currentLang === 'ar';
     modalTitle.textContent = isAr ? videoData.titleAr : videoData.titleEn;
     modalTag.textContent = videoData.tag;
-    iframe.src = toEmbedUrl(videoData.url);
+
+    const isDirectVideo = videoData.type === 'video' || (videoData.url && (videoData.url.endsWith('.mp4') || videoData.url.endsWith('.webm')));
+
+    if (isDirectVideo) {
+      if (iframe) {
+        iframe.style.display = 'none';
+        iframe.src = '';
+      }
+      if (videoEl) {
+        videoEl.style.display = 'block';
+        videoEl.src = videoData.url;
+        videoEl.play().catch(() => {});
+      }
+    } else {
+      if (videoEl) {
+        videoEl.pause();
+        videoEl.style.display = 'none';
+        videoEl.src = '';
+      }
+      if (iframe) {
+        iframe.style.display = 'block';
+        iframe.src = toEmbedUrl(videoData.url);
+      }
+    }
 
     const modalBox = modal.querySelector('.modal-content-box');
     if (modalBox) {
@@ -978,7 +1048,11 @@ function initVideoModal() {
     modal.classList.remove('modal-active');
     const modalBox = modal.querySelector('.modal-content-box');
     if (modalBox) modalBox.classList.remove('modal-vertical');
-    iframe.src = '';
+    if (iframe) iframe.src = '';
+    if (videoEl) {
+      videoEl.pause();
+      videoEl.src = '';
+    }
     document.body.style.overflow = '';
   };
 
@@ -994,6 +1068,34 @@ function initVideoModal() {
     if (e.key === 'Escape' && modal.classList.contains('modal-active')) {
       closeModal();
     }
+  });
+}
+
+/*=============== SPOTLIGHT VIEW SWITCHER TABS ===============*/
+function initSpotlightTabs() {
+  const tabs = document.querySelectorAll('.spotlight-tab-btn');
+  const grid = document.getElementById('spotlight-grid');
+  if (!tabs.length || !grid) return;
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mode = btn.getAttribute('data-mode');
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      // Update grid mode class
+      grid.classList.remove('mode-both', 'mode-master', 'mode-tribute');
+      grid.classList.add(`mode-${mode}`);
+
+      // Smooth scroll sync if ScrollReveal is present
+      if (window.ScrollReveal) {
+        window.ScrollReveal().sync();
+      }
+    });
   });
 }
 

@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <!-- CUSTOM CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css?v=1789681978">
+  <link rel="stylesheet" href="assets/css/style.css?v=1789683207">
 </head>
 <body>
 
@@ -49,7 +49,7 @@
     <nav class="nav container">
       <a href="#hero" class="nav__logo" aria-label="SATURN">
         <div class="logo-icon-wrap">
-          <img src="../assets/img/brand-logo.png" alt="SATURN Logo" class="nav__logo-img">
+          <img src="assets/img/brand-logo.png" alt="SATURN Logo" class="nav__logo-img">
         </div>
         <span id="brand-logo-text">SATURN</span>
       </a>
@@ -142,7 +142,7 @@
         <div class="hero__visual">
           <div class="hero__frame">
             <div class="hero__image-inner">
-              <img src="../assets/img/hero-editor.jpg" alt="Master Video Editor" class="hero__img">
+              <img src="assets/img/hero-editor.jpg" alt="Master Video Editor" class="hero__img">
             </div>
 
             <!-- Floating Badge 1 -->
@@ -192,46 +192,140 @@
       </div>
     </section>
 
-    <!-- SHOWREEL SECTION -->
+    <!-- SHOWREEL & COLLABORATION SPOTLIGHT SECTION -->
     <section class="showreel section" id="showreel">
       <div class="container">
-        <div class="section__header">
+        <div class="section__header" style="text-align: center;">
           <div class="section__badge">
-            <i class="ri-clapperboard-line"></i>
-            <span data-i18n="showreel_badge">العرض البصري الخاطف</span>
+            <i class="ri-sparkling-fill"></i>
+            <span data-i18n="showreel_badge">أبرز الأعمال • إشادة الشركاء</span>
           </div>
           <h2 class="section__title" data-i18n="showreel_title">
-            شاهد ملخص أقوى <span>أعمالي السينمائية</span>
+            أقوى إنتاجاتي السينمائية.. <span>وشـهادة أعتز بها</span>
           </h2>
           <p class="section__subtitle" data-i18n="showreel_subtitle">
-            لقطات مختارة في 90 ثانية من أقوى الإنتاجات البصرية، الإعلانات، والفيديوهات الفيروسية.
+            شاهد أقوى مشروع وثائقي أنجزته، يليه اعتراف عفوي من صانع المحتوى عبد الرحمان عطيف في ختام الحلقة يصف فيه الشراكة والجهد المبذول.
           </p>
         </div>
 
-        <div class="showreel__wrapper" onclick="openVideoModal('showreel')">
-          <!-- UI Window Header -->
-          <div class="ui-window-header" style="background: rgba(18, 20, 32, 0.95); padding: 0.85rem 1.5rem; margin-bottom: 0; border-radius: 20px 20px 0 0; border: 1px solid rgba(255, 255, 255, 0.12); border-bottom: none;">
-            <div class="ui-window-controls">
-              <span class="ui-dot ui-dot--red"></span>
-              <span class="ui-dot ui-dot--yellow"></span>
-              <span class="ui-dot ui-dot--green"></span>
-            </div>
-            <div class="ui-window-badge">
-              <i class="ri-tv-line"></i> <span>OFFICIAL MASTER SHOWREEL</span>
-            </div>
-            <div class="ui-reach-pill">
-              <i class="ri-sparkling-fill"></i> 4K 60FPS HDR
-            </div>
+        <!-- Interactive View Switcher Tabs -->
+        <div class="spotlight-tabs-wrap">
+          <div class="spotlight-tabs" role="tablist">
+            <button class="spotlight-tab-btn active" data-mode="both" aria-selected="true">
+              <i class="ri-layout-grid-fill"></i>
+              <span data-i18n="spotlight_tab_both">عرض شامل (جنباً إلى جنب)</span>
+            </button>
+            <button class="spotlight-tab-btn" data-mode="master" aria-selected="false">
+              <i class="ri-clapperboard-fill"></i>
+              <span data-i18n="spotlight_tab_master">العمل السينمائي الأقوى</span>
+            </button>
+            <button class="spotlight-tab-btn" data-mode="tribute" aria-selected="false">
+              <i class="ri-mic-fill"></i>
+              <span data-i18n="spotlight_tab_tribute">إشادة عبد الرحمان عطيف</span>
+            </button>
           </div>
+        </div>
 
-          <div class="showreel__cover" style="border-radius: 0 0 20px 20px;">
-            <img src="https://img.youtube.com/vi/euCoUp4_go0/maxresdefault.jpg" alt="Showreel Cover" onerror="this.src='../assets/img/showreel-cover.svg'">
-            <div class="showreel__play-center">
-              <div class="play-ring-pulse" aria-label="Play Showreel Video">
-                <i class="ri-play-fill"></i>
+        <!-- Dual Showcase Grid -->
+        <div class="spotlight-grid mode-both" id="spotlight-grid">
+          
+          <!-- Card 1: Masterpiece Work -->
+          <article class="spotlight-card spotlight-card--master" id="card-master">
+            <div class="ui-window-header">
+              <div class="ui-window-controls">
+                <span class="ui-dot ui-dot--red"></span>
+                <span class="ui-dot ui-dot--yellow"></span>
+                <span class="ui-dot ui-dot--green"></span>
+              </div>
+              <div class="ui-window-badge">
+                <i class="ri-tv-line"></i> <span data-i18n="spotlight_master_badge">OFFICIAL MASTERPIECE</span>
+              </div>
+              <div class="ui-reach-pill">
+                <i class="ri-fire-fill" style="color: #ef4444;"></i> <span data-i18n="spotlight_master_views">+404K Views</span>
               </div>
             </div>
-          </div>
+
+            <div class="spotlight-media" onclick="openVideoModal('showreel')">
+              <img src="https://img.youtube.com/vi/euCoUp4_go0/maxresdefault.jpg" alt="Masterpiece Work" onerror="this.src='assets/img/showreel-cover.svg'">
+              <div class="spotlight-overlay"></div>
+              <div class="spotlight-play-center">
+                <div class="play-ring-pulse" aria-label="Play Masterpiece">
+                  <i class="ri-play-fill"></i>
+                </div>
+              </div>
+              <span class="ui-player-res-tag">
+                <i class="ri-hd-line"></i> 4K 60FPS PRORES
+              </span>
+            </div>
+
+            <div class="spotlight-card-content">
+              <div class="spotlight-card-meta">
+                <span class="spotlight-tag"><i class="ri-youtube-line"></i> يوتيوب وثائقي</span>
+                <span class="spotlight-tag-tool"><i class="ri-tools-line"></i> DaVinci + Premiere + AE</span>
+              </div>
+              <h3 class="spotlight-card-title" data-i18n="spotlight_master_title">القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!</h3>
+              <p class="spotlight-card-desc" data-i18n="spotlight_master_desc">
+                وثائقي يوتيوب سينمائي معتمد على رتم درامي سريع، خرائط تفاعلية متحركة، وتصميم صوتي متعدد الطبقات يحقق أعلى معدل احتفاظ.
+              </p>
+              <div class="spotlight-card-footer">
+                <button class="btn btn-primary btn-sm spotlight-action-btn" onclick="openVideoModal('showreel')">
+                  <i class="ri-play-circle-line"></i> <span data-i18n="spotlight_master_action">مشاهدة العمل الكامل</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Creator Shoutout (Abdulrahman Otaif) -->
+          <article class="spotlight-card spotlight-card--tribute" id="card-tribute">
+            <div class="ui-window-header">
+              <div class="ui-window-controls">
+                <span class="ui-dot ui-dot--red"></span>
+                <span class="ui-dot ui-dot--yellow"></span>
+                <span class="ui-dot ui-dot--green"></span>
+              </div>
+              <div class="ui-window-badge ui-window-badge--tribute">
+                <i class="ri-live-line" style="color: #ef4444;"></i> <span data-i18n="spotlight_tribute_badge">LIVE CREATOR TRIBUTE</span>
+              </div>
+              <div class="ui-reach-pill" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">
+                <i class="ri-user-star-line"></i> D7MANc (500K Subs)
+              </div>
+            </div>
+
+            <div class="spotlight-media" onclick="openVideoModal('abdulrahman-tribute')">
+              <img src="assets/img/abdulrahman-thumb.jpg" alt="عبد الرحمان عطيف" onerror="this.src='assets/img/showreel-cover.svg'">
+              <div class="spotlight-overlay"></div>
+              <div class="spotlight-play-center">
+                <div class="play-ring-pulse play-ring-pulse--tribute" aria-label="Play Tribute">
+                  <i class="ri-play-fill"></i>
+                </div>
+              </div>
+              <span class="ui-player-res-tag ui-player-res-tag--live">
+                <span class="live-dot"></span> LIVE ON-CAMERA
+              </span>
+            </div>
+
+            <div class="spotlight-card-content">
+              <div class="spotlight-card-meta">
+                <span class="spotlight-tag spotlight-tag--creator"><i class="ri-verified-badge-fill" style="color: #38bdf8;"></i> <span data-i18n="spotlight_tribute_creator">عبد الرحمان عطيف</span></span>
+                <span class="spotlight-tag-tool"><i class="ri-heart-3-fill" style="color: #ef4444;"></i> <span data-i18n="spotlight_tribute_shoutout">إشادة حية وأخوية</span></span>
+              </div>
+              <div class="spotlight-quote-box">
+                <i class="ri-double-quotes-r quote-icon-bg"></i>
+                <p class="spotlight-quote-text" data-i18n="spotlight_tribute_quote">
+                  «أقسم بالله العلي العظيم رب أخٍ لم تلده أمك... رزقني الله بأخ مثلك، فشكراً يا محمد الله يديك الصحة والعافية ويقدرني ربي أكون عند حسن ظنك.»
+                </p>
+              </div>
+              <p class="spotlight-card-desc" data-i18n="spotlight_tribute_desc">
+                كلمة عفوية مسجلة في ختام الحلقة مباشرة من صانع المحتوى عبد الرحمان عطيف يشيد فيها بمحمد هلالي، مؤكداً عمق الشراكة، الأمانة، والاحترافية.
+              </p>
+              <div class="spotlight-card-footer">
+                <button class="btn btn-secondary btn-sm spotlight-action-btn" onclick="openVideoModal('abdulrahman-tribute')">
+                  <i class="ri-play-mini-fill"></i> <span data-i18n="spotlight_tribute_action">استمع للإشادة كاملة (فيديو)</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -256,14 +350,14 @@
           <div class="slider-container" style="--pos: 50%;">
             <!-- After Image (Graded / Cinematic) -->
             <div class="slider-img img-after">
-              <img src="../assets/img/after-graded.jpg" alt="After Color Grading">
+              <img src="assets/img/after-graded.jpg" alt="After Color Grading">
               <span class="slider-tag-lut">LUT: CINEMA 709</span>
               <span class="slider-badge badge-after" data-i18n="badge_graded">تلوين سينمائي + VFX</span>
             </div>
 
             <!-- Before Image (RAW Log footage) -->
             <div class="slider-img img-before">
-              <img src="../assets/img/before-raw.png" alt="Before RAW Log">
+              <img src="assets/img/before-raw.png" alt="Before RAW Log">
               <span class="slider-tag-rec"><span class="slider-rec-dot"></span>REC [S-LOG]</span>
               <span class="slider-badge badge-before" data-i18n="badge_raw">التصوير الخام S-LOG</span>
             </div>
@@ -285,7 +379,7 @@
       </div>
     </section>
 
-                                                                                                                                                                            <!-- PROJECTS SECTION (HABIB / PANDA CODERS INCREDIBLE PROJECTS STYLE) -->
+                                                                                                                                                                                <!-- PROJECTS SECTION (HABIB / PANDA CODERS INCREDIBLE PROJECTS STYLE) -->
     <section class="projects section" id="projects">
       <div class="container">
         <div class="section__header" style="text-align: center;">
@@ -370,7 +464,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-1')">
-                  <img src="https://img.youtube.com/vi/euCoUp4_go0/hqdefault.jpg" alt="القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!" class="projects__img" onerror="this.src='../assets/img/project-1.svg'" />
+                  <img src="https://img.youtube.com/vi/euCoUp4_go0/hqdefault.jpg" alt="القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!" class="projects__img" onerror="this.src='assets/img/project-1.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -450,7 +544,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-2')">
-                  <img src="https://img.youtube.com/vi/60f8xluWIBw/hqdefault.jpg" alt="ليلة القبض على رفيق بن لادن في اليمن" class="projects__img" onerror="this.src='../assets/img/project-2.svg'" />
+                  <img src="https://img.youtube.com/vi/60f8xluWIBw/hqdefault.jpg" alt="ليلة القبض على رفيق بن لادن في اليمن" class="projects__img" onerror="this.src='assets/img/project-2.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -530,7 +624,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-3')">
-                  <img src="https://img.youtube.com/vi/8UJ69GTNXpI/hqdefault.jpg" alt="من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل" class="projects__img" onerror="this.src='../assets/img/project-3.svg'" />
+                  <img src="https://img.youtube.com/vi/8UJ69GTNXpI/hqdefault.jpg" alt="من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل" class="projects__img" onerror="this.src='assets/img/project-3.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -610,7 +704,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-4')">
-                  <img src="../assets/img/project-4.jpg" alt="مدينة بلا رجال" class="projects__img" onerror="this.src='../assets/img/project-4.svg'" />
+                  <img src="assets/img/project-4.jpg" alt="مدينة بلا رجال" class="projects__img" onerror="this.src='assets/img/project-4.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -849,7 +943,7 @@
               <p class="testimonial__quote">"من أفضل المونتيرين الذين تعاملت معهم. زاد معدل الاحتفاظ في قناتي بنسبة 45% في أول شهر فقط. سرعة خيالية وفهم عميق لما يريده الجمهور!"</p>
             </div>
             <div class="testimonial__author">
-              <img src="../assets/img/avatar-1789671860.jpg" alt="عبد الرحمان عطيف" class="author-avatar" onerror="this.src='../assets/img/avatar-1.svg'">
+              <img src="assets/img/avatar-1789671860.jpg" alt="عبد الرحمان عطيف" class="author-avatar" onerror="this.src='assets/img/avatar-1.svg'">
               <div>
                 <div class="author-name">عبد الرحمان عطيف</div>
                 <div class="author-role">صانع محتوى (500K مشترك)</div>
@@ -866,7 +960,7 @@
               <p class="testimonial__quote">"احترافية عالية، التزام دقيق بالمواعيد، وقدرة مذهلة على تحويل المقاطع الصوتية الخام إلى بودكاست مرئي جذاب ومشوق من أول دقيقة."</p>
             </div>
             <div class="testimonial__author">
-              <img src="../assets/img/avatar-1789672075.jpg" alt="دزز" class="author-avatar" onerror="this.src='../assets/img/avatar-2.svg'">
+              <img src="assets/img/avatar-1789672075.jpg" alt="دزز" class="author-avatar" onerror="this.src='assets/img/avatar-2.svg'">
               <div>
                 <div class="author-name">دزز</div>
                 <div class="author-role">صانع محتوى (3.09M مشترك)</div>
@@ -883,7 +977,7 @@
               <p class="testimonial__quote">"العمل معه اختصر عليّ شهوراً من التجربة والخطأ. استوعب ما يجذب جمهوري من أول مسودة، والنتيجة كانت قفزة في تفاعل واستمرار المشاهدين مع تسليم قياسي لكل المشاريع"</p>
             </div>
             <div class="testimonial__author">
-              <img src="../assets/img/avatar-1789672464.jpg" alt="دكتور محمد شرف" class="author-avatar" onerror="this.src='../assets/img/avatar-3.svg'">
+              <img src="assets/img/avatar-1789672464.jpg" alt="دكتور محمد شرف" class="author-avatar" onerror="this.src='assets/img/avatar-3.svg'">
               <div>
                 <div class="author-name">دكتور محمد شرف</div>
                 <div class="author-role">رائد أعمال ومؤسس وكالة</div>
@@ -900,7 +994,7 @@
               <p class="testimonial__quote">"فارق شاسع في جودة الإنتاج وتماسك الفيديوهات؛ نمو فوري بنسبة 150% في معدل إكمال المشاهدة، مع دقة في المواعيد وقراءة ممتازة لما يطلبه المتابعون."</p>
             </div>
             <div class="testimonial__author">
-              <img src="../assets/img/avatar-1789672356.jpg" alt="عبدالله بودز" class="author-avatar" onerror="this.src='../assets/img/avatar-4.svg'">
+              <img src="assets/img/avatar-1789672356.jpg" alt="عبدالله بودز" class="author-avatar" onerror="this.src='assets/img/avatar-4.svg'">
               <div>
                 <div class="author-name">عبدالله بودز</div>
                 <div class="author-role">صانع محتوى (1.66K مشترك)</div>
@@ -1103,6 +1197,7 @@
       </button>
       <div class="modal-video-wrapper">
         <iframe id="modal-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <video id="modal-video" controls playsinline preload="metadata" style="display: none; width: 100%; height: 100%; border-radius: 12px; background: #000;"></video>
       </div>
       <div class="modal-header-meta">
         <div class="modal-title" id="modal-video-title">عنوان الفيديو</div>
@@ -1120,7 +1215,7 @@
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-  <script src="../assets/js/data.js?v=1789681978"></script>
-  <script src="../assets/js/main.js?v=1789681978"></script>
+  <script src="assets/js/data.js?v=1789683207"></script>
+  <script src="assets/js/main.js?v=1789683207"></script>
 </body>
 </html>
