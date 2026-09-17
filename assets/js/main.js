@@ -24,7 +24,7 @@ const translations = {
   ar: {
     // Navigation
     nav_about: "من أنا",
-    nav_showreel: "الشو ريل",
+    nav_showreel: "العرض السينمائي",
     nav_before_after: "قبل وبعد",
     nav_portfolio: "الأعمال",
     nav_services: "خدماتي",
@@ -40,7 +40,7 @@ const translations = {
     hero_title_highlight: "قصص سينمائية فيروسية",
     hero_title_2: "تخطف الأنظار وتحقق ملايين المشاهدات",
     hero_desc: "أساعد كبار اليوتيوبرز، صناع المحتوى، والبراندات العالمية في مضاعفة معدل الاحتفاظ بالمشاهدين (Retention Rate) عبر مونتاج فائق الدقة، تلوين سينمائي، ومؤثرات صوتية تأسر الانتباه من الثانية الأولى.",
-    hero_cta_showreel: "مشاهدة الشو ريل",
+    hero_cta_showreel: "مشاهدة العرض السينمائي",
     hero_cta_contact: "ابدأ مشروعك الآن",
 
     // Floating badges
@@ -170,7 +170,7 @@ const translations = {
   en: {
     // Navigation
     nav_about: "About",
-    nav_showreel: "Showreel",
+    nav_showreel: "Cinematic Reel",
     nav_before_after: "Before & After",
     nav_portfolio: "Portfolio",
     nav_services: "Services",
@@ -186,7 +186,7 @@ const translations = {
     hero_title_highlight: "High-Converting Viral Stories",
     hero_title_2: "That Capture Audiences & Multiply Views",
     hero_desc: "I help top YouTubers, creators, and global brands skyrocket their retention rate with elite narrative pacing, cinema-grade color grading, and dynamic sound design that hooks viewers from the first second.",
-    hero_cta_showreel: "Watch Showreel",
+    hero_cta_showreel: "Watch Cinematic Reel",
     hero_cta_contact: "Start Your Project",
 
     // Floating badges
