@@ -617,8 +617,8 @@ function applySiteData() {
     if (mContainer) {
       mContainer.innerHTML = d.metrics.map(m => `
         <div class="metric__item">
-          <div class="metric__number">${m.num} <span>${m.symbol || '★'}</span></div>
-          <div class="metric__desc">${currentLang === 'ar' ? m.textAr : (m.textEn || m.textAr)}</div>
+          <div class="metric__number">${escapeHTML(m.num)} <span>${escapeHTML(m.symbol || '★')}</span></div>
+          <div class="metric__desc">${escapeHTML(currentLang === 'ar' ? m.textAr : (m.textEn || m.textAr))}</div>
         </div>
       `).join('');
     }
@@ -665,10 +665,10 @@ function applySiteData() {
         }
 
         const reach = p.reach || '🔥 +400K Views';
-        const tools = (p.tools || []).map(t => `<span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> ${t}</span>`).join('');
+        const tools = (p.tools || []).map(t => `<span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> ${escapeHTML(t)}</span>`).join('');
 
         return `
-          <article class="projects__card swiper-slide" data-category="${cat}">
+          <article class="projects__card swiper-slide" data-category="${escapeHTML(cat)}">
             <div class="blob"></div>
 
             <!-- UI Window Header Bar -->
@@ -682,35 +682,35 @@ function applySiteData() {
                 <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
               </div>
               <div class="ui-reach-pill">
-                ${reach}
+                ${escapeHTML(reach)}
               </div>
             </div>
 
             <!-- Projects Number & Category in UI Style -->
             <div class="projects__number">
-              <h1 class="ui-card-num">${num}</h1>
+              <h1 class="ui-card-num">${escapeHTML(num)}</h1>
               <div class="ui-cat-chip">
                 <span class="ui-live-dot"></span>
-                <i class="${catIcons[cat] || 'ri-film-line'}"></i>
-                <span>${catLabel}</span>
+                <i class="${escapeHTML(catIcons[cat] || 'ri-film-line')}"></i>
+                <span>${escapeHTML(catLabel)}</span>
               </div>
             </div>
 
             <!-- Projects Data in UI Style -->
             <div class="projects__data">
-              <h1 class="projects__title">${title}</h1>
+              <h1 class="projects__title">${escapeHTML(title)}</h1>
               <p class="projects__subtitle">
-                <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> ${subtitle}
+                <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> ${escapeHTML(subtitle)}
               </p>
-              <p class="projects__description">${desc}</p>
+              <p class="projects__description">${escapeHTML(desc)}</p>
               <div class="projects__tools">
                 ${tools}
               </div>
             </div>
 
             <!-- UI Video Player Mockup in Media Box -->
-            <div class="projects__image ui-player-box" onclick="openVideoModal('${p.id}')">
-              <img src="${img}" alt="${title}" class="projects__img" onerror="this.src='assets/img/project-${(idx % 6) + 1}.svg'" />
+            <div class="projects__image ui-player-box" onclick="openVideoModal('${escapeHTML(p.id)}')">
+              <img src="${escapeHTML(img)}" alt="${escapeHTML(title)}" class="projects__img" loading="lazy" decoding="async" onerror="this.src='assets/img/project-${(idx % 6) + 1}.svg'" />
               <div class="ui-player-overlay"></div>
 
               <!-- Resolution Tag -->
@@ -753,24 +753,8 @@ function applySiteData() {
     }
   }
 
-  // 6. Dynamic Testimonials (Bilingual)
+  // 6. Dynamic Testimonials (Bilingual & Strictly Moderated)
   if (d.testimonials) {
-    // Merge any client-submitted reviews cached in current browser session
-    try {
-      const cached = JSON.parse(localStorage.getItem('cached_testimonials') || '[]');
-      if (Array.isArray(cached) && cached.length) {
-        cached.forEach(c => {
-          const exists = d.testimonials.some(existing => (
-            (existing.nameAr === c.nameAr || existing.name === c.nameAr) &&
-            (existing.quoteAr === c.quoteAr || existing.quote === c.quoteAr)
-          ));
-          if (!exists) {
-            d.testimonials.push(c);
-          }
-        });
-      }
-    } catch (_) {}
-
     const tContainer = document.getElementById('testimonials-wrapper-container');
     if (tContainer && d.testimonials.length) {
       tContainer.innerHTML = d.testimonials.map((t, idx) => {
@@ -1463,6 +1447,19 @@ function initReviewModal() {
         showToast(shortMsg);
         return;
       }
+
+      // Anti-spam cooldown check (30 seconds between submissions)
+      const lastSubmitTime = parseInt(localStorage.getItem('last_review_submit_time') || '0', 10);
+      const now = Date.now();
+      if (now - lastSubmitTime < 30000) {
+        const remaining = Math.ceil((30000 - (now - lastSubmitTime)) / 1000);
+        const cooldownMsg = currentLang === 'ar'
+          ? `يرجى الانتظار ${remaining} ثانية قبل إرسال تقييم جديد لمنع التكرار.`
+          : `Please wait ${remaining}s before submitting another review.`;
+        showToast(cooldownMsg, 4000);
+        return;
+      }
+      localStorage.setItem('last_review_submit_time', String(now));
 
       if (!avatarVal) {
         avatarVal = `assets/img/avatar-${Math.floor(Math.random() * 4) + 1}.svg`;

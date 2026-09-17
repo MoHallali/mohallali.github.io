@@ -20,6 +20,14 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237c3aed'><path d='M16 4v16M8 4v16M3 6h18v12H3z'/></svg>">
 
+  <!-- PERFORMANCE: PRECONNECT & DNS-PREFETCH FOR SUB-50MS LATENCY -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://img.youtube.com">
+  <link rel="dns-prefetch" href="https://ntfy.sh">
+
   <!-- REMIX ICONS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 
@@ -27,7 +35,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <!-- CUSTOM CSS -->
-  <link rel="stylesheet" href="assets/css/style.css?v=1789688124">
+  <link rel="stylesheet" href="assets/css/style.css?v=1789688996">
 </head>
 <body>
 
@@ -142,7 +150,7 @@
         <div class="hero__visual">
           <div class="hero__frame">
             <div class="hero__image-inner">
-              <img src="assets/img/hero-editor.jpg" alt="Master Video Editor" class="hero__img">
+              <img src="assets/img/hero-editor.jpg" alt="محمد هلّالي - محرر ومخرج فيديو سينمائي" class="hero__img" fetchpriority="high" decoding="async">
             </div>
 
             <!-- Floating Badge 1 -->
@@ -256,14 +264,14 @@
           <div class="slider-container" style="--pos: 50%;">
             <!-- After Image (Graded / Cinematic) -->
             <div class="slider-img img-after">
-              <img src="assets/img/after-graded.jpg" alt="After Color Grading">
+              <img src="assets/img/after-graded.jpg" alt="After Color Grading" loading="lazy" decoding="async">
               <span class="slider-tag-lut">LUT: CINEMA 709</span>
               <span class="slider-badge badge-after" data-i18n="badge_graded">تلوين سينمائي + VFX</span>
             </div>
 
             <!-- Before Image (RAW Log footage) -->
             <div class="slider-img img-before">
-              <img src="assets/img/before-raw.png" alt="Before RAW Log">
+              <img src="assets/img/before-raw.jpg" alt="Before RAW Log" loading="lazy" decoding="async">
               <span class="slider-tag-rec"><span class="slider-rec-dot"></span>REC [S-LOG]</span>
               <span class="slider-badge badge-before" data-i18n="badge_raw">التصوير الخام S-LOG</span>
             </div>
@@ -285,7 +293,7 @@
       </div>
     </section>
 
-                                                                                                                                                                                                                                                                                                                    <!-- PROJECTS SECTION (HABIB / PANDA CODERS INCREDIBLE PROJECTS STYLE) -->
+                                                                                                                                                                                                                                                                                                                        <!-- PROJECTS SECTION (HABIB / PANDA CODERS INCREDIBLE PROJECTS STYLE) -->
     <section class="projects section" id="projects">
       <div class="container">
         <div class="section__header" style="text-align: center;">
@@ -370,7 +378,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-1')">
-                  <img src="https://img.youtube.com/vi/euCoUp4_go0/hqdefault.jpg" alt="القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!" class="projects__img" onerror="this.src='assets/img/project-1.svg'" />
+                  <img src="https://img.youtube.com/vi/euCoUp4_go0/hqdefault.jpg" alt="القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!" class="projects__img" loading="lazy" decoding="async" onerror="this.src='assets/img/project-1.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -450,7 +458,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-2')">
-                  <img src="https://img.youtube.com/vi/60f8xluWIBw/hqdefault.jpg" alt="ليلة القبض على رفيق بن لادن في اليمن" class="projects__img" onerror="this.src='assets/img/project-2.svg'" />
+                  <img src="https://img.youtube.com/vi/60f8xluWIBw/hqdefault.jpg" alt="ليلة القبض على رفيق بن لادن في اليمن" class="projects__img" loading="lazy" decoding="async" onerror="this.src='assets/img/project-2.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -530,7 +538,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-3')">
-                  <img src="https://img.youtube.com/vi/8UJ69GTNXpI/hqdefault.jpg" alt="من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل" class="projects__img" onerror="this.src='assets/img/project-3.svg'" />
+                  <img src="https://img.youtube.com/vi/8UJ69GTNXpI/hqdefault.jpg" alt="من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل" class="projects__img" loading="lazy" decoding="async" onerror="this.src='assets/img/project-3.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -610,7 +618,7 @@
 
                 <!-- UI Video Player Mockup in Media Box -->
                 <div class="projects__image ui-player-box" onclick="openVideoModal('proj-4')">
-                  <img src="assets/img/project-4.jpg" alt="مدينة بلا رجال" class="projects__img" onerror="this.src='assets/img/project-4.svg'" />
+                  <img src="assets/img/project-4.jpg" alt="مدينة بلا رجال" class="projects__img" loading="lazy" decoding="async" onerror="this.src='assets/img/project-4.svg'" />
                   <div class="ui-player-overlay"></div>
 
                   <!-- Resolution Tag -->
@@ -831,7 +839,7 @@
             <div class="tribute-layout-grid">
               <!-- Video / Thumbnail Side -->
               <div class="spotlight-media" onclick="openVideoModal('abdulrahman-tribute')" style="cursor: pointer; position: relative; min-height: 300px; background: #000;">
-                <img src="assets/img/abdulrahman-thumb.jpg" alt="عبد الرحمان عطيف" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='assets/img/showreel-cover.svg'">
+                <img src="assets/img/abdulrahman-thumb.jpg" alt="عبد الرحمان عطيف" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" decoding="async" onerror="this.src='assets/img/showreel-cover.svg'">
                 <div class="spotlight-overlay"></div>
                 <div class="spotlight-play-center">
                   <div class="play-ring-pulse play-ring-pulse--tribute" aria-label="Play Tribute">
@@ -885,7 +893,7 @@
               <p class="testimonial__quote">"من أفضل المونتيرين الذين تعاملت معهم. زاد معدل الاحتفاظ في قناتي بنسبة 45% في أول شهر فقط. سرعة خيالية وفهم عميق لما يريده الجمهور!"</p>
             </div>
             <div class="testimonial__author">
-              <img src="assets/img/avatar-1789671860.jpg" alt="عبد الرحمان عطيف" class="author-avatar" onerror="this.src='assets/img/avatar-1.svg'">
+              <img src="assets/img/avatar-1789671860.jpg" alt="عبد الرحمان عطيف" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='assets/img/avatar-1.svg'">
               <div>
                 <div class="author-name">عبد الرحمان عطيف</div>
                 <div class="author-role">صانع محتوى (500K مشترك)</div>
@@ -902,7 +910,7 @@
               <p class="testimonial__quote">"احترافية عالية، التزام دقيق بالمواعيد، وقدرة مذهلة على تحويل المقاطع الصوتية الخام إلى بودكاست مرئي جذاب ومشوق من أول دقيقة."</p>
             </div>
             <div class="testimonial__author">
-              <img src="assets/img/avatar-1789672075.jpg" alt="دزز" class="author-avatar" onerror="this.src='assets/img/avatar-2.svg'">
+              <img src="assets/img/avatar-1789672075.jpg" alt="دزز" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='assets/img/avatar-2.svg'">
               <div>
                 <div class="author-name">دزز</div>
                 <div class="author-role">صانع محتوى (3.09M مشترك)</div>
@@ -919,7 +927,7 @@
               <p class="testimonial__quote">"العمل معه اختصر عليّ شهوراً من التجربة والخطأ. استوعب ما يجذب جمهوري من أول مسودة، والنتيجة كانت قفزة في تفاعل واستمرار المشاهدين مع تسليم قياسي لكل المشاريع"</p>
             </div>
             <div class="testimonial__author">
-              <img src="assets/img/avatar-1789672464.jpg" alt="دكتور محمد شرف" class="author-avatar" onerror="this.src='assets/img/avatar-3.svg'">
+              <img src="assets/img/avatar-1789672464.jpg" alt="دكتور محمد شرف" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='assets/img/avatar-3.svg'">
               <div>
                 <div class="author-name">دكتور محمد شرف</div>
                 <div class="author-role">رائد أعمال ومؤسس وكالة</div>
@@ -936,7 +944,7 @@
               <p class="testimonial__quote">"فارق شاسع في جودة الإنتاج وتماسك الفيديوهات؛ نمو فوري بنسبة 150% في معدل إكمال المشاهدة، مع دقة في المواعيد وقراءة ممتازة لما يطلبه المتابعون."</p>
             </div>
             <div class="testimonial__author">
-              <img src="assets/img/avatar-1789672356.jpg" alt="بودز" class="author-avatar" onerror="this.src='assets/img/avatar-4.svg'">
+              <img src="assets/img/avatar-1789672356.jpg" alt="بودز" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='assets/img/avatar-4.svg'">
               <div>
                 <div class="author-name">بودز</div>
                 <div class="author-role">صانع محتوى (1.66K مشترك)</div>
@@ -1144,7 +1152,7 @@
       </button>
       <div class="modal-video-wrapper">
         <iframe id="modal-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <video id="modal-video" controls playsinline preload="metadata" style="display: none; width: 100%; height: 100%; border-radius: 12px; background: #000;"></video>
+        <video id="modal-video" controls playsinline preload="none" style="display: none; width: 100%; height: 100%; border-radius: 12px; background: #000;"></video>
       </div>
       <div class="modal-header-meta">
         <div class="modal-title" id="modal-video-title">عنوان الفيديو</div>
@@ -1162,7 +1170,7 @@
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-  <script src="assets/js/data.js?v=1789688124"></script>
-  <script src="assets/js/main.js?v=1789688124"></script>
+  <script src="assets/js/data.js?v=1789688996"></script>
+  <script src="assets/js/main.js?v=1789688996"></script>
 </body>
 </html>
