@@ -60,8 +60,8 @@ window.SITE_DATA = {
     {
       "num": "+50M",
       "symbol": "↗",
-      "textAr": "متوسط زيادة نسبة المشاهدة (Retention)",
-      "textEn": "Average Watch Time / Retention Boost"
+      "textAr": "العدد الكلي للمشاهدة",
+      "textEn": "Total number of views"
     },
     {
       "num": "99.4%",
@@ -204,7 +204,7 @@ window.SITE_DATA = {
       "avatar": "assets/img/avatar-1789672464.jpg"
     },
     {
-      "nameAr": "عبدالله بودز",
+      "nameAr": "بودز",
       "nameEn": "BOODZ",
       "roleAr": "صانع محتوى (1.66K مشترك)",
       "roleEn": "Content Creator (1.66K Subs)",

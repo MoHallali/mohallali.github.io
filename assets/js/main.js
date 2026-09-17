@@ -562,12 +562,30 @@ function applySiteData() {
     }
 
     if (d.showreel.tribute) {
+      const tr = d.showreel.tribute;
+      if (tr.quoteAr) translations.ar.spotlight_tribute_quote = tr.quoteAr;
+      if (tr.quoteEn) translations.en.spotlight_tribute_quote = tr.quoteEn;
+      if (tr.creatorName) translations.ar.spotlight_tribute_creator = tr.creatorName;
+      if (tr.titleAr) translations.ar.spotlight_tribute_badge = tr.titleAr;
+
+      const qEl = document.querySelector('[data-i18n="spotlight_tribute_quote"]');
+      if (qEl) qEl.textContent = (currentLang === 'ar' ? tr.quoteAr : (tr.quoteEn || tr.quoteAr)) || qEl.textContent;
+
+      const cEl = document.querySelector('[data-i18n="spotlight_tribute_creator"]');
+      if (cEl && tr.creatorName) cEl.textContent = tr.creatorName;
+
+      const tagEl = document.querySelector('#card-tribute .ui-reach-pill');
+      if (tagEl && tr.creatorTag) tagEl.innerHTML = `<i class="ri-user-star-line"></i> ${escapeHTML(tr.creatorTag)}`;
+
+      const imgEl = document.querySelector('#card-tribute .spotlight-media img');
+      if (imgEl && tr.thumbUrl) imgEl.src = tr.thumbUrl;
+
       projectVideos['abdulrahman-tribute'] = {
-        titleAr: d.showreel.tribute.titleAr || "شهادة وإشادة صانع المحتوى عبد الرحمان عطيف (قناة D7MANc)",
-        titleEn: d.showreel.tribute.titleEn || "Creator Abdulrahman Otaif's Live On-Camera Tribute",
+        titleAr: tr.titleAr || "شهادة وإشادة صانع المحتوى عبد الرحمان عطيف (قناة D7MANc)",
+        titleEn: tr.titleEn || "Creator Abdulrahman Otaif's Live On-Camera Tribute",
         tag: "Live Creator Tribute",
-        url: d.showreel.tribute.videoUrl || "assets/video/abdulrahman-testimonial.mp4",
-        type: "video"
+        url: tr.videoUrl || "assets/video/abdulrahman-testimonial.mp4",
+        type: (tr.videoUrl && (tr.videoUrl.endsWith('.mp4') || tr.videoUrl.endsWith('.webm'))) ? "video" : (tr.videoUrl && tr.videoUrl.includes('youtu') ? "youtube" : "video")
       };
     }
   }
