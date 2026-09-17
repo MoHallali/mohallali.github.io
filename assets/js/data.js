@@ -81,8 +81,8 @@ window.SITE_DATA = {
       "titleEn": "Live Testimonial & Praise from Creator Abdulrahman Otaif",
       "creatorName": "عبد الرحمان عطيف",
       "creatorTag": "D7MANc (500K Subs)",
-      "quoteAr": "أقسم بالله العلي العظيم رب أخٍ لم تلده أمك... رزقني الله بأخ مثلك، فشكراً يا محمد",
-      "quoteEn": "By Almighty God, you are a brother my mother never bore... I thank God for blessing me with a brother like you.",
+      "quoteAr": "رب أخي لم تلده أم",
+      "quoteEn": "A brother my mother never bore",
       "videoUrl": "assets/video/abdulrahman-testimonial.mp4",
       "thumbUrl": "assets/img/abdulrahman-thumb.jpg"
     }

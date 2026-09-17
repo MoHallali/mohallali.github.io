@@ -76,7 +76,7 @@ const translations = {
     spotlight_tribute_badge: "LIVE CREATOR TRIBUTE",
     spotlight_tribute_creator: "عبد الرحمان عطيف",
     spotlight_tribute_shoutout: "إشادة حية وأخوية",
-    spotlight_tribute_quote: "«أقسم بالله العلي العظيم رب أخٍ لم تلده أمك... رزقني الله بأخ مثلك، فشكراً يا محمد الله يديك الصحة والعافية ويقدرني ربي أكون عند حسن ظنك.»",
+    spotlight_tribute_quote: "«رب أخي لم تلده أم»",
     spotlight_tribute_desc: "كلمة عفوية مسجلة في ختام الحلقة مباشرة من صانع المحتوى عبد الرحمان عطيف يشيد فيها بمحمد هلالي، مؤكداً عمق الشراكة، الأمانة، والاحترافية.",
     spotlight_tribute_action: "استمع للإشادة كاملة (فيديو)",
 
@@ -222,7 +222,7 @@ const translations = {
     spotlight_tribute_badge: "LIVE CREATOR TRIBUTE",
     spotlight_tribute_creator: "Abdulrahman Otaif",
     spotlight_tribute_shoutout: "Live On-Camera Shoutout",
-    spotlight_tribute_quote: "\"By Almighty God, you are a brother my mother never bore... I thank God for blessing me with a brother like you. Thank you Mohamed, and may God keep our bond strong.\"",
+    spotlight_tribute_quote: "\"A brother my mother never bore\"",
     spotlight_tribute_desc: "An authentic, unscripted studio tribute recorded at the close of an episode by creator Abdulrahman Otaif, celebrating trust, storytelling craft, and creative chemistry.",
     spotlight_tribute_action: "Watch Full Tribute (Video)",
 

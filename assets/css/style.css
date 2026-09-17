@@ -1327,9 +1327,10 @@ html[dir="rtl"] .quote-icon-bg {
   }
 }
 
-/*=============== CREATOR TRIBUTE SPOTLIGHT (UNDER REVIEWS) ===============*/
+/*=============== CREATOR TRIBUTE SPOTLIGHT (IN REVIEWS SECTION) ===============*/
 .tribute-spotlight-wrap {
-  margin-top: 3.5rem;
+  margin-top: 2.25rem;
+  margin-bottom: 3.5rem;
   width: 100%;
 }
 

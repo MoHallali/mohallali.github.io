@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <!-- CUSTOM CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css?v=1789686267">
+  <link rel="stylesheet" href="../assets/css/style.css?v=1789686424">
 </head>
 <body>
 
@@ -285,7 +285,7 @@
       </div>
     </section>
 
-                                                                                                                                                                                                                                        <!-- PROJECTS SECTION (HABIB / PANDA CODERS INCREDIBLE PROJECTS STYLE) -->
+                                                                                                                                                                                                                                            <!-- PROJECTS SECTION (HABIB / PANDA CODERS INCREDIBLE PROJECTS STYLE) -->
     <section class="projects section" id="projects">
       <div class="container">
         <div class="section__header" style="text-align: center;">
@@ -815,6 +815,71 @@
           </div>
         </div>
 
+        <!-- CREATOR VIDEO TRIBUTE SPOTLIGHT (PLACED BETWEEN CTA BUTTON AND TESTIMONIAL CARDS) -->
+        <div class="tribute-spotlight-wrap">
+          <div class="tribute-spotlight-card" id="card-tribute">
+            
+            <!-- Window Header -->
+            <div class="ui-window-header" style="background: rgba(18, 20, 32, 0.95); padding: 0.85rem 1.5rem; margin-bottom: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <div class="ui-window-controls">
+                <span class="ui-dot ui-dot--red"></span>
+                <span class="ui-dot ui-dot--yellow"></span>
+                <span class="ui-dot ui-dot--green"></span>
+              </div>
+              <div class="ui-window-badge" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">
+                <i class="ri-live-line" style="color: #ef4444;"></i> <span data-i18n="spotlight_tribute_badge">LIVE CREATOR TRIBUTE</span>
+              </div>
+              <div class="ui-reach-pill" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">
+                <i class="ri-user-star-line"></i> D7MANc (500K Subs)
+              </div>
+            </div>
+
+            <div class="tribute-layout-grid">
+              <!-- Video / Thumbnail Side -->
+              <div class="spotlight-media" onclick="openVideoModal('abdulrahman-tribute')" style="cursor: pointer; position: relative; min-height: 300px; background: #000;">
+                <img src="../assets/img/abdulrahman-thumb.jpg" alt="عبد الرحمان عطيف" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='../assets/img/showreel-cover.svg'">
+                <div class="spotlight-overlay"></div>
+                <div class="spotlight-play-center">
+                  <div class="play-ring-pulse play-ring-pulse--tribute" aria-label="Play Tribute">
+                    <i class="ri-play-fill"></i>
+                  </div>
+                </div>
+                <span class="ui-player-res-tag ui-player-res-tag--live" style="position: absolute; bottom: 1rem; right: 1rem; background: rgba(0,0,0,0.8); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); padding: 0.35rem 0.85rem; border-radius: 6px; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                  <span class="live-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #ef4444; display: inline-block;"></span> LIVE ON-CAMERA
+                </span>
+              </div>
+
+              <!-- Content & Quote Side -->
+              <div class="spotlight-card-content" style="padding: 2rem 2.25rem; display: flex; flex-direction: column; justify-content: center;">
+                <div class="spotlight-card-meta" style="margin-bottom: 1rem;">
+                  <span class="spotlight-tag spotlight-tag--creator" style="font-size: 0.95rem; padding: 0.35rem 0.95rem;">
+                    <i class="ri-verified-badge-fill" style="color: #38bdf8;"></i> <span data-i18n="spotlight_tribute_creator">عبد الرحمان عطيف</span>
+                  </span>
+                  <span class="spotlight-tag-tool" style="color: #f43f5e; font-weight: 700;">
+                    <i class="ri-heart-3-fill"></i> <span data-i18n="spotlight_tribute_shoutout">إشادة حية وأخوية</span>
+                  </span>
+                </div>
+
+                <div class="spotlight-quote-box" style="margin-bottom: 1.25rem; padding: 1.15rem 1.35rem;">
+                  <i class="ri-double-quotes-r quote-icon-bg"></i>
+                  <p class="spotlight-quote-text" data-i18n="spotlight_tribute_quote" style="font-size: 1.15rem; font-weight: 700; line-height: 1.75; color: #ffffff;">
+                  «رب أخي لم تلده أم»
+                </p>
+                </div>
+
+                <p class="spotlight-card-desc" data-i18n="spotlight_tribute_desc" style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem;">
+                  كلمة عفوية مسجلة في ختام الحلقة مباشرة من صانع المحتوى عبد الرحمان عطيف يشيد فيها بمحمد هلالي، مؤكداً عمق الشراكة، الأمانة، والاحترافية.
+                </p>
+
+                <button class="btn btn-primary btn-sm spotlight-action-btn" onclick="openVideoModal('abdulrahman-tribute')" style="background: linear-gradient(135deg, #ef4444, #7c3aed); border: none; padding: 0.85rem 1.5rem; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 12px; cursor: pointer; color: #fff; box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);">
+                  <i class="ri-play-circle-line" style="font-size: 1.25rem;"></i> <span data-i18n="spotlight_tribute_action">استمع وشاهد الإشادة كاملة (فيديو)</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
         <div class="testimonials__swiper swiper">
           <div class="swiper-wrapper" id="testimonials-wrapper-container">
         <div class="swiper-slide">
@@ -887,71 +952,6 @@
         </div>
       </div>
           <div class="swiper-pagination"></div>
-        </div>
-
-        <!-- CREATOR VIDEO TRIBUTE SPOTLIGHT (DIRECTLY UNDER CLIENT TESTIMONIALS) -->
-        <div class="tribute-spotlight-wrap">
-          <div class="tribute-spotlight-card" id="card-tribute">
-            
-            <!-- Window Header -->
-            <div class="ui-window-header" style="background: rgba(18, 20, 32, 0.95); padding: 0.85rem 1.5rem; margin-bottom: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-              <div class="ui-window-controls">
-                <span class="ui-dot ui-dot--red"></span>
-                <span class="ui-dot ui-dot--yellow"></span>
-                <span class="ui-dot ui-dot--green"></span>
-              </div>
-              <div class="ui-window-badge" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">
-                <i class="ri-live-line" style="color: #ef4444;"></i> <span data-i18n="spotlight_tribute_badge">LIVE CREATOR TRIBUTE</span>
-              </div>
-              <div class="ui-reach-pill" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">
-                <i class="ri-user-star-line"></i> D7MANc (500K Subs)
-              </div>
-            </div>
-
-            <div class="tribute-layout-grid">
-              <!-- Video / Thumbnail Side -->
-              <div class="spotlight-media" onclick="openVideoModal('abdulrahman-tribute')" style="cursor: pointer; position: relative; min-height: 300px; background: #000;">
-                <img src="../assets/img/abdulrahman-thumb.jpg" alt="عبد الرحمان عطيف" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='../assets/img/showreel-cover.svg'">
-                <div class="spotlight-overlay"></div>
-                <div class="spotlight-play-center">
-                  <div class="play-ring-pulse play-ring-pulse--tribute" aria-label="Play Tribute">
-                    <i class="ri-play-fill"></i>
-                  </div>
-                </div>
-                <span class="ui-player-res-tag ui-player-res-tag--live" style="position: absolute; bottom: 1rem; right: 1rem; background: rgba(0,0,0,0.8); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.4); padding: 0.35rem 0.85rem; border-radius: 6px; font-size: 0.78rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
-                  <span class="live-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #ef4444; display: inline-block;"></span> LIVE ON-CAMERA
-                </span>
-              </div>
-
-              <!-- Content & Quote Side -->
-              <div class="spotlight-card-content" style="padding: 2rem 2.25rem; display: flex; flex-direction: column; justify-content: center;">
-                <div class="spotlight-card-meta" style="margin-bottom: 1rem;">
-                  <span class="spotlight-tag spotlight-tag--creator" style="font-size: 0.95rem; padding: 0.35rem 0.95rem;">
-                    <i class="ri-verified-badge-fill" style="color: #38bdf8;"></i> <span data-i18n="spotlight_tribute_creator">عبد الرحمان عطيف</span>
-                  </span>
-                  <span class="spotlight-tag-tool" style="color: #f43f5e; font-weight: 700;">
-                    <i class="ri-heart-3-fill"></i> <span data-i18n="spotlight_tribute_shoutout">إشادة حية وأخوية</span>
-                  </span>
-                </div>
-
-                <div class="spotlight-quote-box" style="margin-bottom: 1.25rem; padding: 1.15rem 1.35rem;">
-                  <i class="ri-double-quotes-r quote-icon-bg"></i>
-                  <p class="spotlight-quote-text" data-i18n="spotlight_tribute_quote" style="font-size: 1.05rem; line-height: 1.75; color: #ffffff;">
-                    «أقسم بالله العلي العظيم رب أخٍ لم تلده أمك... رزقني الله بأخ مثلك، فشكراً يا محمد الله يديك الصحة والعافية ويقدرني ربي أكون عند حسن ظنك.»
-                  </p>
-                </div>
-
-                <p class="spotlight-card-desc" data-i18n="spotlight_tribute_desc" style="font-size: 0.9rem; color: #94a3b8; line-height: 1.6; margin-bottom: 1.5rem;">
-                  كلمة عفوية مسجلة في ختام الحلقة مباشرة من صانع المحتوى عبد الرحمان عطيف يشيد فيها بمحمد هلالي، مؤكداً عمق الشراكة، الأمانة، والاحترافية.
-                </p>
-
-                <button class="btn btn-primary btn-sm spotlight-action-btn" onclick="openVideoModal('abdulrahman-tribute')" style="background: linear-gradient(135deg, #ef4444, #7c3aed); border: none; padding: 0.85rem 1.5rem; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 12px; cursor: pointer; color: #fff; box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);">
-                  <i class="ri-play-circle-line" style="font-size: 1.25rem;"></i> <span data-i18n="spotlight_tribute_action">استمع وشاهد الإشادة كاملة (فيديو)</span>
-                </button>
-              </div>
-            </div>
-
-          </div>
         </div>
       </div>
     </section>
@@ -1163,7 +1163,7 @@
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-  <script src="../assets/js/data.js?v=1789686267"></script>
-  <script src="../assets/js/main.js?v=1789686267"></script>
+  <script src="../assets/js/data.js?v=1789686424"></script>
+  <script src="../assets/js/main.js?v=1789686424"></script>
 </body>
 </html>
