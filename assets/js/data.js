@@ -220,8 +220,8 @@ window.SITE_DATA = {
       "icon": "ri-smartphone-line",
       "titleAr": "صناعة الفيديوهات (Shorts & Reels)",
       "titleEn": "Viral Shorts & Reels Production",
-      "descAr": "تفكيك وتصميم ريلز وتيك توك بأسلوب أليكس هورموزي وإيمان قادزي: خطافات بصرية ساحرة (Hooks)، نصوص متحركة ديناميكية، وتأثيرات صوتية تجعل المشاهد يكمل حتى النهاية.",
-      "descEn": "Deconstructing and editing high-retention TikToks and Reels in the style of Alex Hormozi & Iman Gadzhi: magnetic visual hooks, dynamic kinetic typography, and immersive SFX.",
+      "descAr": "",
+      "descEn": "",
       "featuresAr": [
         "خطافات أول 3 ثوانٍ قوية",
         "نصوص متحركة ملونة وإيموجي 3D",
