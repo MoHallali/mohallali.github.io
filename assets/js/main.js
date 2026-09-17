@@ -63,8 +63,8 @@ const translations = {
 
     // Showreel & Spotlight
     showreel_badge: "العرض البصري الخاطف",
-    showreel_title: "شاهد ملخص أقوى <span>أعمالي السينمائية</span>",
-    showreel_subtitle: "لقطات مختارة في 90 ثانية من أقوى الإنتاجات البصرية، الإعلانات، والفيديوهات الفيروسية.",
+    showreel_title: "أقوى <span>إنتاجاتي السينمائية</span>",
+    showreel_subtitle: "شاهد أقوى مشروع وثائقي سينمائي أنجزته؛ تجربة بصرية متكاملة تعتمد على سرد قصصي درامي، حركة خرائط تفاعلية متقدمة، وهندسة صوتية متعددة الطبقات تضمن أعلى درجات الاندماج والاحتفاظ.",
     spotlight_tab_both: "عرض شامل (جنباً إلى جنب)",
     spotlight_tab_master: "العمل السينمائي الأقوى",
     spotlight_tab_tribute: "إشادة عبد الرحمان عطيف",
@@ -209,8 +209,8 @@ const translations = {
 
     // Showreel & Spotlight
     showreel_badge: "High-Impact Visuals",
-    showreel_title: "Watch My <span>Official Showreel</span>",
-    showreel_subtitle: "A curated 90-second glimpse of elite visual storytelling, commercials, and high-retention edits.",
+    showreel_title: "My Prominent <span>Cinematic Productions</span>",
+    showreel_subtitle: "Watch my most prominent cinematic documentary project; a complete visual experience featuring dramatic storytelling, dynamic motion maps, and multi-layered sound design engineered for peak viewer retention.",
     spotlight_tab_both: "Side-by-Side View",
     spotlight_tab_master: "Masterpiece Project",
     spotlight_tab_tribute: "Creator Tribute",
