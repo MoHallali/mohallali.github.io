@@ -71,10 +71,10 @@ window.SITE_DATA = {
     }
   ],
   "showreel": {
-    "titleAr": "شاهد ملخص أقوى أعمالي السينمائية",
-    "titleEn": "Watch Highlights Of My Best Visual Works",
-    "subtitleAr": "لقطات مختارة في 90 ثانية من أقوى الإنتاجات البصرية، الإعلانات، والفيديوهات الفيروسية.",
-    "subtitleEn": "Curated 90 seconds of high-retention storytelling, commercials, and viral edits.",
+    "titleAr": "أقوى إنتاجاتي السينمائية.. وشـهادة أعتز بها",
+    "titleEn": "Masterpiece Production & Creator Tribute",
+    "subtitleAr": "شاهد أقوى مشروع وثائقي أنجزته، يليه اعتراف عفوي من صانع المحتوى عبد الرحمان عطيف في ختام الحلقة يصف فيه الشراكة والجهد المبذول.",
+    "subtitleEn": "Watch my prominent documentary masterpiece, followed by a genuine on-camera tribute from creator Abdulrahman Otaif.",
     "url": "https://www.youtube.com/embed/euCoUp4_go0?autoplay=1",
     "tribute": {
       "titleAr": "شهادة واعتراف مباشر من صانع المحتوى عبد الرحمان عطيف",
@@ -218,7 +218,7 @@ window.SITE_DATA = {
     {
       "id": "srv-1",
       "icon": "ri-smartphone-line",
-      "titleAr": "صناعة الفيديوهات الفيروسية (Shorts & Reels)",
+      "titleAr": "صناعة الفيديوهات (Shorts & Reels)",
       "titleEn": "Viral Shorts & Reels Production",
       "descAr": "تفكيك وتصميم ريلز وتيك توك بأسلوب أليكس هورموزي وإيمان قادزي: خطافات بصرية ساحرة (Hooks)، نصوص متحركة ديناميكية، وتأثيرات صوتية تجعل المشاهد يكمل حتى النهاية.",
       "descEn": "Deconstructing and editing high-retention TikToks and Reels in the style of Alex Hormozi & Iman Gadzhi: magnetic visual hooks, dynamic kinetic typography, and immersive SFX.",
@@ -232,13 +232,13 @@ window.SITE_DATA = {
         "Kinetic typography & 3D emojis",
         "Multi-layered sound design & SFX"
       ],
-      "software": "Software: CapCut Pro / Premiere / AE"
+      "software": "Software: / Premiere / AE"
     },
     {
       "id": "srv-2",
       "icon": "ri-youtube-line",
-      "titleAr": "مونتاج يوتيوب عالي الاحتفاظ (Retention Editing)",
-      "titleEn": "High-Retention YouTube Long-Form",
+      "titleAr": "مونتاج يوتيوب",
+      "titleEn": "YouTube Long-Form",
       "descAr": "هيكلة الفيديوهات الطويلة، إدارة الرتم (Pacing)، إدراج البي رول السينمائي، تصميم الصوت (Sound Design)، لضمان رفع متوسط مدة المشاهدة إلى مستويات قياسية.",
       "descEn": "Long-form video structuring, pacing arcs, cinematic B-roll selection, and rich sound design engineered to maximize average view duration.",
       "featuresAr": [
@@ -262,12 +262,10 @@ window.SITE_DATA = {
       "descEn": "Cinema-grade color grading for professional camera sensors (Sony, RED, Arri, Blackmagic) in DaVinci Resolve with precise skin tone balance and film looks.",
       "featuresAr": [
         "إدارة الألوان ACES / Color Space",
-        "لوكات هوليوود (Teal & Orange / Film Look)",
         "تصحيح ألوان البشرة الطبيعية"
       ],
       "featuresEn": [
         "ACES & Color Space Transform",
-        "Hollywood Film Looks (Teal & Orange)",
         "Natural skin tone preservation"
       ],
       "software": "Software: DaVinci Resolve Studio"
@@ -313,17 +311,17 @@ window.SITE_DATA = {
     {
       "id": "srv-6",
       "icon": "ri-image-edit-line",
-      "titleAr": "تصميم أغلفة اليوتيوب والتغليف البصري (Packaging & CTR)",
-      "titleEn": "High-CTR Thumbnail Design & Packaging",
+      "titleAr": "منشئ وخبير في الAI",
+      "titleEn": "AI Creator and Expert",
       "descAr": "مساعدتك في اختيار اللقطات الأكثر جذباً، وتصميم الأغلفة المصغرة (Thumbnails) التي تضمن أعلى نسبة نقر إلى الظهور (High CTR).",
       "descEn": "Selecting viral screenshot frames and designing clickable YouTube thumbnails engineered for maximum Click-Through Rate (CTR).",
       "featuresAr": [
-        "تحليل المنافسين ومعدلات النقر",
+        "انشاء فيديوهات عالية الدقة بالذكاء الاصطناعي",
         "تباين ألوان قوي وملفت للنظر",
         "نماذج مصغرة مهيأة لكافة الأجهزة"
       ],
       "featuresEn": [
-        "Competitor CTR analysis",
+        "Creating high-resolution videos using AI",
         "High-contrast visual hierarchy",
         "Multi-device viewport testing"
       ],
@@ -333,17 +331,17 @@ window.SITE_DATA = {
   "workflow": [
     {
       "num": "01",
-      "titleAr": "1. الإحاطة واستلام المواد",
-      "titleEn": "1. Briefing & Asset Handover",
+      "titleAr": "1. استلام المواد",
+      "titleEn": "1. Asset Handover",
       "descAr": "رفع الملفات الخام والملاحظات عبر Google Drive أو Frame.io وتحديد الهدف والرؤية الفنية.",
       "descEn": "Upload raw footage and creative brief via Google Drive or Frame.io, aligning on goals and visual direction."
     },
     {
       "num": "02",
-      "titleAr": "2. بناء القصة والقص الأولي",
-      "titleEn": "2. Story Arc & Rough Cut",
-      "descAr": "انتقاء أفضل اللقطات، ترتيب السرد، ضبط التوقيت والإيقاع (Rough Cut & Pacing).",
-      "descEn": "Curating select takes, structuring narrative tension, and tuning timeline pacing (Rough Cut & Pacing)."
+      "titleAr": "2. بناء القصة والقص",
+      "titleEn": "2. Story Arc & Cut",
+      "descAr": "انتقاء أفضل اللقطات، ترتيب السرد، ضبط التوقيت (Rough Cut ).",
+      "descEn": "Curating select takes, structuring narrative tension, and tuning timeline (Rough Cut)."
     },
     {
       "num": "03",
@@ -361,8 +359,8 @@ window.SITE_DATA = {
     },
     {
       "num": "05",
-      "titleAr": "5. التسليم النهائي 4K",
-      "titleEn": "5. Final 4K Delivery",
+      "titleAr": "5. التسليم النهائي",
+      "titleEn": "5. FinalDelivery",
       "descAr": "تصدير الفيديو بأعلى جودة ممكنة جاهزاً للنشر المباشر وتحقيق النجاح.",
       "descEn": "Master render export in highest 4K ProRes quality, ready for immediate publication."
     }
