@@ -137,13 +137,13 @@ const translations = {
     reviews_subtitle: "آراء موثوقة من يوتيوبرز، وكالات تسويق، ورواد أعمال عملنا معاً على مشاريعهم.",
     reviews_add_btn: "أضف تقييمك أو شهادتك هنا",
     modal_review_title: "إضافة رأيك أو شهادتك",
-    modal_review_sub: "شاركنا تجربتك الاحترافية ليتم نشرها في معرض آراء العملاء",
+    modal_review_sub: "شاركنا تجربتك الاحترافية مع محمد ليتم مراجعتها واعتمادها في معرض الآراء",
     modal_review_name: "اسم العميل / صانع المحتوى *",
     modal_review_role: "الصفة أو القناة *",
     modal_review_rating: "التقييم *",
     modal_review_quote: "نص التقييم أو الشهادة *",
     modal_review_avatar: "رابط صورة الحساب / اللوغو (اختياري)",
-    modal_review_submit: "إرسال التقييم ونشره الآن",
+    modal_review_submit: "إرسال التقييم للمراجعة والاعتماد",
 
     // Contact
     contact_badge: "فلنبدأ صناعة النجاح",
@@ -283,13 +283,13 @@ const translations = {
     reviews_subtitle: "Feedback from prominent YouTubers, marketing agencies, and business founders.",
     reviews_add_btn: "Add Your Review or Testimonial",
     modal_review_title: "Add Your Review",
-    modal_review_sub: "Share your professional collaboration experience to be featured on this showcase",
+    modal_review_sub: "Share your professional collaboration experience with Mohamed for review and approval",
     modal_review_name: "Client / Creator Name *",
     modal_review_role: "Role or Channel Handle *",
     modal_review_rating: "Rating *",
     modal_review_quote: "Review / Testimonial *",
     modal_review_avatar: "Avatar / Logo URL (Optional)",
-    modal_review_submit: "Submit Review Now",
+    modal_review_submit: "Submit Review for Approval",
 
     // Contact
     contact_badge: "Let's Collaborate",
@@ -1329,17 +1329,20 @@ function initContactActions() {
   }
 }
 
-function showToast(msg) {
+let toastTimer = null;
+function showToast(msg, duration = 4000) {
   const toast = document.getElementById('toast-notice');
   const toastMsg = document.getElementById('toast-message');
   if (!toast) return;
 
+  if (toastTimer) clearTimeout(toastTimer);
   if (toastMsg) toastMsg.textContent = msg;
   toast.classList.add('toast-show');
 
-  setTimeout(() => {
+  toastTimer = setTimeout(() => {
     toast.classList.remove('toast-show');
-  }, 3500);
+    toastTimer = null;
+  }, duration);
 }
 
 /*=============== 7.5 CLIENT REVIEW MODAL & SUBMISSION ===============*/
@@ -1468,68 +1471,91 @@ function initReviewModal() {
       const submitBtn = document.getElementById('review-submit-btn');
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `<i class="ri-loader-4-line ri-spin"></i> ${currentLang === 'ar' ? 'جارٍ النشر...' : 'Publishing...'}`;
+        submitBtn.innerHTML = `<i class="ri-loader-4-line ri-spin"></i> ${currentLang === 'ar' ? 'جارٍ الإرسال وإشعار محمد...' : 'Sending & Notifying...'}`;
       }
 
-      const newTestimonial = {
+      const reviewId = `rev_${Date.now()}`;
+      const reviewPayload = {
+        id: reviewId,
+        name: nameVal,
         nameAr: nameVal,
         nameEn: nameVal,
-        roleAr: roleVal,
-        roleEn: roleVal,
+        role: roleVal || (currentLang === 'ar' ? 'صانع محتوى' : 'Content Creator'),
+        roleAr: roleVal || 'صانع محتوى',
+        roleEn: roleVal || 'Content Creator',
+        quote: quoteVal,
         quoteAr: quoteVal,
         quoteEn: quoteVal,
         rating: ratingVal,
-        avatar: avatarVal
+        avatar: avatarVal,
+        timestamp: Date.now(),
+        date: new Date().toLocaleString('ar-EG', { dateStyle: 'medium', timeStyle: 'short' })
       };
 
-      // Try server API if on local studio environment
+      // 1. Dispatch to ntfy cloud topic (CORS supported worldwide, zero-auth)
       try {
-        const isLocalHost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-        if (isLocalHost) {
-          const endpoint = (window.location.port === '4321') ? '/api/add-testimonial' : 'http://localhost:4321/api/add-testimonial';
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 3500);
-
-          await fetch(endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newTestimonial),
-            signal: controller.signal
-          });
-          clearTimeout(timeoutId);
-        }
-      } catch (err) {
-        // Continue gracefully
-      }
-
-      // Update in-memory site data and re-render Swiper
-      if (!window.SITE_DATA) window.SITE_DATA = {};
-      if (!Array.isArray(window.SITE_DATA.testimonials)) {
-        window.SITE_DATA.testimonials = [];
-      }
-      window.SITE_DATA.testimonials.push(newTestimonial);
-
-      // Persist in localStorage for visitor session
-      try {
-        const localCached = JSON.parse(localStorage.getItem('cached_testimonials') || '[]');
-        localCached.push(newTestimonial);
-        localStorage.setItem('cached_testimonials', JSON.stringify(localCached));
+        fetch('https://ntfy.sh/mohallali_reviews_697970981', {
+          method: 'POST',
+          headers: {
+            'Title': `⭐ تقييم جديد: ${nameVal} (${ratingVal}/5)`,
+            'Priority': 'high',
+            'Tags': 'star,video_camera,bell'
+          },
+          body: JSON.stringify(reviewPayload)
+        }).catch(() => {});
       } catch (_) {}
 
-      // Re-apply site data and slide to the newly submitted review
-      applySiteData();
-      if (testimonialsSwiperInstance) {
-        try {
-          testimonialsSwiperInstance.update();
-          const targetIndex = window.SITE_DATA.testimonials.length - 1;
-          testimonialsSwiperInstance.slideTo(targetIndex, 800);
-        } catch (_) {}
-      }
+      // 2. Dispatch to Mohamed's email via FormSubmit
+      try {
+        fetch('https://formsubmit.co/ajax/hallali.mohamed4@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `🌟 تقييم وشهادة جديدة في موقعك من: ${nameVal}`,
+            الاسم: nameVal,
+            المجال: roleVal || 'صانع محتوى',
+            التقييم: `${ratingVal} نجوم من 5`,
+            الشهادة: quoteVal,
+            تاريخ_الإرسال: new Date().toLocaleString()
+          })
+        }).catch(() => {});
+      } catch (_) {}
+
+      // 3. Dispatch to local studio server if accessible
+      try {
+        const isLocalHost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+        const endpoint = (isLocalHost && window.location.port === '4321') ? '/api/pending-review' : 'http://localhost:4321/api/pending-review';
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2500);
+
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(reviewPayload),
+          signal: controller.signal
+        }).catch(() => {});
+        clearTimeout(timeoutId);
+      } catch (_) {}
+
+      // 4. Construct WhatsApp message and open direct chat with Mohamed (213697970981)
+      const starsEmoji = '⭐'.repeat(ratingVal);
+      const waText = `🌟 *تقييم وشهادة جديدة للموقع!* 🌟\n\n` +
+        `👤 *الاسم:* ${nameVal}\n` +
+        `💼 *المجال / القناة:* ${roleVal || 'صانع محتوى'}\n` +
+        `✨ *التقييم:* ${starsEmoji} (${ratingVal}/5)\n\n` +
+        `💬 *نص الشهادة:* \n"${quoteVal}"\n\n` +
+        `⏳ *الحالة:* بانتظار موافقتك واعتمادها في مركز التعديلات.`;
+
+      const waUrl = `https://wa.me/213697970981?text=${encodeURIComponent(waText)}`;
+      
+      try {
+        window.open(waUrl, '_blank');
+      } catch (_) {}
 
       // Restore submit button & form
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = `<i class="ri-send-plane-fill"></i> <span data-i18n="modal_review_submit">${currentLang === 'ar' ? 'إرسال التقييم ونشره الآن' : 'Submit Review Now'}</span>`;
+        submitBtn.innerHTML = `<i class="ri-send-plane-fill"></i> <span data-i18n="modal_review_submit">${currentLang === 'ar' ? 'إرسال التقييم للمراجعة والاعتماد' : 'Submit Review for Approval'}</span>`;
       }
 
       form.reset();
@@ -1538,16 +1564,16 @@ function initReviewModal() {
         const stars = starsContainer.querySelectorAll('i[data-rating]');
         stars.forEach(s => s.classList.add('active-star'));
         if (ratingText) {
-          ratingText.textContent = currentLang === 'ar' ? '5 نجوم (ممتاز جداً)' : '5 Stars (Exceptional)';
+          ratingText.textContent = currentLang === 'ar' ? '5 نجوم (استثنائي وممتاز جداً)' : '5 Stars (Exceptional)';
         }
       }
 
       closeModal();
 
       const successNotice = currentLang === 'ar'
-        ? "شكراً لك! تمت إضافة ونشر تقييمك بنجاح، ويمكن للجميع مشاهدته الآن."
-        : "Thank you! Your review has been published successfully and is now live.";
-      showToast(successNotice);
+        ? "شكراً جزيلاً لك! تم استلام تقييمك بنجاح وجرى إشعار محمد عبر الواتساب، وسيظهر في الموقع فور اعتماده ومراجعته."
+        : "Thank you! Your testimonial was received and Mohamed has been notified via WhatsApp. It will appear live once approved.";
+      showToast(successNotice, 6500);
     });
   }
 }

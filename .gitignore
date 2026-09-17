@@ -9,3 +9,4 @@ CNAME
 __pycache__/
 *.pyc
 .system_generated/
+pending_reviews.json
