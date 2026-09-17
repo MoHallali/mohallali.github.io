@@ -1620,8 +1620,11 @@ function initScrollFadeEngine() {
 
 /*=============== 12. ADVANCED PRIVACY & SOURCE CODE SHIELD ===============*/
 (function initCodeShield() {
-  // 1. Disable Right-Click Context Menu to prevent element inspection
+  // 1. Disable Right-Click Context Menu on desktop (keep mobile touch natural)
   document.addEventListener('contextmenu', (e) => {
+    if (e.pointerType === 'touch' || ('ontouchstart' in window && window.innerWidth <= 1024)) {
+      return; // Do not block mobile touch
+    }
     e.preventDefault();
     return false;
   }, { capture: true });
