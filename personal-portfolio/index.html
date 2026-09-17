@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بورتفوليو مونتير فيديو محترف | Professional Video Editor Portfolio</title>
+  <meta name="description" content="بورتفوليو احترافي لمونتير فيديو متخصص في صناعة الفيديوهات الفيروسية، محتوى يوتيوب عالي الاحتفاظ، التلوين السينمائي، والمؤثرات البصرية.">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="بورتفوليو مونتير فيديو محترف | Creative Video Editor">
+  <meta property="og:description" content="أحول لقطاتك الخام إلى قصص سينمائية تجذب ملايين المشاهدات وتضاعف التفاعل.">
+  <meta property="og:image" content="assets/img/hero-editor.svg">
+
+  <!-- SECURITY HARDENING HEADERS & CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https: blob:; media-src 'self' https: blob:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com https://www.instagram.com; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+  <!-- ANTI-CLICKJACKING FRAME-BUSTING -->
+  <script>
+    if (window.top !== window.self) {
+      window.top.location = window.self.location;
+    }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237c3aed'><path d='M16 4v16M8 4v16M3 6h18v12H3z'/></svg>">
+
+  <!-- REMIX ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+  <!-- SWIPER CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="../assets/css/style.css?v=1789680561">
+</head>
+<body>
+
+  <!-- AMBIENT BACKGROUND BLOBS & GRID -->
+  <div class="ambient-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+  <!-- GPU ACCELERATED PARTICLES CANVAS -->
+  <canvas id="gpu-particles"></canvas>
+
+  <!-- CUSTOM GLOW CURSOR -->
+  <div class="cursor-glow cursor-dot"></div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#hero" class="nav__logo" aria-label="SATURN">
+        <div class="logo-icon-wrap">
+          <img src="../assets/img/brand-logo.png" alt="SATURN Logo" class="nav__logo-img">
+        </div>
+        <span id="brand-logo-text">SATURN</span>
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a href="#hero" class="nav__link active-link" data-i18n="nav_about">من أنا</a></li>
+          <li><a href="#showreel" class="nav__link" data-i18n="nav_showreel">الشو ريل</a></li>
+          <li><a href="#compare" class="nav__link" data-i18n="nav_before_after">قبل وبعد</a></li>
+          <li><a href="#projects" class="nav__link" data-i18n="nav_portfolio">الأعمال</a></li>
+          <li><a href="#services" class="nav__link" data-i18n="nav_services">خدماتي</a></li>
+          <li><a href="#workflow" class="nav__link" data-i18n="nav_workflow">خطوات العمل</a></li>
+          <li><a href="#reviews" class="nav__link" data-i18n="nav_reviews">آراء العملاء</a></li>
+          <li><a href="#contact" class="nav__link" data-i18n="nav_contact">تواصل معي</a></li>
+        </ul>
+      </div>
+
+      <div class="nav__actions">
+        <!-- Language Switcher (AR ⇄ EN) -->
+        <button class="lang-btn" id="lang-toggle-btn" aria-label="Toggle Language">
+          <i class="ri-global-line"></i> English
+        </button>
+
+        <a href="#contact" class="btn btn-primary btn-sm" data-i18n="nav_hire_me">
+          وظفني الآن <i class="ri-arrow-left-up-line"></i>
+        </a>
+
+        <button class="nav__toggle" id="nav-toggle" aria-label="Toggle Navigation">
+          <i class="ri-menu-4-line"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- HERO SECTION -->
+    <section class="hero section" id="hero">
+      <div class="hero__container container">
+        
+        <div class="hero__data">
+          <!-- Status Pill -->
+          <div class="hero__greeting-wrap">
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span data-i18n="hero_available">متاح لاستقبال مشاريع جديدة</span>
+            </div>
+          </div>
+
+          <!-- Main Hook Headline -->
+          <h1 class="hero__title">
+            <span data-i18n="hero_title_1">أحول لقطاتك الخام إلى</span> <br>
+            <span class="hero__title-highlight" data-i18n="hero_title_highlight">قصص سينمائية فيروسية</span> <br>
+            <span data-i18n="hero_title_2">تخطف الأنظار وتحقق ملايين المشاهدات</span>
+          </h1>
+
+          <!-- Split Profession Typewriter -->
+          <div class="profession-badge-wrap">
+            <i class="ri-sparkling-fill"></i>
+            <span class="profession-dynamic" id="profession-typing">مونتير فيديو سينمائي</span>
+          </div>
+
+          <!-- Value Proposition Description -->
+          <p class="hero__description" data-i18n="hero_desc">
+            أساعد كبار اليوتيوبرز، صناع المحتوى، والبراندات العالمية في مضاعفة معدل الاحتفاظ بالمشاهدين (Retention Rate) عبر مونتاج فائق الدقة، تلوين سينمائي، ومؤثرات صوتية تأسر الانتباه من الثانية الأولى.
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero__btns">
+            <button class="btn btn-primary" onclick="openVideoModal('showreel')">
+              <i class="ri-play-circle-fill"></i> <span data-i18n="hero_cta_showreel">مشاهدة الشو ريل</span>
+            </button>
+            <a href="#contact" class="btn btn-outline">
+              <i class="ri-chat-3-line"></i> <span data-i18n="hero_cta_contact">ابدأ مشروعك الآن</span>
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="hero__socials">
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" title="YouTube" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+            <a href="https://www.instagram.com/mimo.hallali/?__pwa=1" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="https://www.tiktok.com/@mo.hallali" target="_blank" rel="noopener noreferrer" class="social-link" title="TikTok" aria-label="TikTok"><i class="ri-tiktok-line"></i></a>
+            <a href="https://wa.me/213697970981?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%21+%D8%A7%D8%B7%D9%84%D8%B9%D8%AA+%D8%B9%D9%84%D9%89+%D9%85%D8%B9%D8%B1%D8%B6+%D8%A3%D8%B9%D9%85%D8%A7%D9%84%D9%83+%D9%88%D8%A3%D9%88%D8%AF+%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9+%D9%85%D8%B4%D8%B1%D9%88%D8%B9+%D9%81%D9%8A%D8%AF%D9%8A%D9%88" target="_blank" rel="noopener noreferrer" class="social-link" title="WhatsApp" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a>
+            <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="social-link" title="Behance" aria-label="Behance"><i class="ri-behance-line"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+          </div>
+        </div>
+
+        <!-- Hero Visual Graphic With Floating Stats -->
+        <div class="hero__visual">
+          <div class="hero__frame">
+            <div class="hero__image-inner">
+              <img src="../assets/img/hero-editor.jpg" alt="Master Video Editor" class="hero__img">
+            </div>
+
+            <!-- Floating Badge 1 -->
+            <div class="floating-stat floating-stat-1">
+              <i class="ri-eye-line"></i>
+              <div>
+                <div class="stat-val" data-i18n="badge_views">أكثر من 50 مليون</div>
+                <div class="stat-label" data-i18n="badge_views_sub">مشاهدة محققة للعملاء</div>
+              </div>
+            </div>
+
+            <!-- Floating Badge 2 -->
+            <div class="floating-stat floating-stat-2">
+              <i class="ri-magic-line"></i>
+              <div>
+                <div class="stat-val" data-i18n="badge_color">تلوين سينمائي 4K</div>
+                <div class="stat-label" data-i18n="badge_color_sub">DaVinci Resolve Pro</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- METRICS STRIP (SOCIAL PROOF) -->
+    <section class="metrics-strip">
+      <div class="container">
+        <div class="metrics__grid" id="metrics-grid-container">
+          <div class="metric__item">
+            <div class="metric__number">+50 Longs <span>★</span></div>
+            <div class="metric__desc">عدد الفيديوهات الطويلة</div>
+          </div>
+          <div class="metric__item">
+            <div class="metric__number">+300 Shorts <span>+</span></div>
+            <div class="metric__desc">تم تسليم مقاطع فيديو قصيرة عالية التأثير</div>
+          </div>
+          <div class="metric__item">
+            <div class="metric__number">+50M <span>↗</span></div>
+            <div class="metric__desc">متوسط زيادة نسبة المشاهدة (Retention)</div>
+          </div>
+          <div class="metric__item">
+            <div class="metric__number">99.4% <span>♥</span></div>
+            <div class="metric__desc">نسبة رضا العملاء والتقييمات الإيجابية</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWREEL SECTION -->
+    <section class="showreel section" id="showreel">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__badge">
+            <i class="ri-clapperboard-line"></i>
+            <span data-i18n="showreel_badge">العرض البصري الخاطف</span>
+          </div>
+          <h2 class="section__title" data-i18n="showreel_title">
+            شاهد ملخص أقوى <span>أعمالي السينمائية</span>
+          </h2>
+          <p class="section__subtitle" data-i18n="showreel_subtitle">
+            لقطات مختارة في 90 ثانية من أقوى الإنتاجات البصرية، الإعلانات، والفيديوهات الفيروسية.
+          </p>
+        </div>
+
+        <div class="showreel__wrapper" onclick="openVideoModal('showreel')">
+          <!-- UI Window Header -->
+          <div class="ui-window-header" style="background: rgba(18, 20, 32, 0.95); padding: 0.85rem 1.5rem; margin-bottom: 0; border-radius: 20px 20px 0 0; border: 1px solid rgba(255, 255, 255, 0.12); border-bottom: none;">
+            <div class="ui-window-controls">
+              <span class="ui-dot ui-dot--red"></span>
+              <span class="ui-dot ui-dot--yellow"></span>
+              <span class="ui-dot ui-dot--green"></span>
+            </div>
+            <div class="ui-window-badge">
+              <i class="ri-tv-line"></i> <span>OFFICIAL MASTER SHOWREEL</span>
+            </div>
+            <div class="ui-reach-pill">
+              <i class="ri-sparkling-fill"></i> 4K 60FPS HDR
+            </div>
+          </div>
+
+          <div class="showreel__cover" style="border-radius: 0 0 20px 20px;">
+            <img src="https://img.youtube.com/vi/euCoUp4_go0/maxresdefault.jpg" alt="Showreel Cover" onerror="this.src='../assets/img/showreel-cover.svg'">
+            <div class="showreel__play-center">
+              <div class="play-ring-pulse" aria-label="Play Showreel Video">
+                <i class="ri-play-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEFORE & AFTER INTERACTIVE SLIDER -->
+    <section class="compare section" id="compare">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__badge">
+            <i class="ri-contrast-drop-2-line"></i>
+            <span data-i18n="compare_badge">القوة التحويلية للمونتاج</span>
+          </div>
+          <h2 class="section__title" data-i18n="compare_title">
+            الفرق قبل وبعد <span>التلوين والمؤثرات</span>
+          </h2>
+          <p class="section__subtitle" data-i18n="compare_subtitle">
+            اسحب المؤشر لترى كيف نحول التصوير الخام الرمادي (S-Log Raw) إلى مشهد سينمائي متكامل الألوان والأبعاد.
+          </p>
+        </div>
+
+        <div class="compare-box">
+          <div class="slider-container" style="--pos: 50%;">
+            <!-- After Image (Graded / Cinematic) -->
+            <div class="slider-img img-after">
+              <img src="../assets/img/after-graded.jpg" alt="After Color Grading">
+              <span class="slider-tag-lut">LUT: CINEMA 709</span>
+              <span class="slider-badge badge-after" data-i18n="badge_graded">تلوين سينمائي + VFX</span>
+            </div>
+
+            <!-- Before Image (RAW Log footage) -->
+            <div class="slider-img img-before">
+              <img src="../assets/img/before-raw.png" alt="Before RAW Log">
+              <span class="slider-tag-rec"><span class="slider-rec-dot"></span>REC [S-LOG]</span>
+              <span class="slider-badge badge-before" data-i18n="badge_raw">التصوير الخام S-LOG</span>
+            </div>
+
+            <!-- Vertical Divider Line -->
+            <div class="slider-divider"></div>
+
+            <!-- Draggable Handle -->
+            <div class="slider-handle" aria-label="Compare Slider Handle">
+              <i class="ri-expand-left-right-line"></i>
+            </div>
+          </div>
+
+          <div class="compare-hint">
+            <i class="ri-drag-move-fill"></i>
+            <span data-i18n="compare_hint">اسحب الخط يميناً ويساراً للمقارنة المباشرة</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+                                                                                                                                                                        <!-- PROJECTS SECTION (HABIB / PANDA CODERS INCREDIBLE PROJECTS STYLE) -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section__header" style="text-align: center;">
+          <div class="section__badge">
+            <i class="ri-clapperboard-line"></i>
+            <span data-i18n="portfolio_badge">معرض الأعمال الفعلي</span>
+          </div>
+          <h2 class="section__title" data-i18n="portfolio_title">
+            أصنع مشاريع <br />
+            <span>استثنائية وسينمائية</span>
+          </h2>
+          <p class="section__subtitle" data-i18n="portfolio_subtitle">
+            تصفح نماذج حصرية من الفيديوهات القصيرة، محتوى يوتيوب، الإعلانات، ومؤثرات الموشن.
+          </p>
+        </div>
+
+        <!-- Work Tabs (Habib's Filter Bar) -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <div class="work__tabs">
+            <button class="work__button filter-btn active-filter" data-filter="all">
+              <i class="ri-apps-2-line"></i> <span data-i18n="filter_all">جميع المشاريع</span>
+            </button>
+            <button class="work__button filter-btn" data-filter="shorts">
+              <i class="ri-smartphone-line"></i> <span data-i18n="filter_shorts">ريلز وتيك توك</span>
+            </button>
+            <button class="work__button filter-btn" data-filter="youtube">
+              <i class="ri-youtube-line"></i> <span data-i18n="filter_youtube">يوتيوب وبودكاست</span>
+            </button>
+            <button class="work__button filter-btn" data-filter="commercial">
+              <i class="ri-megaphone-line"></i> <span data-i18n="filter_commercial">إعلانات تجارية</span>
+            </button>
+            <button class="work__button filter-btn" data-filter="motion">
+              <i class="ri-magic-line"></i> <span data-i18n="filter_motion">موشن جرافيك و VFX</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Habib's Swiper Container -->
+        <div class="projects__container">
+          <div class="projects__swiper swiper">
+            <div class="swiper-wrapper" id="projects-swiper-wrapper">
+              <!-- Project Slide 01 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="youtube">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥  404K Views in 3 weeks ago
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">01</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-youtube-line"></i>
+                    <span>يوتيوب وثائقي</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">وثائقي يوتيوب سينمائي بأسلوب يعتمد على رتم سريع، خرائط تفاعلية، وتصميم صوتي درامي.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> After Effects</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Soundly</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-1')">
+                  <img src="https://img.youtube.com/vi/euCoUp4_go0/hqdefault.jpg" alt="القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!" class="projects__img" onerror="this.src='../assets/img/project-1.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-hd-line"></i> 4K PRORES
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>04:25</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project Slide 02 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="youtube">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥 409K views in 8 days ago
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">02</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-youtube-line"></i>
+                    <span>يوتيوب وبودكاست</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">ليلة القبض على رفيق بن لادن في اليمن</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">صُممت لتحقيق معدل خطف للانتباه يتجاوز 95% في الثانية الأولى، وذلك باستخدام النصوص الحركية وتصميم الصوت.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> After Effects</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Subtitles Pro</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-2')">
+                  <img src="https://img.youtube.com/vi/60f8xluWIBw/hqdefault.jpg" alt="ليلة القبض على رفيق بن لادن في اليمن" class="projects__img" onerror="this.src='../assets/img/project-2.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-hd-line"></i> 4K PRORES
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>04:25</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project Slide 03 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="youtube">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥 +177K  views in 1 day
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">03</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-youtube-line"></i>
+                    <span>يوتيوب وبودكاست</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">فيديو تجاري متميز وعالي الجودة، يتميز بتقنيات دقيقة لتغيير سرعة اللقطات (speed-ramping) وعمليات احترافية لتصحيح الألوان وضبطها (color correction and grading) باستخدام برنامج DaVinci.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> DaVinci Resolve</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> After Effects</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-3')">
+                  <img src="https://img.youtube.com/vi/8UJ69GTNXpI/hqdefault.jpg" alt="من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل" class="projects__img" onerror="this.src='../assets/img/project-3.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-hd-line"></i> 4K PRORES
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>04:25</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project Slide 04 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="shorts">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-smartphone-line"></i> <span>REEL 9:16</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥 +6.4M Views
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">04</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-smartphone-line"></i>
+                    <span>ريلز وتيك توك</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">مدينة بلا رجال</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">مونتاج ريلز فيروسي بأسلوب سردي سريع وخاطف، يعتمد على نصوص حركية (Kinetic Typography)، مؤثرات صوتية مكثفة، وتلوين سينمائي يرفع نسبة إكمال المشاهدة لأقصى حد.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> DaVinci Studio</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-4')">
+                  <img src="../assets/img/project-4.jpg" alt="مدينة بلا رجال" class="projects__img" onerror="this.src='../assets/img/project-4.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-smartphone-line"></i> 9:16 60FPS
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>00:48</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES / CAPABILITIES SECTION -->
+    <section class="services section" id="services">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__badge">
+            <i class="ri-tools-line"></i>
+            <span data-i18n="services_badge">حلول مونتاج شاملة</span>
+          </div>
+          <h2 class="section__title" data-i18n="services_title">
+            ماذا أقدم <span>لقناتك أو علامتك التجارية؟</span>
+          </h2>
+          <p class="section__subtitle" data-i18n="services_subtitle">
+            خدمات تحرير فيديو مدروسة هندسياً لرفع التفاعل، زيادة المبيعات، وبناء هوية بصرية فريدة.
+          </p>
+        </div>
+
+        <div class="services__grid">
+          
+          <!-- Service 1 -->
+          <div class="service__card">
+            <div class="service__icon-wrap"><i class="ri-smartphone-line"></i></div>
+            <h3 class="service__title" data-i18n="service_1_title">صناعة الفيديوهات الفيروسية (Shorts & Reels)</h3>
+            <p class="service__desc" data-i18n="service_1_desc">
+              تفكيك وتصميم ريلز وتيك توك بأسلوب أليكس هورموزي وإيمان قادزي: خطافات بصرية ساحرة (Hooks)، نصوص متحركة ديناميكية، وتأثيرات صوتية تجعل المشاهد يكمل حتى النهاية.
+            </p>
+            <ul class="service__features">
+              <li class="service__feature"><i class="ri-check-line"></i> خطافات أول 3 ثوانٍ قوية</li>
+              <li class="service__feature"><i class="ri-check-line"></i> نصوص متحركة ملونة وإيموجي 3D</li>
+              <li class="service__feature"><i class="ri-check-line"></i> هندسة صوتية وتأثيرات SFX</li>
+            </ul>
+            <div class="service__software">Software: CapCut Pro / Premiere / AE</div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service__card">
+            <div class="service__icon-wrap"><i class="ri-youtube-line"></i></div>
+            <h3 class="service__title" data-i18n="service_2_title">مونتاج يوتيوب عالي الاحتفاظ (Retention Editing)</h3>
+            <p class="service__desc" data-i18n="service_2_desc">
+              هيكلة الفيديوهات الطويلة، إدارة الرتم (Pacing)، إدراج البي رول السينمائي، تصميم الصوت (Sound Design)، لضمان رفع متوسط مدة المشاهدة إلى مستويات قياسية.
+            </p>
+            <ul class="service__features">
+              <li class="service__feature"><i class="ri-check-line"></i> ترتيب درامي وبناء السرد</li>
+              <li class="service__feature"><i class="ri-check-line"></i> انتقاء وترتيب البي رول المناسب</li>
+              <li class="service__feature"><i class="ri-check-line"></i> استبعاد لحظات الملل تماماً</li>
+            </ul>
+            <div class="service__software">Software: Premiere Pro / DaVinci</div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service__card">
+            <div class="service__icon-wrap"><i class="ri-palette-line"></i></div>
+            <h3 class="service__title" data-i18n="service_3_title">التلوين السينمائي الاحترافي (Color Grading)</h3>
+            <p class="service__desc" data-i18n="service_3_desc">
+              تلوين لقطات الكاميرات الاحترافية (Sony, RED, Arri, Blackmagic) عبر DaVinci Resolve، مع ضبط درجات البشرة وتطبيق لوكات ألوان سينمائية مميزة.
+            </p>
+            <ul class="service__features">
+              <li class="service__feature"><i class="ri-check-line"></i> إدارة الألوان ACES / Color Space</li>
+              <li class="service__feature"><i class="ri-check-line"></i> لوكات هوليوود (Teal & Orange / Film Look)</li>
+              <li class="service__feature"><i class="ri-check-line"></i> تصحيح ألوان البشرة الطبيعية</li>
+            </ul>
+            <div class="service__software">Software: DaVinci Resolve Studio</div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service__card">
+            <div class="service__icon-wrap"><i class="ri-shape-line"></i></div>
+            <h3 class="service__title" data-i18n="service_4_title">الموشن جرافيك والمؤثرات البصرية (Motion Graphics & VFX)</h3>
+            <p class="service__desc" data-i18n="service_4_desc">
+              تحريك العناصر ثنائية وثلاثية الأبعاد، تتبع الحركة (Camera Tracking)، تصميم العناوين السينمائية، شاشات العرض المستقبلية (HUDs)، وإزالة العيوب باحترافية.
+            </p>
+            <ul class="service__features">
+              <li class="service__feature"><i class="ri-check-line"></i> 3D Camera Tracking</li>
+              <li class="service__feature"><i class="ri-check-line"></i> عناوين متحركة وهوية بصرية</li>
+              <li class="service__feature"><i class="ri-check-line"></i> عزل الشاشات الخضراء وتنظيف المشاهد</li>
+            </ul>
+            <div class="service__software">Software: After Effects / Blender</div>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service__card">
+            <div class="service__icon-wrap"><i class="ri-headphone-line"></i></div>
+            <h3 class="service__title" data-i18n="service_5_title">تصميم وهندسة الصوت (Sound Design & Foley)</h3>
+            <p class="service__desc" data-i18n="service_5_desc">
+              الصوت يشكل 50% من نجاح أي فيديو. نقوم بتنقية الصوت، موازنة الترددات، إضافة المؤثرات الصوتية (Risers, Impacts, Whooshes) وخلق تجربة سمعية محيطية غامرة.
+            </p>
+            <ul class="service__features">
+              <li class="service__feature"><i class="ri-check-line"></i> إزالة التشويش وتنقية الصوت بالذكاء الاصطناعي</li>
+              <li class="service__feature"><i class="ri-check-line"></i> طبقات مؤثرات Foley واقعية</li>
+              <li class="service__feature"><i class="ri-check-line"></i> موازنة صوت المعلق مع الموسيقى</li>
+            </ul>
+            <div class="service__software">Software: Soundly / Audition / Fairlight</div>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="service__card">
+            <div class="service__icon-wrap"><i class="ri-image-edit-line"></i></div>
+            <h3 class="service__title" data-i18n="service_6_title">تصميم أغلفة اليوتيوب والتغليف البصري (Packaging & CTR)</h3>
+            <p class="service__desc" data-i18n="service_6_desc">
+              مساعدتك في اختيار اللقطات الأكثر جذباً، وتصميم الأغلفة المصغرة (Thumbnails) التي تضمن أعلى نسبة نقر إلى الظهور (High CTR).
+            </p>
+            <ul class="service__features">
+              <li class="service__feature"><i class="ri-check-line"></i> تحليل المنافسين ومعدلات النقر</li>
+              <li class="service__feature"><i class="ri-check-line"></i> تباين ألوان قوي وملفت للنظر</li>
+              <li class="service__feature"><i class="ri-check-line"></i> نماذج مصغرة مهيأة لكافة الأجهزة</li>
+            </ul>
+            <div class="service__software">Software: Photoshop / Midjourney</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKFLOW / HOW WE WORK SECTION -->
+    <section class="workflow section" id="workflow">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__badge">
+            <i class="ri-git-commit-line"></i>
+            <span data-i18n="workflow_badge">منهجية العمل المتقنة</span>
+          </div>
+          <h2 class="section__title" data-i18n="workflow_title">
+            كيف ننفذ مشروعك من <span>البداية حتى التسليم؟</span>
+          </h2>
+          <p class="section__subtitle" data-i18n="workflow_subtitle">
+            خطة واضحة ومنظمة تضمن تسليم العمل في الموعد المحدد وبأعلى معايير الجودة العالمية.
+          </p>
+        </div>
+
+        <div class="workflow__grid">
+          
+          <div class="workflow__step">
+            <div class="step__number">01</div>
+            <h3 class="step__title" data-i18n="step_1_title">1. الإحاطة واستلام المواد</h3>
+            <p class="step__desc" data-i18n="step_1_desc">رفع الملفات الخام والملاحظات عبر Google Drive أو Frame.io وتحديد الهدف والرؤية الفنية.</p>
+          </div>
+
+          <div class="workflow__step">
+            <div class="step__number">02</div>
+            <h3 class="step__title" data-i18n="step_2_title">2. بناء القصة والقص الأولي</h3>
+            <p class="step__desc" data-i18n="step_2_desc">انتقاء أفضل اللقطات، ترتيب السرد، ضبط التوقيت والإيقاع (Rough Cut & Pacing).</p>
+          </div>
+
+          <div class="workflow__step">
+            <div class="step__number">03</div>
+            <h3 class="step__title" data-i18n="step_3_title">3. السحر البصري والصوتي</h3>
+            <p class="step__desc" data-i18n="step_3_desc">إضافة التلوين، المؤثرات البصرية، النصوص المتحركة، وهندسة الصوت الفائقة.</p>
+          </div>
+
+          <div class="workflow__step">
+            <div class="step__number">04</div>
+            <h3 class="step__title" data-i18n="step_4_title">4. المراجعة والتعديلات</h3>
+            <p class="step__desc" data-i18n="step_4_desc">مراجعة العميل للفيديو مع إمكانية إضافة الملاحظات وتعديلها بسرعة فائقة.</p>
+          </div>
+
+          <div class="workflow__step">
+            <div class="step__number">05</div>
+            <h3 class="step__title" data-i18n="step_5_title">5. التسليم النهائي 4K</h3>
+            <p class="step__desc" data-i18n="step_5_desc">تصدير الفيديو بأعلى جودة ممكنة جاهزاً للنشر المباشر وتحقيق النجاح.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS / CLIENT REVIEWS -->
+    <section class="reviews section" id="reviews">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__badge">
+            <i class="ri-star-smile-line"></i>
+            <span data-i18n="reviews_badge">شهادات حقيقية</span>
+          </div>
+          <h2 class="section__title" data-i18n="reviews_title">
+            ماذا يقول <span>صناع المحتوى والعملاء؟</span>
+          </h2>
+          <p class="section__subtitle" data-i18n="reviews_subtitle">
+            آراء موثوقة من يوتيوبرز، وكالات تسويق، ورواد أعمال عملنا معاً على مشاريعهم.
+          </p>
+          <div style="margin-top: 1.5rem;">
+            <button type="button" class="btn-review-cta" id="btn-open-review-modal">
+              <i class="ri-chat-new-line"></i> <span data-i18n="reviews_add_btn">أضف تقييمك أو شهادتك هنا</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="testimonials__swiper swiper">
+          <div class="swiper-wrapper" id="testimonials-wrapper-container">
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"من أفضل المونتيرين الذين تعاملت معهم. زاد معدل الاحتفاظ في قناتي بنسبة 45% في أول شهر فقط. سرعة خيالية وفهم عميق لما يريده الجمهور!"</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789671860.jpg" alt="عبد الرحمان عطيف" class="author-avatar" onerror="this.src='../assets/img/avatar-1.svg'">
+              <div>
+                <div class="author-name">عبد الرحمان عطيف</div>
+                <div class="author-role">صانع محتوى (500K مشترك)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"احترافية عالية، التزام دقيق بالمواعيد، وقدرة مذهلة على تحويل المقاطع الصوتية الخام إلى بودكاست مرئي جذاب ومشوق من أول دقيقة."</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789672075.jpg" alt="دزز" class="author-avatar" onerror="this.src='../assets/img/avatar-2.svg'">
+              <div>
+                <div class="author-name">دزز</div>
+                <div class="author-role">صانع محتوى (3.09M مشترك)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"العمل معه اختصر عليّ شهوراً من التجربة والخطأ. استوعب ما يجذب جمهوري من أول مسودة، والنتيجة كانت قفزة في تفاعل واستمرار المشاهدين مع تسليم قياسي لكل المشاريع"</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789672464.jpg" alt="دكتور محمد شرف" class="author-avatar" onerror="this.src='../assets/img/avatar-3.svg'">
+              <div>
+                <div class="author-name">دكتور محمد شرف</div>
+                <div class="author-role">رائد أعمال ومؤسس وكالة</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"فارق شاسع في جودة الإنتاج وتماسك الفيديوهات؛ نمو فوري بنسبة 150% في معدل إكمال المشاهدة، مع دقة في المواعيد وقراءة ممتازة لما يطلبه المتابعون."</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789672356.jpg" alt="عبدالله بودز" class="author-avatar" onerror="this.src='../assets/img/avatar-4.svg'">
+              <div>
+                <div class="author-name">عبدالله بودز</div>
+                <div class="author-role">صانع محتوى (1.66K مشترك)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & BOOKING SECTION -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__badge">
+            <i class="ri-send-plane-line"></i>
+            <span data-i18n="contact_badge">فلنبدأ صناعة النجاح</span>
+          </div>
+          <h2 class="section__title" data-i18n="contact_title">
+            هل أنت مستعد لرفع <span>مستوى فيديوهاتك؟</span>
+          </h2>
+          <p class="section__subtitle" data-i18n="contact_subtitle">
+            دعنا نتحدث عن مشروعك القادم ونبني استراتيجية مونتاج تضمن لك التفوق على منافسيك.
+          </p>
+        </div>
+
+        <div class="contact__container">
+          
+          <!-- Contact Left Card -->
+          <div class="contact__info-card">
+            <h3 class="contact__info-title" data-i18n="contact_badge">تواصل مباشر وسريع</h3>
+            <p class="contact__info-desc" data-i18n="contact_subtitle">
+              أنا جاهز للرد على استفسارك ومناقشة تفاصيل مشروعك أو إرسال عرض سعر مخصص خلال ساعات معدودة.
+            </p>
+
+            <div class="contact__action-list">
+              <!-- Direct WhatsApp Button -->
+              <a href="https://wa.me/213697970981?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%21+%D8%A7%D8%B7%D9%84%D8%B9%D8%AA+%D8%B9%D9%84%D9%89+%D9%85%D8%B9%D8%B1%D8%B6+%D8%A3%D8%B9%D9%85%D8%A7%D9%84%D9%83+%D9%88%D8%A3%D9%88%D8%AF+%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9+%D9%85%D8%B4%D8%B1%D9%88%D8%B9+%D9%81%D9%8A%D8%AF%D9%8A%D9%88" target="_blank" rel="noopener noreferrer" class="contact-action-btn whatsapp-action" title="WhatsApp" aria-label="WhatsApp">
+                <span data-i18n="contact_whatsapp_btn">محادثة فورية عبر واتساب</span>
+                <i class="ri-whatsapp-line"></i>
+              </a>
+
+              <!-- Copy Email Button -->
+              <button class="contact-action-btn" id="copy-email-btn">
+                <span data-i18n="contact_copy_email_btn">نسخ البريد الإلكتروني</span>
+                <i class="ri-file-copy-line"></i>
+              </button>
+              <!-- Direct Email Link -->
+              <a href="mailto:hallali.mohamed4@gmail.com" class="contact-email-display" id="contact-email-display" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: var(--accent-cyan); font-weight: 700; font-size: 0.95rem; margin-top: 0.75rem; text-decoration: none; padding: 0.5rem; border-radius: 8px; background: rgba(6, 182, 212, 0.08); border: 1px dashed rgba(6, 182, 212, 0.3);">
+                <i class="ri-mail-line"></i> <span id="contact-email-text">hallali.mohamed4@gmail.com</span>
+              </a>
+            </div>
+            <div class="contact__socials-wrap">
+              <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: #ffffff;">حساباتي على الشبكات</h4>
+              <div class="hero__socials">
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" title="YouTube" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+                <a href="https://www.instagram.com/mimo.hallali/?__pwa=1" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                <a href="https://www.tiktok.com/@mo.hallali" target="_blank" rel="noopener noreferrer" class="social-link" title="TikTok" aria-label="TikTok"><i class="ri-tiktok-line"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form class="contact__form" id="contact-form">
+            <!-- Security Bot Honeypot Field (Invisible to human users) -->
+            <div style="display:none !important; visibility:hidden; opacity:0; position:absolute; left:-9999px;" aria-hidden="true">
+              <label for="contact-hp">Leave this field blank</label>
+              <input type="text" id="contact-hp" name="_hp" tabindex="-1" autocomplete="off">
+            </div>
+
+            <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;" data-i18n="contact_form_title">أرسل تفاصيل مشروعك</h3>
+            
+            <div class="form__grid">
+              <div class="form__group">
+                <label class="form__label" for="contact-name" data-i18n="label_name">الاسم الكريم</label>
+                <input type="text" id="contact-name" class="form__input" placeholder="اسمك أو اسم قناتك" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="contact-email" data-i18n="label_email">البريد الإلكتروني</label>
+                <input type="email" id="contact-email" class="form__input" placeholder="example@domain.com" required>
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="contact-type" data-i18n="label_type">نوع المشروع المطلوب</label>
+              <select id="contact-type" class="form__select">
+                <option data-i18n="type_opt_1">فيديوهات قصيرة ريلز / تيك توك</option>
+                <option data-i18n="type_opt_2">فيديو يوتيوب طويل / وثائقي</option>
+                <option data-i18n="type_opt_3">إعلان تجاري لعلامة تجارية</option>
+                <option data-i18n="type_opt_4">تلوين سينمائي ومؤثرات بصرية</option>
+              </select>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="contact-message" data-i18n="label_message">تفاصيل ورؤية الفيديو</label>
+              <textarea id="contact-message" class="form__textarea" placeholder="أخبرني عن أسلوب الفيديو، مدته التقديرية، أو رابط لقناتك..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="ri-send-plane-2-fill"></i> <span data-i18n="form_submit_btn">إرسال الطلب الآن</span>
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__copy">
+          <span data-i18n="footer_rights">جميع الحقوق محفوظة © لمونتير الفيديو المحترف</span>
+        </div>
+        <div class="footer__tagline" style="color: var(--accent-cyan); font-size: 0.9rem;" data-i18n="footer_tagline">
+          صناعة قصص بصرية تأسر العالم
+        </div>
+        <a href="#hero" class="back-to-top" aria-label="Back to Top">
+          <i class="ri-arrow-up-line"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CLIENT REVIEW MODAL -->
+  <div class="review-modal" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="modal-review-title">
+    <div class="review-modal-box">
+      <button class="modal-close-btn" id="review-modal-close" type="button" aria-label="Close Modal">
+        <i class="ri-close-line"></i>
+      </button>
+
+      <div class="review-modal-header">
+        <div class="review-modal-icon">
+          <i class="ri-chat-smile-3-line"></i>
+        </div>
+        <h3 class="review-modal-title" id="modal-review-title" data-i18n="modal_review_title">إضافة رأيك أو شهادتك</h3>
+        <p class="review-modal-sub" data-i18n="modal_review_sub">شاركنا تجربتك الاحترافية ليتم نشرها في معرض آراء العملاء</p>
+      </div>
+
+      <form id="review-form">
+        <!-- Security Bot Honeypot Field -->
+        <div style="display:none !important; visibility:hidden; opacity:0; position:absolute; left:-9999px;" aria-hidden="true">
+          <label for="review-hp">Leave this field blank</label>
+          <input type="text" id="review-hp" name="_hp" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="form-grid-modal">
+          <div class="form-group-modal">
+            <label for="review-name" data-i18n="modal_review_name">اسم العميل / صانع المحتوى *</label>
+            <input type="text" id="review-name" class="form__input" placeholder="مثال: يوسف القحطاني" required>
+          </div>
+
+          <div class="form-group-modal">
+            <label for="review-role" data-i18n="modal_review_role">الصفة أو القناة *</label>
+            <input type="text" id="review-role" class="form__input" placeholder="مثال: صانع محتوى (300K مشترك)" required>
+          </div>
+        </div>
+
+        <div class="form-group-modal">
+          <label data-i18n="modal_review_rating">التقييم *</label>
+          <div class="star-rating-select" id="review-stars-container">
+            <i class="ri-star-fill active-star" data-rating="1"></i>
+            <i class="ri-star-fill active-star" data-rating="2"></i>
+            <i class="ri-star-fill active-star" data-rating="3"></i>
+            <i class="ri-star-fill active-star" data-rating="4"></i>
+            <i class="ri-star-fill active-star" data-rating="5"></i>
+            <span class="star-rating-label" id="star-rating-text">5 نجوم (ممتاز جداً)</span>
+          </div>
+          <input type="hidden" id="review-rating" value="5">
+        </div>
+
+        <div class="form-group-modal">
+          <label for="review-quote" data-i18n="modal_review_quote">نص التقييم أو الشهادة *</label>
+          <textarea id="review-quote" class="form__textarea" rows="4" placeholder="اكتب تجربتك مع المونتاج، الجودة، سرعة التسليم، أو أثرها على قناتك..." required></textarea>
+        </div>
+
+        <div class="form-group-modal">
+          <label for="review-avatar" data-i18n="modal_review_avatar">رابط صورة الحساب / اللوغو (اختياري)</label>
+          <input type="url" id="review-avatar" class="form__input" placeholder="https://... أو يمكنك تركها للصورة الافتراضية">
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="review-submit-btn" style="width: 100%; margin-top: 0.5rem;">
+          <i class="ri-send-plane-fill"></i> <span data-i18n="modal_review_submit">إرسال التقييم ونشره الآن</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- VIDEO MODAL LIGHTBOX -->
+  <div class="video-modal" id="video-modal" role="dialog" aria-modal="true">
+    <div class="modal-content-box">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Video">
+        <i class="ri-close-line"></i>
+      </button>
+      <div class="modal-video-wrapper">
+        <iframe id="modal-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="modal-header-meta">
+        <div class="modal-title" id="modal-video-title">عنوان الفيديو</div>
+        <div class="modal-tag" id="modal-video-tag">Category</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-notice" id="toast-notice">
+    <i class="ri-checkbox-circle-fill"></i>
+    <span id="toast-message">تم بنجاح</span>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+  <script src="../assets/js/data.js?v=1789680561"></script>
+  <script src="../assets/js/main.js?v=1789680561"></script>
+</body>
+</html>

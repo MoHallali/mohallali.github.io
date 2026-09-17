@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650" width="100%" height="100%">
+  <defs>
+    <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Ambient background glow circles -->
+  <circle cx="300" cy="320" r="220" fill="url(#neonGlow)" opacity="0.15" filter="url(#glow)"/>
+  <circle cx="300" cy="300" r="180" fill="none" stroke="url(#neonGlow)" stroke-width="2" stroke-dasharray="8,8" opacity="0.4"/>
+  
+  <!-- Outer Tech Ring -->
+  <circle cx="300" cy="300" r="230" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="16, 24" opacity="0.3"/>
+
+  <!-- Editor Avatar Body / Silhouette -->
+  <g transform="translate(150, 140)">
+    <!-- Base Glow -->
+    <ellipse cx="150" cy="320" rx="140" ry="60" fill="#0f172a" opacity="0.9"/>
+    
+    <!-- Torso / Hoodie -->
+    <path d="M50,340 C60,260 100,230 150,230 C200,230 240,260 250,340 Z" fill="#1e1b4b" stroke="#6366f1" stroke-width="2"/>
+    <path d="M120,230 L150,280 L180,230 Z" fill="#2e1065"/>
+    
+    <!-- Neck & Head -->
+    <rect x="135" y="180" width="30" height="35" rx="5" fill="#fcd34d" opacity="0.9"/>
+    <circle cx="150" cy="140" r="55" fill="#fcd34d"/>
+    <!-- Hair / Beanie -->
+    <path d="M95,140 C95,95 120,70 150,70 C180,70 205,95 205,140 C190,130 110,130 95,140 Z" fill="#0f172a"/>
+
+    <!-- Pro Headphones -->
+    <path d="M85,130 C85,85 115,60 150,60 C185,60 215,85 215,130" fill="none" stroke="#8b5cf6" stroke-width="10" stroke-linecap="round"/>
+    <rect x="75" y="120" width="22" height="40" rx="10" fill="#a855f7" filter="url(#glow)"/>
+    <rect x="203" y="120" width="22" height="40" rx="10" fill="#06b6d4" filter="url(#glow)"/>
+    
+    <!-- Studio Glasses / Glare -->
+    <rect x="115" y="130" width="30" height="18" rx="4" fill="#0369a1" opacity="0.8"/>
+    <rect x="155" y="130" width="30" height="18" rx="4" fill="#0369a1" opacity="0.8"/>
+    <line x1="145" y1="138" x2="155" y2="138" stroke="#38bdf8" stroke-width="3"/>
+  </g>
+
+  <!-- Floating Badge 1: 50M+ Views -->
+  <g transform="translate(60, 200)" filter="url(#glow)">
+    <rect width="145" height="52" rx="14" fill="#090d16" stroke="#8b5cf6" stroke-width="1.5"/>
+    <circle cx="28" cy="26" r="14" fill="#8b5cf6" opacity="0.2"/>
+    <path d="M22,26 L34,26 M28,20 L34,26 L28,32" stroke="#a855f7" stroke-width="2" stroke-linecap="round"/>
+    <text x="50" y="24" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="14">50M+ Views</text>
+    <text x="50" y="40" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Generated Reach</text>
+  </g>
+
+  <!-- Floating Badge 2: 4K HDR Mastery -->
+  <g transform="translate(390, 260)" filter="url(#glow)">
+    <rect width="150" height="52" rx="14" fill="#090d16" stroke="#06b6d4" stroke-width="1.5"/>
+    <circle cx="28" cy="26" r="14" fill="#06b6d4" opacity="0.2"/>
+    <text x="22" y="30" fill="#22d3ee" font-family="sans-serif" font-weight="bold" font-size="12">4K</text>
+    <text x="50" y="24" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="14">Cinematic Edit</text>
+    <text x="50" y="40" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Log Color &amp; Sound</text>
+  </g>
+
+  <!-- Floating Badge 3: Retention Specialist -->
+  <g transform="translate(220, 520)" filter="url(#glow)">
+    <rect width="160" height="50" rx="14" fill="#090d16" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="28" cy="25" r="14" fill="#10b981" opacity="0.2"/>
+    <path d="M20,29 L26,22 L31,26 L36,19" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="50" y="23" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="14">+70% Retention</text>
+    <text x="50" y="39" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Viral Pacing Arc</text>
+  </g>
+
+  <!-- Sound wave visualizer at bottom -->
+  <g transform="translate(180, 480)" opacity="0.7">
+    <rect x="0" y="10" width="4" height="20" rx="2" fill="#8b5cf6"/>
+    <rect x="8" y="4" width="4" height="32" rx="2" fill="#a855f7"/>
+    <rect x="16" y="14" width="4" height="12" rx="2" fill="#6366f1"/>
+    <rect x="24" y="0" width="4" height="40" rx="2" fill="#3b82f6"/>
+    <rect x="32" y="8" width="4" height="24" rx="2" fill="#06b6d4"/>
+    <rect x="40" y="18" width="4" height="10" rx="2" fill="#22d3ee"/>
+    <rect x="48" y="2" width="4" height="36" rx="2" fill="#a855f7"/>
+    <rect x="56" y="12" width="4" height="16" rx="2" fill="#8b5cf6"/>
+  </g>
+</svg>

@@ -1,0 +1,207 @@
+// Automatically synced site data
+window.SITE_DATA = {
+  "profile": {
+    "brandName": "SATURN",
+    "statusAr": "متاح لاستقبال مشاريع جديدة",
+    "statusEn": "Available for new projects",
+    "greetingAr": "أهلاً بك، أنا محمد هلالي",
+    "greetingEn": "Hello, I'm Mohame Hallali",
+    "titleLine1Ar": "أحول لقطاتك الخام إلى..",
+    "titleLine1En": "Transforming Raw Footage Into",
+    "titleHighlightAr": "قصص سينمائية ",
+    "titleHighlightEn": "High-Converting Viral Stories",
+    "titleLine2Ar": "أهلاً بك، أنا محمد هلالي",
+    "titleLine2En": "Hello, I'm Mohame Hallali",
+    "professionsAr": [
+      "مونتير فيديو سينمائي",
+      "خبير فيديوهات قصيرة وطويلة",
+      "متخصص مؤثرات بصرية",
+      "صانع قصص بصرية عالية الاحتفاظ"
+    ],
+    "professionsEn": [
+      "Cinematic Video Editor",
+      "Viral Shorts & Long",
+      "VFX Artist",
+      "High-Retention Storyteller"
+    ],
+    "descAr": "أساعد كبار اليوتيوبرز، صناع المحتوى، والبراندات العالمية في مضاعفة معدل الاحتفاظ بالمشاهدين (Retention Rate) عبر مونتاج فائق الدقة، تلوين سينمائي، ومؤثرات صوتية تجذب الانتباه من الثانية الأولى.",
+    "descEn": "I help top YouTubers, creators, and global brands skyrocket their retention rate with elite narrative pacing, cinema-grade color grading, and dynamic sound design that hooks viewers from the first second.",
+    "badgeViewsAr": "أكثر من 50 مليون",
+    "badgeViewsEn": "50M+ Views",
+    "badgeViewsSubAr": "مشاهدة محققة للعملاء",
+    "badgeViewsSubEn": "Generated for clients",
+    "badgeColorAr": "تلوين سينمائي 4K",
+    "badgeColorEn": "4K Color Grade",
+    "badgeColorSubAr": "DaVinci Resolve Pro",
+    "badgeColorSubEn": "DaVinci Resolve Pro"
+  },
+  "contact": {
+    "whatsapp": "+213697970981",
+    "email": "hallali.mohamed4@gmail.com",
+    "youtube": "https://youtube.com",
+    "instagram": "https://www.instagram.com/mimo.hallali/?__pwa=1",
+    "tiktok": "https://www.tiktok.com/@mo.hallali",
+    "linkedin": "https://linkedin.com",
+    "behance": "https://behance.net"
+  },
+  "metrics": [
+    {
+      "num": "+50 Longs",
+      "symbol": "★",
+      "textAr": "عدد الفيديوهات الطويلة",
+      "textEn": "Number of long-form videos"
+    },
+    {
+      "num": "+300 Shorts",
+      "symbol": "+",
+      "textAr": "تم تسليم مقاطع فيديو قصيرة عالية التأثير",
+      "textEn": "High-Impact Shorts Delivered"
+    },
+    {
+      "num": "+50M",
+      "symbol": "↗",
+      "textAr": "متوسط زيادة نسبة المشاهدة (Retention)",
+      "textEn": "Average Watch Time / Retention Boost"
+    },
+    {
+      "num": "99.4%",
+      "symbol": "♥",
+      "textAr": "نسبة رضا العملاء والتقييمات الإيجابية",
+      "textEn": "Client Satisfaction & 5-Star Rating"
+    }
+  ],
+  "showreel": {
+    "titleAr": "شاهد ملخص أقوى أعمالي السينمائية",
+    "titleEn": "Watch Highlights Of My Best Visual Works",
+    "subtitleAr": "هذا واحد من ابرز اعمالي",
+    "subtitleEn": "This is one of my most prominent works.",
+    "url": "https://www.youtube.com/embed/euCoUp4_go0?autoplay=1"
+  },
+  "projects": [
+    {
+      "id": "proj-1",
+      "titleAr": "القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!",
+      "titleEn": "The full story of the assassination of the first woman in history to rule an Islamic state!",
+      "category": "youtube",
+      "categoryLabelAr": "يوتيوب وثائقي",
+      "categoryLabelEn": "YouTube Documentary",
+      "reach": "🔥  404K Views in 3 weeks ago",
+      "descAr": "وثائقي يوتيوب سينمائي بأسلوب يعتمد على رتم سريع، خرائط تفاعلية، وتصميم صوتي درامي.",
+      "descEn": "Cinematic documentary edit with dynamic maps, pacing arcs, and multi-layered sound design.",
+      "tools": [
+        "Premiere Pro",
+        "After Effects",
+        "Soundly"
+      ],
+      "image": "assets/img/project-1.svg",
+      "url": "https://www.youtube.com/embed/euCoUp4_go0?autoplay=1",
+      "num": "01",
+      "subtitleAr": "أسلوب المونتاج والأدوات",
+      "subtitleEn": "Editing Style & Techstack"
+    },
+    {
+      "id": "proj-2",
+      "titleAr": "ليلة القبض على رفيق بن لادن في اليمن",
+      "titleEn": "The Night Bin Laden’s Associate Was Arrested in Yemen",
+      "category": "youtube",
+      "categoryLabelAr": "يوتيوب وبودكاست",
+      "categoryLabelEn": "YouTube Long-Form",
+      "reach": "🔥 409K views in 8 days ago",
+      "descAr": "صُممت لتحقيق معدل خطف للانتباه يتجاوز 95% في الثانية الأولى، وذلك باستخدام النصوص الحركية وتصميم الصوت.",
+      "descEn": "Engineered for 95%+ first-second hook rate with kinetic text and sound design.",
+      "tools": [
+        "Premiere Pro",
+        "After Effects",
+        "Subtitles Pro"
+      ],
+      "image": "assets/img/project-2.svg",
+      "url": "https://www.youtube.com/embed/60f8xluWIBw?autoplay=1",
+      "num": "02",
+      "subtitleAr": "أسلوب المونتاج والأدوات",
+      "subtitleEn": "Editing Style & Techstack"
+    },
+    {
+      "id": "proj-3",
+      "titleAr": "من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل",
+      "titleEn": "From Al Jazeera Presenter to Bashar al-Assad’s Mistress? Luna Al-Shibl",
+      "category": "youtube",
+      "categoryLabelAr": "يوتيوب وبودكاست",
+      "categoryLabelEn": "YouTube Long-Form",
+      "reach": "🔥 +177K  views in 1 day",
+      "descAr": "فيديو تجاري متميز وعالي الجودة، يتميز بتقنيات دقيقة لتغيير سرعة اللقطات (speed-ramping) وعمليات احترافية لتصحيح الألوان وضبطها (color correction and grading) باستخدام برنامج DaVinci.",
+      "descEn": "A high-quality, distinctive commercial video featuring precise speed-ramping techniques and professional color correction and grading using DaVinci software.",
+      "tools": [
+        "DaVinci Resolve",
+        "Premiere Pro",
+        "After Effects"
+      ],
+      "image": "assets/img/project-3.svg",
+      "url": "https://www.youtube.com/embed/8UJ69GTNXpI?autoplay=1",
+      "num": "03",
+      "subtitleAr": "أسلوب المونتاج والأدوات",
+      "subtitleEn": "Editing Style & Techstack"
+    },
+    {
+      "id": "proj-4",
+      "titleAr": "مدينة بلا رجال",
+      "titleEn": "A City Without Men",
+      "category": "shorts",
+      "categoryLabelAr": "ريلز وتيك توك",
+      "categoryLabelEn": "Shorts & Reels",
+      "reach": "🔥 +6.4M Views",
+      "descAr": "مونتاج ريلز فيروسي بأسلوب سردي سريع وخاطف، يعتمد على نصوص حركية (Kinetic Typography)، مؤثرات صوتية مكثفة، وتلوين سينمائي يرفع نسبة إكمال المشاهدة لأقصى حد.",
+      "descEn": "High-retention viral reel engineered with fast-paced storytelling arcs, kinetic typography, dynamic sound design, and cinema grading designed for maximum watch time.",
+      "tools": [
+        "Premiere Pro",
+        "DaVinci Studio"
+      ],
+      "image": "assets/img/project-4.jpg",
+      "url": "https://www.instagram.com/d7manc/reel/DXFRdzajou8/",
+      "num": "04",
+      "subtitleAr": "أسلوب المونتاج والأدوات",
+      "subtitleEn": "Editing Style & Techstack"
+    }
+  ],
+  "testimonials": [
+    {
+      "nameAr": "عبد الرحمان عطيف",
+      "nameEn": "Abdulrahman Otaif",
+      "roleAr": "صانع محتوى (500K مشترك)",
+      "roleEn": "Content Creator (500K Subs)",
+      "quoteAr": "من أفضل المونتيرين الذين تعاملت معهم. زاد معدل الاحتفاظ في قناتي بنسبة 45% في أول شهر فقط. سرعة خيالية وفهم عميق لما يريده الجمهور!",
+      "quoteEn": "One of the best video editors I've ever collaborated with. My channel retention skyrocketed by 45% in the first month alone. Unmatched pacing and cinematic storytelling!",
+      "rating": 5,
+      "avatar": "assets/img/avatar-1789671860.jpg"
+    },
+    {
+      "nameAr": "دزز",
+      "nameEn": "DZZ",
+      "roleAr": "صانع محتوى (3.09M مشترك)",
+      "roleEn": "Content Creator (3.09M Subs)",
+      "quoteAr": "احترافية عالية، التزام دقيق بالمواعيد، وقدرة مذهلة على تحويل المقاطع الصوتية الخام إلى بودكاست مرئي جذاب ومشوق من أول دقيقة.",
+      "quoteEn": "Incredible professionalism, pinpoint deadlines, and a remarkable talent for turning raw multi-camera podcast footage into engaging visual stories.",
+      "rating": 4,
+      "avatar": "assets/img/avatar-1789672075.jpg"
+    },
+    {
+      "nameAr": "دكتور محمد شرف",
+      "nameEn": "DR. Mohammad Sharaf",
+      "roleAr": "رائد أعمال ومؤسس وكالة",
+      "roleEn": "Agency Founder & Entrepreneur",
+      "quoteAr": "العمل معه اختصر عليّ شهوراً من التجربة والخطأ. استوعب ما يجذب جمهوري من أول مسودة، والنتيجة كانت قفزة في تفاعل واستمرار المشاهدين مع تسليم قياسي لكل المشاريع",
+      "quoteEn": "Working with him saved me months of trial and error. He understood exactly what hooks my audience from the very first draft, delivering a massive spike in viewer retention and engagement—all with record-breaking turnaround times",
+      "rating": 5,
+      "avatar": "assets/img/avatar-1789672464.jpg"
+    },
+    {
+      "nameAr": "عبدالله بودز",
+      "nameEn": "BOODZ",
+      "roleAr": "صانع محتوى (1.66K مشترك)",
+      "roleEn": "Content Creator (1.66K Subs)",
+      "quoteAr": "فارق شاسع في جودة الإنتاج وتماسك الفيديوهات؛ نمو فوري بنسبة 150% في معدل إكمال المشاهدة، مع دقة في المواعيد وقراءة ممتازة لما يطلبه المتابعون.",
+      "quoteEn": "A massive leap in production quality and video pacing. We saw an immediate 45% jump in completion rate, backed by flawless turnaround times and a sharp grasp of what keeps viewers hooked",
+      "rating": 5,
+      "avatar": "assets/img/avatar-1789672356.jpg"
+    }
+  ]
+};

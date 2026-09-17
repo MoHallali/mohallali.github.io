@@ -1,0 +1,11 @@
+# Private Studio Admin & Dev Scripts (Local only, hidden from public GitHub)
+admin/
+admin_server.py
+compiler.py
+Run_Studio.bat
+Sync_To_GitHub.bat
+.surgeignore
+CNAME
+__pycache__/
+*.pyc
+.system_generated/

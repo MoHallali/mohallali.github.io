@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pGrad_project-3_svg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#042f2e" />
+      <stop offset="100%" stop-color="#115e59" />
+    </linearGradient>
+    <radialGradient id="glow_project-3_svg" cx="80%" cy="20%" r="70%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#042f2e" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="380" fill="url(#pGrad_project-3_svg)" />
+  <rect width="640" height="380" fill="url(#glow_project-3_svg)" />
+
+  <!-- Grid Tech Lines -->
+  <line x1="0" y1="190" x2="640" y2="190" stroke="white" stroke-width="0.5" stroke-dasharray="8,8" opacity="0.1"/>
+  <line x1="320" y1="0" x2="320" y2="380" stroke="white" stroke-width="0.5" stroke-dasharray="8,8" opacity="0.1"/>
+  <circle cx="320" cy="190" r="80" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="6,6" opacity="0.4"/>
+
+  <!-- Play Button Center Icon -->
+  <circle cx="320" cy="190" r="38" fill="#090d16" fill-opacity="0.8" stroke="#14b8a6" stroke-width="2"/>
+  <polygon points="314,178 334,190 314,202" fill="#14b8a6"/>
+
+  <!-- Top Badges -->
+  <rect x="25" y="25" width="170" height="30" rx="8" fill="#090d16" fill-opacity="0.85" stroke="#14b8a6" stroke-width="1"/>
+  <text x="35" y="45" fill="#14b8a6" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="12">COMMERCIAL & ADS</text>
+
+  <rect x="475" y="25" width="140" height="30" rx="8" fill="#090d16" fill-opacity="0.85" stroke="#10b981" stroke-width="1"/>
+  <text x="488" y="45" fill="#34d399" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="13">🔥 +1.5M Reach</text>
+
+  <!-- Bottom Title & Style -->
+  <rect x="25" y="295" width="590" height="60" rx="12" fill="#090d16" fill-opacity="0.85"/>
+  <text x="45" y="325" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="18">Apex Supercar Reveal</text>
+  <text x="45" y="344" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="13">Style: Cinematic 4K Grade</text>
+  
+  <text x="540" y="335" fill="#14b8a6" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="14">WATCH ▶</text>
+</svg>
