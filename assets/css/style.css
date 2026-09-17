@@ -1327,6 +1327,42 @@ html[dir="rtl"] .quote-icon-bg {
   }
 }
 
+/*=============== CREATOR TRIBUTE SPOTLIGHT (UNDER REVIEWS) ===============*/
+.tribute-spotlight-wrap {
+  margin-top: 3.5rem;
+  width: 100%;
+}
+
+.tribute-spotlight-card {
+  max-width: 980px;
+  margin: 0 auto;
+  background: linear-gradient(165deg, rgba(22, 25, 42, 0.9) 0%, rgba(10, 12, 22, 0.96) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(239, 68, 68, 0.12);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.tribute-spotlight-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(239, 68, 68, 0.6);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 45px rgba(239, 68, 68, 0.25);
+}
+
+.tribute-layout-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+@media (max-width: 860px) {
+  .tribute-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /*=============== BEFORE & AFTER SLIDER ===============*/
 .compare-box {
   max-width: 950px;

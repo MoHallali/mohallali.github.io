@@ -62,9 +62,9 @@ const translations = {
     metric_4_text: "نسبة رضا العملاء والتقييمات الإيجابية",
 
     // Showreel & Spotlight
-    showreel_badge: "أبرز الأعمال • إشادة الشركاء",
-    showreel_title: "أقوى إنتاجاتي السينمائية.. <span>وشـهادة أعتز بها</span>",
-    showreel_subtitle: "شاهد أقوى مشروع وثائقي أنجزته، يليه اعتراف عفوي من صانع المحتوى عبد الرحمان عطيف في ختام الحلقة يصف فيه الشراكة والجهد المبذول.",
+    showreel_badge: "العرض البصري الخاطف",
+    showreel_title: "شاهد ملخص أقوى <span>أعمالي السينمائية</span>",
+    showreel_subtitle: "لقطات مختارة في 90 ثانية من أقوى الإنتاجات البصرية، الإعلانات، والفيديوهات الفيروسية.",
     spotlight_tab_both: "عرض شامل (جنباً إلى جنب)",
     spotlight_tab_master: "العمل السينمائي الأقوى",
     spotlight_tab_tribute: "إشادة عبد الرحمان عطيف",
@@ -208,9 +208,9 @@ const translations = {
     metric_4_text: "Client Satisfaction & 5-Star Rating",
 
     // Showreel & Spotlight
-    showreel_badge: "Featured Works • Partner Tribute",
-    showreel_title: "Masterpiece Production & <span>Creator Tribute</span>",
-    showreel_subtitle: "Experience my flagship documentary project, alongside an authentic on-camera tribute from 500K creator Abdulrahman Otaif praising our collaboration.",
+    showreel_badge: "High-Impact Visuals",
+    showreel_title: "Watch My <span>Official Showreel</span>",
+    showreel_subtitle: "A curated 90-second glimpse of elite visual storytelling, commercials, and high-retention edits.",
     spotlight_tab_both: "Side-by-Side View",
     spotlight_tab_master: "Masterpiece Project",
     spotlight_tab_tribute: "Creator Tribute",
