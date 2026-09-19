@@ -1928,6 +1928,56 @@ html[dir="ltr"] .badge-after {
 /*=============== TESTIMONIALS SLIDER ===============*/
 .testimonials__swiper {
   padding-bottom: 3rem;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.05) 15px,
+    rgba(0, 0, 0, 0.25) 35px,
+    rgba(0, 0, 0, 0.7) 65px,
+    black 95px,
+    black calc(100% - 95px),
+    rgba(0, 0, 0, 0.7) calc(100% - 65px),
+    rgba(0, 0, 0, 0.25) calc(100% - 35px),
+    rgba(0, 0, 0, 0.05) calc(100% - 15px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.05) 15px,
+    rgba(0, 0, 0, 0.25) 35px,
+    rgba(0, 0, 0, 0.7) 65px,
+    black 95px,
+    black calc(100% - 95px),
+    rgba(0, 0, 0, 0.7) calc(100% - 65px),
+    rgba(0, 0, 0, 0.25) calc(100% - 35px),
+    rgba(0, 0, 0, 0.05) calc(100% - 15px),
+    transparent 100%
+  );
+}
+
+@media screen and (max-width: 768px) {
+  .testimonials__swiper {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.2) 10px,
+      black 40px,
+      black calc(100% - 40px),
+      rgba(0, 0, 0, 0.2) calc(100% - 10px),
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.2) 10px,
+      black 40px,
+      black calc(100% - 40px),
+      rgba(0, 0, 0, 0.2) calc(100% - 10px),
+      transparent 100%
+    );
+  }
 }
 
 .testimonial__card {

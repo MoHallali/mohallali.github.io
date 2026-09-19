@@ -1168,7 +1168,7 @@ function initSpotlightTabs() {
 }
 
 /*=============== 5. PROJECTS SWIPER & FILTER SYSTEM ===============*/
-function initProjectsSwiper() {
+function initProjectsSwiper(enableLoop = true) {
   const swiperEl = document.querySelector('.projects__swiper');
   if (!swiperEl || typeof Swiper === 'undefined') return;
 
@@ -1176,8 +1176,12 @@ function initProjectsSwiper() {
     try { projectsSwiperInstance.destroy(true, true); } catch(e) {}
   }
 
+  const visibleCards = document.querySelectorAll('.projects__card:not([style*="display: none"])');
+  const canLoop = enableLoop && visibleCards.length >= 3;
+
   projectsSwiperInstance = new Swiper('.projects__swiper', {
-    loop: false,
+    loop: canLoop,
+    loopAdditionalSlides: canLoop ? 2 : 0,
     spaceBetween: 24,
     slidesPerView: 'auto',
     grabCursor: true,
@@ -1218,10 +1222,7 @@ function initProjectFilters() {
         }
       });
 
-      if (projectsSwiperInstance) {
-        projectsSwiperInstance.update();
-        projectsSwiperInstance.slideTo(0, 900);
-      }
+      initProjectsSwiper(filter === 'all');
     });
   });
 }
@@ -1229,8 +1230,12 @@ function initProjectFilters() {
 /*=============== 6. SWIPER TESTIMONIALS ===============*/
 function initSwiperTestimonials() {
   if (typeof Swiper !== 'undefined') {
+    if (testimonialsSwiperInstance) {
+      try { testimonialsSwiperInstance.destroy(true, true); } catch(e) {}
+    }
     testimonialsSwiperInstance = new Swiper('.testimonials__swiper', {
       loop: true,
+      loopAdditionalSlides: 2,
       spaceBetween: 30,
       grabCursor: true,
       speed: 1000,
@@ -1240,7 +1245,7 @@ function initSwiperTestimonials() {
         pauseOnMouseEnter: true,
       },
       pagination: {
-        el: '.swiper-pagination',
+        el: '.testimonials__swiper .swiper-pagination',
         clickable: true,
       },
       breakpoints: {
