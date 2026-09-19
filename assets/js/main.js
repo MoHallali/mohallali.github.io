@@ -459,18 +459,45 @@ function initGpuParticles() {
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
 
+  const isMobile = window.innerWidth <= 768;
+  const baseDensity = isMobile ? 7000 : 9500;
+  const maxCap = isMobile ? 60 : 115;
+  const particleCount = Math.min(Math.max(Math.floor((width * height) / baseDensity), 36), maxCap);
+  const maxDist = isMobile ? 140 : 160;
+  const maxDistSq = maxDist * maxDist;
+
   const particles = [];
-  const particleCount = Math.min(Math.floor((width * height) / 16000), 65);
-  let mouse = { x: -1000, y: -1000, radius: 120 };
+  let mouse = { x: -1000, y: -1000, radius: isMobile ? 100 : 140 };
   let isVisible = !document.hidden;
   let animFrameId = null;
 
+  const updateMouseCoords = (x, y) => {
+    mouse.x = x;
+    mouse.y = y;
+  };
+
   window.addEventListener('mousemove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    updateMouseCoords(e.clientX, e.clientY);
   }, { passive: true });
 
   window.addEventListener('mouseleave', () => {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  }, { passive: true });
+
+  window.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) {
+      updateMouseCoords(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      updateMouseCoords(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => {
     mouse.x = -1000;
     mouse.y = -1000;
   }, { passive: true });
@@ -496,38 +523,69 @@ function initGpuParticles() {
     constructor() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.28;
-      this.vy = (Math.random() - 0.5) * 0.28;
-      this.radius = Math.random() * 1.6 + 0.8;
-      this.color = Math.random() > 0.5 ? 'rgba(124, 58, 237, ' : 'rgba(6, 182, 212, ';
-      this.baseAlpha = Math.random() * 0.5 + 0.25;
+      this.vx = (Math.random() - 0.5) * 0.32;
+      this.vy = (Math.random() - 0.5) * 0.32;
+
+      const isHeroStar = Math.random() > 0.82;
+      this.radius = isHeroStar ? (Math.random() * 1.5 + 2.4) : (Math.random() * 1.1 + 1.2);
+      this.isHeroStar = isHeroStar;
+
+      const colorRand = Math.random();
+      if (colorRand < 0.45) {
+        this.color = '168, 85, 247'; // Radiant Cyber Violet #a855f7
+      } else if (colorRand < 0.75) {
+        this.color = '6, 182, 212';  // Electric Neon Cyan #06b6d4
+      } else if (colorRand < 0.90) {
+        this.color = '244, 63, 94';  // Cosmic Rose #f43f5e
+      } else {
+        this.color = '241, 245, 249'; // Diamond Star White #f1f5f9
+      }
+
+      this.baseAlpha = Math.random() * 0.35 + 0.65;
+      this.pulse = Math.random() * Math.PI * 2;
+      this.pulseSpeed = 0.02 + Math.random() * 0.025;
     }
 
     update() {
       this.x += this.vx;
       this.y += this.vy;
+      this.pulse += this.pulseSpeed;
 
-      if (this.x < 0 || this.x > width) this.vx *= -1;
-      if (this.y < 0 || this.y > height) this.vy *= -1;
+      if (this.x < -25) this.x = width + 25;
+      else if (this.x > width + 25) this.x = -25;
+      if (this.y < -25) this.y = height + 25;
+      else if (this.y > height + 25) this.y = -25;
 
-      // Mouse interaction (Fast squared distance)
+      // Mouse & Touch repulsion/interaction
       const dx = mouse.x - this.x;
       const dy = mouse.y - this.y;
       const distSq = dx * dx + dy * dy;
+      const mouseRadiusSq = mouse.radius * mouse.radius;
 
-      if (distSq < 14400) { // 120^2
+      if (distSq < mouseRadiusSq) {
         const dist = Math.sqrt(distSq);
         const force = (mouse.radius - dist) / mouse.radius;
         const angle = Math.atan2(dy, dx);
-        this.x -= Math.cos(angle) * force * 1.4;
-        this.y -= Math.sin(angle) * force * 1.4;
+        this.x -= Math.cos(angle) * force * 1.8;
+        this.y -= Math.sin(angle) * force * 1.8;
       }
     }
 
     draw() {
+      const twinkle = (Math.sin(this.pulse) + 1) * 0.5;
+      const currentAlpha = Math.min(this.baseAlpha + twinkle * 0.25, 1);
+      const currentRadius = this.radius * (1 + twinkle * 0.22);
+
+      // Soft luminous corona
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = this.color + this.baseAlpha + ')';
+      ctx.arc(this.x, this.y, currentRadius * 2.8, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${this.color}, ${currentAlpha * 0.25})`;
+      ctx.fill();
+
+      // Brilliant core star
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, currentRadius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${this.color}, ${currentAlpha})`;
       ctx.fill();
     }
   }
@@ -544,7 +602,7 @@ function initGpuParticles() {
 
     ctx.clearRect(0, 0, width, height);
 
-    // Draw lines between near particles (Optimized squared-distance to save CPU)
+    // 1. Draw connections & geometric constellation facets
     for (let i = 0; i < particles.length; i++) {
       const p1 = particles[i];
       for (let j = i + 1; j < particles.length; j++) {
@@ -553,21 +611,64 @@ function initGpuParticles() {
         const dy = p1.y - p2.y;
         const distSq = dx * dx + dy * dy;
 
-        // 110^2 = 12100
-        if (distSq < 12100) {
+        if (distSq < maxDistSq) {
           const dist = Math.sqrt(distSq);
-          const alpha = (1 - dist / 110) * 0.18;
+          // Rich, highly visible glowing line!
+          const lineAlpha = (1 - dist / maxDist) * 0.52;
+
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(124, 58, 237, ${alpha})`;
-          ctx.lineWidth = 0.75;
+          ctx.strokeStyle = `rgba(168, 85, 247, ${lineAlpha})`;
+          ctx.lineWidth = 1.0;
           ctx.stroke();
+
+          // 2. Closed Triangle Constellation Facets (Shapes)
+          for (let k = j + 1; k < particles.length; k++) {
+            const p3 = particles[k];
+            const dx2 = p1.x - p3.x;
+            const dy2 = p1.y - p3.y;
+            const dSq13 = dx2 * dx2 + dy2 * dy2;
+            if (dSq13 < maxDistSq) {
+              const dx3 = p2.x - p3.x;
+              const dy3 = p2.y - p3.y;
+              const dSq23 = dx3 * dx3 + dy3 * dy3;
+              if (dSq23 < maxDistSq) {
+                const maxSide = Math.sqrt(Math.max(distSq, dSq13, dSq23));
+                const triAlpha = (1 - maxSide / maxDist) * 0.14;
+                if (triAlpha > 0.015) {
+                  ctx.beginPath();
+                  ctx.moveTo(p1.x, p1.y);
+                  ctx.lineTo(p2.x, p2.y);
+                  ctx.lineTo(p3.x, p3.y);
+                  ctx.closePath();
+                  ctx.fillStyle = `rgba(139, 92, 246, ${triAlpha})`;
+                  ctx.fill();
+                }
+              }
+            }
+          }
         }
+      }
+
+      // 3. Connect star to mouse position
+      const mdx = mouse.x - p1.x;
+      const mdy = mouse.y - p1.y;
+      const mDistSq = mdx * mdx + mdy * mdy;
+      const mouseConnectDist = isMobile ? 130 : 165;
+      if (mDistSq < mouseConnectDist * mouseConnectDist) {
+        const mDist = Math.sqrt(mDistSq);
+        const mAlpha = (1 - mDist / mouseConnectDist) * 0.55;
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.strokeStyle = `rgba(6, 182, 212, ${mAlpha})`;
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
       }
     }
 
-    // Update & draw particles without CPU shadowBlur
+    // Update & draw glowing stars
     for (let i = 0; i < particles.length; i++) {
       particles[i].update();
       particles[i].draw();
