@@ -83,8 +83,8 @@ window.SITE_DATA = {
       "creatorTag": "D7MANc (500K Subs)",
       "quoteAr": "رب أخي لم تلده أمي",
       "quoteEn": "A brother my mother never bore",
-      "videoUrl": "assets/video/abdulrahman-testimonial.mp4",
-      "thumbUrl": "assets/img/abdulrahman-thumb.jpg"
+      "videoUrl": "assets/video/abdulrahman-tribute.mp4?v=20260919",
+      "thumbUrl": "assets/img/abdulrahman-thumb.jpg?v=20260919"
     }
   },
   "projects": [
