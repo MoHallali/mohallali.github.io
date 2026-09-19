@@ -82,6 +82,10 @@ html {
   scroll-padding-top: var(--header-height);
   font-size: 16px;
   background-color: var(--bg-dark);
+  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
 }
 
 body {
@@ -90,6 +94,9 @@ body {
   color: var(--text-body);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
   position: relative;
   min-height: 100vh;
 }
@@ -2768,9 +2775,12 @@ html[dir="rtl"] .toast-notice {
     backdrop-filter: blur(25px);
     border-left: 1px solid var(--border-subtle);
     padding: 3rem 2rem;
-    transition: right 0.4s ease;
+    transition: right 0.4s ease, visibility 0.4s ease, opacity 0.4s ease;
     flex-direction: column;
     align-items: flex-start;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
   }
 
   html[dir="rtl"] .nav__menu {
@@ -2778,15 +2788,21 @@ html[dir="rtl"] .toast-notice {
     left: -100%;
     border-left: none;
     border-right: 1px solid var(--border-subtle);
-    transition: left 0.4s ease;
+    transition: left 0.4s ease, visibility 0.4s ease, opacity 0.4s ease;
   }
 
   .nav__menu.show-menu {
     right: 0;
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
   }
 
   html[dir="rtl"] .nav__menu.show-menu {
     left: 0;
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
   }
 
   .nav__list {
@@ -3772,19 +3788,47 @@ html[dir="rtl"] .projects__button {
     padding: 0.4rem 0.85rem;
   }
 
+  .hero__frame {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .floating-stat {
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.82rem;
+    max-width: calc(100% - 16px);
+    z-index: 5;
   }
 
-  .floating-stat-1 {
-    top: -10px;
-    right: 0;
+  .floating-stat-1,
+  html[dir="rtl"] .floating-stat-1 {
+    top: -10px !important;
+    left: 8px !important;
+    right: auto !important;
   }
 
-  .floating-stat-2 {
-    bottom: 10px;
-    left: 0;
+  .floating-stat-2,
+  html[dir="rtl"] .floating-stat-2 {
+    bottom: 10px !important;
+    right: 8px !important;
+    left: auto !important;
+  }
+
+  .tribute-spotlight-card {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .spotlight-media {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: unset !important;
+  }
+
+  .spotlight-card-content {
+    padding: 1.5rem 1.25rem !important;
   }
 }
 
@@ -3795,26 +3839,104 @@ html[dir="rtl"] .projects__button {
   }
 
   .container {
-    padding-inline: 1rem;
+    padding-inline: 0.85rem;
+  }
+
+  .header .nav {
+    padding-inline: 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .nav__logo {
-    font-size: 1.15rem;
-    gap: 0.5rem;
+    font-size: 1.1rem;
+    gap: 0.4rem;
   }
 
   .nav__logo-img {
-    height: 24px;
-    max-width: 54px;
+    height: 22px;
+    max-width: 48px;
+  }
+
+  .nav__actions {
+    gap: 0.35rem;
   }
 
   .lang-btn {
-    padding: 0.35rem 0.65rem;
-    font-size: 0.78rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.74rem;
+    white-space: nowrap;
+    gap: 0.25rem;
+  }
+
+  .nav__toggle {
+    font-size: 1.4rem;
+    padding: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav__actions .btn-sm {
     display: none;
+  }
+
+  .floating-stat {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.74rem;
+    gap: 0.45rem;
+    border-radius: 12px;
+  }
+
+  .floating-stat i {
+    font-size: 1.1rem;
+  }
+
+  .floating-stat-1,
+  html[dir="rtl"] .floating-stat-1 {
+    top: -8px !important;
+    left: 6px !important;
+    right: auto !important;
+  }
+
+  .floating-stat-2,
+  html[dir="rtl"] .floating-stat-2 {
+    bottom: 8px !important;
+    right: 6px !important;
+    left: auto !important;
+  }
+
+  .stat-val {
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+
+  .spotlight-card-content {
+    padding: 1.25rem 0.9rem !important;
+  }
+
+  .spotlight-card-desc {
+    font-size: 0.82rem !important;
+  }
+
+  .spotlight-quote-box {
+    padding: 0.75rem 0.9rem !important;
+  }
+
+  .spotlight-quote-text {
+    font-size: 0.98rem !important;
+  }
+
+  .spotlight-action-btn {
+    width: 100%;
+    font-size: 0.85rem !important;
+    padding: 0.75rem 1rem !important;
   }
 
   .hero__title {
@@ -3973,5 +4095,19 @@ button, a, input, select, textarea, .filter-btn, .work__button, .social-link, .s
     max-height: calc(85vh - 70px) !important;
   }
 }
+
+/* Universal Viewport Containment: Zero Horizontal Drift & Zero Black Margins */
+html, body {
+  overflow-x: clip !important;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.main, .section, .container, .hero, .metrics-strip, .showreel, .compare, .projects, .services, .workflow, .testimonials, .contact, .footer {
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
 
 

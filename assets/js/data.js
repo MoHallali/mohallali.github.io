@@ -84,7 +84,9 @@ window.SITE_DATA = {
       "quoteAr": "رب أخي لم تلده أمي",
       "quoteEn": "A brother my mother never bore",
       "videoUrl": "assets/video/abdulrahman-tribute.mp4?v=20260919",
-      "thumbUrl": "assets/img/abdulrahman-thumb.jpg?v=20260919"
+      "thumbUrl": "assets/img/abdulrahman-thumb-ar.jpg?v=20260919",
+      "thumbUrlAr": "assets/img/abdulrahman-thumb-ar.jpg?v=20260919",
+      "thumbUrlEn": "assets/img/abdulrahman-thumb-en.jpg?v=20260919"
     }
   },
   "projects": [

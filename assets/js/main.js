@@ -625,8 +625,15 @@ function applySiteData() {
       const tagEl = document.querySelector('#card-tribute .ui-reach-pill');
       if (tagEl && tr.creatorTag) tagEl.innerHTML = `<i class="ri-user-star-line"></i> ${escapeHTML(tr.creatorTag)}`;
 
-      const imgEl = document.querySelector('#card-tribute .spotlight-media img');
-      if (imgEl && tr.thumbUrl) imgEl.src = tr.thumbUrl;
+      const imgEl = document.querySelector('#card-tribute .spotlight-media img') || document.getElementById('spotlight-tribute-thumb');
+      if (imgEl) {
+        const isSubDir = window.location.pathname.includes('/personal-portfolio') || window.location.pathname.includes('/mohallali');
+        const prefix = isSubDir ? '../' : '';
+        const targetThumb = currentLang === 'ar'
+          ? (tr.thumbUrlAr || tr.thumbUrl || 'assets/img/abdulrahman-thumb-ar.jpg')
+          : (tr.thumbUrlEn || tr.thumbUrl || 'assets/img/abdulrahman-thumb-en.jpg');
+        imgEl.src = prefix + targetThumb.replace(/^(\.\.\/|\/)/, '');
+      }
 
       projectVideos['abdulrahman-tribute'] = {
         titleAr: tr.titleAr || "شهادة وإشادة صانع المحتوى عبد الرحمان عطيف (قناة D7MANc)",
@@ -969,6 +976,17 @@ function initLanguage(lang) {
     langToggleBtn.innerHTML = lang === 'ar' 
       ? '<i class="ri-global-line"></i> English' 
       : '<i class="ri-global-line"></i> العربية';
+  }
+
+  // Update tribute thumbnail image for language
+  const tributeThumb = document.getElementById('spotlight-tribute-thumb') || document.querySelector('#card-tribute .spotlight-media img');
+  if (tributeThumb) {
+    const isSubDir = window.location.pathname.includes('/personal-portfolio') || window.location.pathname.includes('/mohallali');
+    const prefix = isSubDir ? '../' : '';
+    const imgAr = tributeThumb.getAttribute('data-img-ar') || 'assets/img/abdulrahman-thumb-ar.jpg';
+    const imgEn = tributeThumb.getAttribute('data-img-en') || 'assets/img/abdulrahman-thumb-en.jpg';
+    const chosen = (lang === 'ar' ? imgAr : imgEn).replace(/^(\.\.\/|\/)/, '');
+    tributeThumb.src = prefix + chosen;
   }
 
   // Update all elements with data-i18n attribute
