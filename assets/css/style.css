@@ -2722,9 +2722,89 @@ html[dir="rtl"] .toast-notice {
   box-shadow: 0 0 15px var(--primary-glow);
 }
 
-.projects__container {
+.projects__container,
+.testimonials__container {
   position: relative;
   width: 100%;
+}
+
+/*==================================================
+  LUXURY CYBER-GLASS SWIPER NAVIGATION BUTTONS
+==================================================*/
+.swiper-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(18, 21, 37, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
+  cursor: pointer;
+  z-index: 35;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  outline: none;
+}
+
+.swiper-nav-btn:hover {
+  background: rgba(124, 58, 237, 0.45);
+  border-color: rgba(167, 139, 250, 0.7);
+  color: #06b6d4;
+  transform: translateY(-50%) scale(1.12);
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.75), 0 0 45px rgba(6, 182, 212, 0.4);
+}
+
+.swiper-nav-btn:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.projects-nav-prev,
+.testimonials-nav-prev {
+  right: -24px;
+}
+
+.projects-nav-next,
+.testimonials-nav-next {
+  left: -24px;
+}
+
+.projects-nav-prev,
+.projects-nav-next {
+  top: calc(50% - 1rem);
+}
+
+.testimonials-nav-prev,
+.testimonials-nav-next {
+  top: calc(50% - 1.5rem);
+}
+
+@media screen and (max-width: 1320px) {
+  .projects-nav-prev,
+  .testimonials-nav-prev {
+    right: 6px;
+  }
+  .projects-nav-next,
+  .testimonials-nav-next {
+    left: 6px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .swiper-nav-btn {
+    display: none !important;
+  }
+}
+
+.swiper-pagination-bullet:empty {
+  display: none !important;
 }
 
 /* Precision Edge Fade on Video Card Rectangles Only (Zero background tint, zero overlays) */

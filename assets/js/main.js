@@ -1168,29 +1168,91 @@ function initProjectsSwiper(enableLoop = true) {
   }
 
   const visibleCards = document.querySelectorAll('.projects__card:not([style*="display: none"])');
-  const canLoop = enableLoop && visibleCards.length >= 3;
+  const canLoop = enableLoop && visibleCards.length >= 4;
 
   projectsSwiperInstance = new Swiper('.projects__swiper', {
     loop: canLoop,
-    loopAdditionalSlides: canLoop ? 2 : 0,
+    initialSlide: 0,
     spaceBetween: 24,
     slidesPerView: 'auto',
+    centeredSlides: false,
     grabCursor: true,
-    speed: 950,
-    touchRatio: 0.95,
+    simulateTouch: true,
+    touchRatio: 1.1,
     touchAngle: 45,
-    resistanceRatio: 0.75,
+    shortSwipes: true,
+    longSwipes: true,
+    followFinger: true,
+    resistance: false,
+    speed: 750,
+    navigation: {
+      nextEl: '.projects-nav-next',
+      prevEl: '.projects-nav-prev',
+    },
     pagination: {
       el: '.projects__swiper .swiper-pagination',
       clickable: true,
-      dynamicBullets: true,
+      renderBullet: function (index, className) {
+        if (index < 4) {
+          return '<span class="' + className + '" data-bullet-idx="' + index + '"></span>';
+        }
+        return '';
+      }
     },
     autoplay: {
-      delay: 5500,
+      delay: 5000,
       disableOnInteraction: false,
       pauseOnMouseEnter: true,
+      waitForTransition: true,
     },
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+    on: {
+      init: function () {
+        this.slideToLoop(0, 0);
+      },
+      slideChange: function () {
+        const realIdx = this.realIndex % 4;
+        const bullets = document.querySelectorAll('.projects__swiper .swiper-pagination-bullet');
+        bullets.forEach((b, i) => {
+          if (i === realIdx) {
+            b.classList.add('swiper-pagination-bullet-active');
+          } else {
+            b.classList.remove('swiper-pagination-bullet-active');
+          }
+        });
+      }
+    }
   });
+
+  // Custom click handling for bullets
+  const bullets = document.querySelectorAll('.projects__swiper .swiper-pagination-bullet');
+  bullets.forEach((b, i) => {
+    b.onclick = (e) => {
+      e.preventDefault();
+      if (projectsSwiperInstance) {
+        projectsSwiperInstance.slideToLoop(i, 750);
+      }
+    };
+  });
+
+  // Direct mouse click triggers for side navigation buttons
+  const nextBtn = document.querySelector('.projects-nav-next');
+  const prevBtn = document.querySelector('.projects-nav-prev');
+  if (nextBtn) {
+    nextBtn.onclick = (e) => {
+      e.preventDefault();
+      if (projectsSwiperInstance) projectsSwiperInstance.slideNext(750);
+    };
+  }
+  if (prevBtn) {
+    prevBtn.onclick = (e) => {
+      e.preventDefault();
+      if (projectsSwiperInstance) projectsSwiperInstance.slidePrev(750);
+    };
+  }
 }
 
 function initProjectFilters() {
@@ -1220,31 +1282,98 @@ function initProjectFilters() {
 
 /*=============== 6. SWIPER TESTIMONIALS ===============*/
 function initSwiperTestimonials() {
-  if (typeof Swiper !== 'undefined') {
-    if (testimonialsSwiperInstance) {
-      try { testimonialsSwiperInstance.destroy(true, true); } catch(e) {}
-    }
-    testimonialsSwiperInstance = new Swiper('.testimonials__swiper', {
-      loop: true,
-      loopAdditionalSlides: 2,
-      spaceBetween: 30,
-      grabCursor: true,
-      speed: 1000,
-      autoplay: {
-        delay: 6000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-      pagination: {
-        el: '.testimonials__swiper .swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        640: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1100: { slidesPerView: 3 }
+  const swiperEl = document.querySelector('.testimonials__swiper');
+  if (!swiperEl || typeof Swiper === 'undefined') return;
+
+  if (testimonialsSwiperInstance) {
+    try { testimonialsSwiperInstance.destroy(true, true); } catch(e) {}
+  }
+
+  testimonialsSwiperInstance = new Swiper('.testimonials__swiper', {
+    loop: true,
+    initialSlide: 0,
+    spaceBetween: 28,
+    grabCursor: true,
+    simulateTouch: true,
+    touchRatio: 1.1,
+    touchAngle: 45,
+    shortSwipes: true,
+    longSwipes: true,
+    followFinger: true,
+    resistance: false,
+    speed: 800,
+    navigation: {
+      nextEl: '.testimonials-nav-next',
+      prevEl: '.testimonials-nav-prev',
+    },
+    pagination: {
+      el: '.testimonials__swiper .swiper-pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        if (index < 4) {
+          return '<span class="' + className + '" data-bullet-idx="' + index + '"></span>';
+        }
+        return '';
       }
-    });
+    },
+    autoplay: {
+      delay: 5500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+      waitForTransition: true,
+    },
+    breakpoints: {
+      320: { slidesPerView: 1, spaceBetween: 16 },
+      768: { slidesPerView: 2, spaceBetween: 24 },
+      1100: { slidesPerView: 3, spaceBetween: 28 }
+    },
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+    on: {
+      init: function () {
+        this.slideToLoop(0, 0);
+      },
+      slideChange: function () {
+        const realIdx = this.realIndex % 4;
+        const bullets = document.querySelectorAll('.testimonials__swiper .swiper-pagination-bullet');
+        bullets.forEach((b, i) => {
+          if (i === realIdx) {
+            b.classList.add('swiper-pagination-bullet-active');
+          } else {
+            b.classList.remove('swiper-pagination-bullet-active');
+          }
+        });
+      }
+    }
+  });
+
+  // Custom click handling for bullets
+  const bullets = document.querySelectorAll('.testimonials__swiper .swiper-pagination-bullet');
+  bullets.forEach((b, i) => {
+    b.onclick = (e) => {
+      e.preventDefault();
+      if (testimonialsSwiperInstance) {
+        testimonialsSwiperInstance.slideToLoop(i, 800);
+      }
+    };
+  });
+
+  // Direct mouse click triggers for side navigation buttons
+  const nextBtn = document.querySelector('.testimonials-nav-next');
+  const prevBtn = document.querySelector('.testimonials-nav-prev');
+  if (nextBtn) {
+    nextBtn.onclick = (e) => {
+      e.preventDefault();
+      if (testimonialsSwiperInstance) testimonialsSwiperInstance.slideNext(800);
+    };
+  }
+  if (prevBtn) {
+    prevBtn.onclick = (e) => {
+      e.preventDefault();
+      if (testimonialsSwiperInstance) testimonialsSwiperInstance.slidePrev(800);
+    };
   }
 }
 

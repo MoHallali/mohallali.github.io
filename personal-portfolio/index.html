@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <!-- CUSTOM CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css?v=1789838571">
+  <link rel="stylesheet" href="../assets/css/style.css?v=1789839311">
 </head>
 <body>
 
@@ -329,6 +329,14 @@
 
         <!-- Habib's Swiper Container -->
         <div class="projects__container">
+          <!-- Mouse Control Side Navigation Buttons (Right & Left) -->
+          <button class="swiper-nav-btn swiper-nav-prev projects-nav-prev" id="projects-prev" aria-label="Previous Projects">
+            <i class="ri-arrow-right-s-line"></i>
+          </button>
+          <button class="swiper-nav-btn swiper-nav-next projects-nav-next" id="projects-next" aria-label="Next Projects">
+            <i class="ri-arrow-left-s-line"></i>
+          </button>
+
           <div class="projects__swiper swiper">
             <div class="swiper-wrapper" id="projects-swiper-wrapper">
               <!-- Project Slide 01 (UI STYLE) -->
@@ -650,6 +658,646 @@
                   </a>
                 </div>
               </article>
+
+              <!-- Project Slide 01 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="youtube">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥  404K Views in 3 weeks ago
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">01</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-youtube-line"></i>
+                    <span>يوتيوب وثائقي</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">وثائقي يوتيوب سينمائي بأسلوب يعتمد على رتم سريع، خرائط تفاعلية، وتصميم صوتي درامي.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> After Effects</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Soundly</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-1')">
+                  <img src="https://img.youtube.com/vi/euCoUp4_go0/hqdefault.jpg" alt="القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!" class="projects__img" loading="lazy" decoding="async" onerror="this.src='../assets/img/project-5.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-hd-line"></i> 4K PRORES
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>04:25</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project Slide 02 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="youtube">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥 409K views in 8 days ago
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">02</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-youtube-line"></i>
+                    <span>يوتيوب وبودكاست</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">ليلة القبض على رفيق بن لادن في اليمن</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">صُممت لتحقيق معدل خطف للانتباه يتجاوز 95% في الثانية الأولى، وذلك باستخدام النصوص الحركية وتصميم الصوت.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> After Effects</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Subtitles Pro</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-2')">
+                  <img src="https://img.youtube.com/vi/60f8xluWIBw/hqdefault.jpg" alt="ليلة القبض على رفيق بن لادن في اليمن" class="projects__img" loading="lazy" decoding="async" onerror="this.src='../assets/img/project-6.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-hd-line"></i> 4K PRORES
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>04:25</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project Slide 03 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="youtube">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥 +177K  views in 1 day
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">03</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-youtube-line"></i>
+                    <span>يوتيوب وبودكاست</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">فيديو تجاري متميز وعالي الجودة، يتميز بتقنيات دقيقة لتغيير سرعة اللقطات (speed-ramping) وعمليات احترافية لتصحيح الألوان وضبطها (color correction and grading) باستخدام برنامج DaVinci.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> DaVinci Resolve</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> After Effects</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-3')">
+                  <img src="https://img.youtube.com/vi/8UJ69GTNXpI/hqdefault.jpg" alt="من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل" class="projects__img" loading="lazy" decoding="async" onerror="this.src='../assets/img/project-1.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-hd-line"></i> 4K PRORES
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>04:25</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project Slide 04 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="shorts">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-smartphone-line"></i> <span>REEL 9:16</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥 +6.4M Views
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">04</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-smartphone-line"></i>
+                    <span>ريلز وتيك توك</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">مدينة بلا رجال</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">مونتاج ريلز فيروسي بأسلوب سردي سريع وخاطف، يعتمد على نصوص حركية (Kinetic Typography)، مؤثرات صوتية مكثفة، وتلوين سينمائي يرفع نسبة إكمال المشاهدة لأقصى حد.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> DaVinci Studio</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-4')">
+                  <img src="../assets/img/project-4.jpg" alt="مدينة بلا رجال" class="projects__img" loading="lazy" decoding="async" onerror="this.src='../assets/img/project-2.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-smartphone-line"></i> 9:16 60FPS
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>00:48</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project Slide 01 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="youtube">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥  404K Views in 3 weeks ago
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">01</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-youtube-line"></i>
+                    <span>يوتيوب وثائقي</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">وثائقي يوتيوب سينمائي بأسلوب يعتمد على رتم سريع، خرائط تفاعلية، وتصميم صوتي درامي.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> After Effects</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Soundly</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-1')">
+                  <img src="https://img.youtube.com/vi/euCoUp4_go0/hqdefault.jpg" alt="القصة الكاملة لاغتيال أول امرأة تحكم دولة إسلامية في التاريخ!" class="projects__img" loading="lazy" decoding="async" onerror="this.src='../assets/img/project-3.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-hd-line"></i> 4K PRORES
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>04:25</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project Slide 02 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="youtube">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥 409K views in 8 days ago
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">02</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-youtube-line"></i>
+                    <span>يوتيوب وبودكاست</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">ليلة القبض على رفيق بن لادن في اليمن</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">صُممت لتحقيق معدل خطف للانتباه يتجاوز 95% في الثانية الأولى، وذلك باستخدام النصوص الحركية وتصميم الصوت.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> After Effects</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Subtitles Pro</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-2')">
+                  <img src="https://img.youtube.com/vi/60f8xluWIBw/hqdefault.jpg" alt="ليلة القبض على رفيق بن لادن في اليمن" class="projects__img" loading="lazy" decoding="async" onerror="this.src='../assets/img/project-4.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-hd-line"></i> 4K PRORES
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>04:25</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project Slide 03 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="youtube">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥 +177K  views in 1 day
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">03</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-youtube-line"></i>
+                    <span>يوتيوب وبودكاست</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">فيديو تجاري متميز وعالي الجودة، يتميز بتقنيات دقيقة لتغيير سرعة اللقطات (speed-ramping) وعمليات احترافية لتصحيح الألوان وضبطها (color correction and grading) باستخدام برنامج DaVinci.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> DaVinci Resolve</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> After Effects</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-3')">
+                  <img src="https://img.youtube.com/vi/8UJ69GTNXpI/hqdefault.jpg" alt="من مذيعة الجزيرة إلى عشيقة بشار الأسد؟ لونا الشبل" class="projects__img" loading="lazy" decoding="async" onerror="this.src='../assets/img/project-5.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-hd-line"></i> 4K PRORES
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>04:25</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Project Slide 04 (UI STYLE) -->
+              <article class="projects__card swiper-slide" data-category="shorts">
+                <div class="blob"></div>
+
+                <!-- UI Window Header Bar -->
+                <div class="ui-window-header">
+                  <div class="ui-window-controls">
+                    <span class="ui-dot ui-dot--red"></span>
+                    <span class="ui-dot ui-dot--yellow"></span>
+                    <span class="ui-dot ui-dot--green"></span>
+                  </div>
+                  <div class="ui-window-badge">
+                    <i class="ri-smartphone-line"></i> <span>REEL 9:16</span>
+                  </div>
+                  <div class="ui-reach-pill">
+                    🔥 +6.4M Views
+                  </div>
+                </div>
+
+                <!-- Projects Number & Category in UI Style -->
+                <div class="projects__number">
+                  <h1 class="ui-card-num">04</h1>
+                  <div class="ui-cat-chip">
+                    <span class="ui-live-dot"></span>
+                    <i class="ri-smartphone-line"></i>
+                    <span>ريلز وتيك توك</span>
+                  </div>
+                </div>
+
+                <!-- Projects Data in UI Style -->
+                <div class="projects__data">
+                  <h1 class="projects__title">مدينة بلا رجال</h1>
+                  <p class="projects__subtitle">
+                    <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> أسلوب المونتاج والأدوات
+                  </p>
+                  <p class="projects__description">مونتاج ريلز فيروسي بأسلوب سردي سريع وخاطف، يعتمد على نصوص حركية (Kinetic Typography)، مؤثرات صوتية مكثفة، وتلوين سينمائي يرفع نسبة إكمال المشاهدة لأقصى حد.</p>
+                  <div class="projects__tools">
+                    <span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> Premiere Pro</span><span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> DaVinci Studio</span>
+                  </div>
+                </div>
+
+                <!-- UI Video Player Mockup in Media Box -->
+                <div class="projects__image ui-player-box" onclick="openVideoModal('proj-4')">
+                  <img src="../assets/img/project-4.jpg" alt="مدينة بلا رجال" class="projects__img" loading="lazy" decoding="async" onerror="this.src='../assets/img/project-6.svg'" />
+                  <div class="ui-player-overlay"></div>
+
+                  <!-- Resolution Tag -->
+                  <span class="ui-player-res-tag">
+                    <i class="ri-smartphone-line"></i> 9:16 60FPS
+                  </span>
+
+                  <!-- Center Frosted Glass Play Controller -->
+                  <div class="ui-center-play">
+                    <div class="ui-play-ring-pulse"></div>
+                    <i class="ri-play-fill"></i>
+                  </div>
+
+                  <!-- Bottom UI Player HUD Bar -->
+                  <div class="ui-player-hud">
+                    <div class="ui-player-time">
+                      <i class="ri-play-mini-fill"></i> <span>00:48</span>
+                    </div>
+                    <div class="ui-player-scrubber">
+                      <div class="ui-player-progress" style="width: 76%;"></div>
+                    </div>
+                    <div class="ui-player-waves">
+                      <span class="wave-bar" style="animation-delay: 0s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                      <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                    </div>
+                  </div>
+
+                  <!-- Hover Arrow Link Button -->
+                  <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                    <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+                </div>
+              </article>
             </div>
             <div class="swiper-pagination"></div>
           </div>
@@ -878,8 +1526,153 @@
           </div>
         </div>
 
-        <div class="testimonials__swiper swiper">
-          <div class="swiper-wrapper" id="testimonials-wrapper-container">
+        <div class="testimonials__container">
+          <!-- Mouse Control Side Navigation Buttons (Right & Left) -->
+          <button class="swiper-nav-btn swiper-nav-prev testimonials-nav-prev" id="testimonials-prev" aria-label="Previous Testimonials">
+            <i class="ri-arrow-right-s-line"></i>
+          </button>
+          <button class="swiper-nav-btn swiper-nav-next testimonials-nav-next" id="testimonials-next" aria-label="Next Testimonials">
+            <i class="ri-arrow-left-s-line"></i>
+          </button>
+
+          <div class="testimonials__swiper swiper">
+            <div class="swiper-wrapper" id="testimonials-wrapper-container">
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"من أفضل المونتيرين الذين تعاملت معهم. زاد معدل الاحتفاظ في قناتي بنسبة 45% في أول شهر فقط. سرعة خيالية وفهم عميق لما يريده الجمهور!"</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789671860.jpg" alt="عبد الرحمان عطيف" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='../assets/img/avatar-1.svg'">
+              <div>
+                <div class="author-name">عبد الرحمان عطيف</div>
+                <div class="author-role">صانع محتوى (500K مشترك)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"احترافية عالية، التزام دقيق بالمواعيد، وقدرة مذهلة على تحويل المقاطع الصوتية الخام إلى بودكاست مرئي جذاب ومشوق من أول دقيقة."</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789672075.jpg" alt="دزز" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='../assets/img/avatar-2.svg'">
+              <div>
+                <div class="author-name">دزز</div>
+                <div class="author-role">صانع محتوى (3.09M مشترك)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"العمل معه اختصر عليّ شهوراً من التجربة والخطأ. استوعب ما يجذب جمهوري من أول مسودة، والنتيجة كانت قفزة في تفاعل واستمرار المشاهدين مع تسليم قياسي لكل المشاريع"</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789672464.jpg" alt="دكتور محمد شرف" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='../assets/img/avatar-3.svg'">
+              <div>
+                <div class="author-name">دكتور محمد شرف</div>
+                <div class="author-role">رائد أعمال ومؤسس وكالة</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"فارق شاسع في جودة الإنتاج وتماسك الفيديوهات؛ نمو فوري بنسبة 150% في معدل إكمال المشاهدة، مع دقة في المواعيد وقراءة ممتازة لما يطلبه المتابعون."</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789672356.jpg" alt="بودز" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='../assets/img/avatar-4.svg'">
+              <div>
+                <div class="author-name">بودز</div>
+                <div class="author-role">صانع محتوى (1.66K مشترك)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"من أفضل المونتيرين الذين تعاملت معهم. زاد معدل الاحتفاظ في قناتي بنسبة 45% في أول شهر فقط. سرعة خيالية وفهم عميق لما يريده الجمهور!"</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789671860.jpg" alt="عبد الرحمان عطيف" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='../assets/img/avatar-1.svg'">
+              <div>
+                <div class="author-name">عبد الرحمان عطيف</div>
+                <div class="author-role">صانع محتوى (500K مشترك)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"احترافية عالية، التزام دقيق بالمواعيد، وقدرة مذهلة على تحويل المقاطع الصوتية الخام إلى بودكاست مرئي جذاب ومشوق من أول دقيقة."</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789672075.jpg" alt="دزز" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='../assets/img/avatar-2.svg'">
+              <div>
+                <div class="author-name">دزز</div>
+                <div class="author-role">صانع محتوى (3.09M مشترك)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"العمل معه اختصر عليّ شهوراً من التجربة والخطأ. استوعب ما يجذب جمهوري من أول مسودة، والنتيجة كانت قفزة في تفاعل واستمرار المشاهدين مع تسليم قياسي لكل المشاريع"</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789672464.jpg" alt="دكتور محمد شرف" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='../assets/img/avatar-3.svg'">
+              <div>
+                <div class="author-name">دكتور محمد شرف</div>
+                <div class="author-role">رائد أعمال ومؤسس وكالة</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div>
+              <div class="testimonial__rating">
+                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+              </div>
+              <p class="testimonial__quote">"فارق شاسع في جودة الإنتاج وتماسك الفيديوهات؛ نمو فوري بنسبة 150% في معدل إكمال المشاهدة، مع دقة في المواعيد وقراءة ممتازة لما يطلبه المتابعون."</p>
+            </div>
+            <div class="testimonial__author">
+              <img src="../assets/img/avatar-1789672356.jpg" alt="بودز" class="author-avatar" loading="lazy" decoding="async" onerror="this.src='../assets/img/avatar-4.svg'">
+              <div>
+                <div class="author-name">بودز</div>
+                <div class="author-role">صانع محتوى (1.66K مشترك)</div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="swiper-slide">
           <div class="testimonial__card">
             <div>
@@ -952,6 +1745,7 @@
           <div class="swiper-pagination"></div>
         </div>
       </div>
+    </div>
     </section>
 
     <!-- CONTACT & BOOKING SECTION -->
@@ -1166,7 +1960,7 @@
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-  <script src="../assets/js/data.js?v=1789838571"></script>
-  <script src="../assets/js/main.js?v=1789838571"></script>
+  <script src="../assets/js/data.js?v=1789839311"></script>
+  <script src="../assets/js/main.js?v=1789839311"></script>
 </body>
 </html>
