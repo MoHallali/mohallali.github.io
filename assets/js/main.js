@@ -173,6 +173,9 @@ const translations = {
     modal_review_note: "يتم إشعار محمد فوراً عبر الواتساب لمراجعة التقييم واعتماده في الموقع",
     form_submit_btn: "إرسال الطلب الآن",
     toast_email_copied: "تم نسخ البريد الإلكتروني بنجاح!",
+    cursor_mode_following: "تتبع الماوس",
+    cursor_mode_direct: "تحكم يوتيوب",
+    watch_on_yt: "مشاهدة على YouTube",
 
     // Footer
     footer_rights: "جميع الحقوق محفوظة © 2026 محمد هلالي | SATURN Studio",
@@ -332,6 +335,9 @@ const translations = {
     type_opt_4: "Color Grading & VFX Polish",
     form_submit_btn: "Submit Project Brief",
     toast_email_copied: "Email address successfully copied to clipboard!",
+    cursor_mode_following: "Cursor Tracking",
+    cursor_mode_direct: "Direct Player",
+    watch_on_yt: "Watch on YouTube",
 
     // Footer
     footer_rights: "All Rights Reserved © 2026 Mohamed Hallali | SATURN Studio",
@@ -1186,13 +1192,13 @@ function toEmbedUrl(url) {
   // 1. YouTube Shorts: youtube.com/shorts/VIDEO_ID
   const shortsMatch = url.match(/(?:youtube\.com\/shorts\/|youtu\.be\/shorts\/)([a-zA-Z0-9_-]{11})/);
   if (shortsMatch && shortsMatch[1]) {
-    return `https://www.youtube.com/embed/${encodeURIComponent(shortsMatch[1])}?autoplay=1`;
+    return `https://www.youtube.com/embed/${encodeURIComponent(shortsMatch[1])}?autoplay=1&enablejsapi=1`;
   }
 
   // 2. Standard YouTube: watch?v=, youtu.be/, or youtube.com/embed/
   const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([a-zA-Z0-9_-]{11})/);
   if (ytMatch && ytMatch[1]) {
-    return `https://www.youtube.com/embed/${encodeURIComponent(ytMatch[1])}?autoplay=1`;
+    return `https://www.youtube.com/embed/${encodeURIComponent(ytMatch[1])}?autoplay=1&enablejsapi=1`;
   }
 
   // 3. Vimeo: vimeo.com/VIDEO_ID
@@ -1209,10 +1215,22 @@ function toEmbedUrl(url) {
 
   // 5. If already safe YouTube/Vimeo embed
   if (/^https:\/\/(www\.)?(youtube\.com\/embed\/|youtube-nocookie\.com\/embed\/|player\.vimeo\.com\/video\/)[a-zA-Z0-9_-]+/.test(url)) {
+    if (url.includes('youtube.com') || url.includes('youtube-nocookie.com')) {
+      return url.includes('enablejsapi=1') ? url : (url + (url.includes('?') ? '&' : '?') + 'enablejsapi=1');
+    }
     return url;
   }
 
   return "";
+}
+
+function toWatchUrl(url) {
+  if (!url || typeof url !== 'string') return "";
+  const ytMatch = url.match(/(?:youtube\.com\/(?:embed\/|v\/|watch\?v=|shorts\/|watch\?.+&v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  if (ytMatch && ytMatch[1]) {
+    return `https://www.youtube.com/watch?v=${ytMatch[1]}`;
+  }
+  return url;
 }
 
 /*=============== 4. VIDEO LIGHTBOX MODAL ===============*/
@@ -1223,24 +1241,109 @@ function initVideoModal() {
   const modalTitle = document.getElementById('modal-video-title');
   const modalTag = document.getElementById('modal-video-tag');
   const closeBtn = document.getElementById('modal-close-btn');
+  const videoWrapper = modal ? modal.querySelector('.modal-video-wrapper') : null;
+  const modeToggleBtn = document.getElementById('modal-mode-toggle');
+  const ytExtLink = document.getElementById('modal-yt-ext-link');
+  const pulseEl = document.getElementById('video-play-pulse');
+  const pulseIcon = document.getElementById('video-play-pulse-icon');
 
   if (!modal || (!iframe && !videoEl)) return;
+
+  let isIframePlaying = true;
+
+  function triggerPulse(action) {
+    if (!pulseEl || !pulseIcon) return;
+    pulseIcon.className = action === 'play' ? 'ri-play-fill' : 'ri-pause-fill';
+    pulseEl.classList.remove('pulse-active');
+    void pulseEl.offsetWidth;
+    pulseEl.classList.add('pulse-active');
+    setTimeout(() => pulseEl.classList.remove('pulse-active'), 550);
+  }
+
+  // Video Wrapper click: toggle play/pause smoothly
+  if (videoWrapper) {
+    videoWrapper.onclick = function(e) {
+      if (e.target.closest('#modal-mode-toggle') || e.target.closest('#modal-yt-ext-link') || e.target.closest('#modal-close-btn') || e.target.closest('.modal-watermark') || e.target.closest('.modal-video-overlay-ctrl')) {
+        return;
+      }
+      if (videoWrapper.classList.contains('direct-mode')) return;
+
+      if (videoEl && videoEl.style.display !== 'none' && videoEl.src) {
+        if (videoEl.paused) {
+          videoEl.play();
+          triggerPulse('play');
+        } else {
+          videoEl.pause();
+          triggerPulse('pause');
+        }
+        return;
+      }
+
+      if (iframe && iframe.style.display !== 'none' && iframe.src) {
+        if (isIframePlaying) {
+          iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+          isIframePlaying = false;
+          triggerPulse('pause');
+        } else {
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          isIframePlaying = true;
+          triggerPulse('play');
+        }
+      }
+    };
+  }
+
+  // Mode Toggle button: Cursor Following vs Direct Player Controls
+  if (modeToggleBtn && videoWrapper) {
+    modeToggleBtn.onclick = function(e) {
+      e.stopPropagation();
+      const isDirect = videoWrapper.classList.toggle('direct-mode');
+      const isAr = currentLang === 'ar';
+      if (isDirect) {
+        modeToggleBtn.innerHTML = `<i class="ri-play-circle-line"></i> <span>${isAr ? 'تحكم يوتيوب' : 'Direct Player'}</span>`;
+        modeToggleBtn.classList.add('active');
+      } else {
+        modeToggleBtn.innerHTML = `<i class="ri-cursor-fill"></i> <span>${isAr ? 'تتبع الماوس' : 'Cursor Tracking'}</span>`;
+        modeToggleBtn.classList.remove('active');
+      }
+    };
+  }
 
   window.openVideoModal = function(videoId) {
     const videoData = projectVideos[videoId];
     if (!videoData) return;
 
     const isAr = currentLang === 'ar';
-    modalTitle.textContent = isAr ? videoData.titleAr : videoData.titleEn;
+    // Fix: render HTML tags (like <span>) properly without printing raw text
+    modalTitle.innerHTML = isAr ? videoData.titleAr : videoData.titleEn;
     modalTag.textContent = videoData.tag;
 
+    // Reset direct mode on open so cursor follows by default
+    if (videoWrapper) videoWrapper.classList.remove('direct-mode');
+    if (modeToggleBtn) {
+      modeToggleBtn.innerHTML = `<i class="ri-cursor-fill"></i> <span>${isAr ? 'تتبع الماوس' : 'Cursor Tracking'}</span>`;
+      modeToggleBtn.classList.remove('active');
+    }
+    isIframePlaying = true;
+
     const isDirectVideo = videoData.type === 'video' || (videoData.url && (videoData.url.includes('.mp4') || videoData.url.includes('.webm')));
+
+    // YouTube external link setup
+    if (ytExtLink) {
+      if (!isDirectVideo && videoData.url && (videoData.url.includes('youtu') || videoData.url.includes('youtube.com'))) {
+        ytExtLink.href = toWatchUrl(videoData.url);
+        ytExtLink.style.display = 'inline-flex';
+      } else {
+        ytExtLink.style.display = 'none';
+      }
+    }
 
     const overlayCtrl = document.getElementById('modal-video-overlay-ctrl');
     const playBtn = document.getElementById('modal-video-play-trigger');
     const spinner = document.getElementById('modal-video-spinner');
 
     if (isDirectVideo) {
+      if (modeToggleBtn) modeToggleBtn.style.display = 'none';
       if (iframe) {
         iframe.style.display = 'none';
         iframe.src = '';
@@ -1312,7 +1415,6 @@ function initVideoModal() {
           playPromise.then(() => {
             if (overlayCtrl) overlayCtrl.style.display = 'none';
           }).catch(err => {
-            // Autoplay with audio was blocked by browser policy: show illuminated center play button
             console.warn('[Video Player] Autoplay policy blocked audio playback, showing play button:', err);
             if (overlayCtrl && playBtn && spinner) {
               spinner.style.display = 'none';
@@ -1323,6 +1425,7 @@ function initVideoModal() {
         }
       }
     } else {
+      if (modeToggleBtn) modeToggleBtn.style.display = 'inline-flex';
       if (overlayCtrl) overlayCtrl.style.display = 'none';
       if (videoEl) {
         videoEl.pause();
@@ -1361,6 +1464,7 @@ function initVideoModal() {
     }
     const overlayCtrl = document.getElementById('modal-video-overlay-ctrl');
     if (overlayCtrl) overlayCtrl.style.display = 'none';
+    if (videoWrapper) videoWrapper.classList.remove('direct-mode');
     document.body.style.overflow = '';
   };
 
@@ -2014,15 +2118,18 @@ function initCustomCursor() {
     return;
   }
 
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
+  let mouseX = (window.lastMouseX !== undefined) ? window.lastMouseX : window.innerWidth / 2;
+  let mouseY = (window.lastMouseY !== undefined) ? window.lastMouseY : window.innerHeight / 2;
   let cursorX = mouseX;
   let cursorY = mouseY;
   let hasMoved = false;
 
-  window.addEventListener('mousemove', (e) => {
+  const onPointerMove = (e) => {
+    if (e.clientX === undefined || e.clientY === undefined) return;
     mouseX = e.clientX;
     mouseY = e.clientY;
+    window.lastMouseX = mouseX;
+    window.lastMouseY = mouseY;
     if (!hasMoved) {
       cursorX = mouseX;
       cursorY = mouseY;
@@ -2030,8 +2137,14 @@ function initCustomCursor() {
       cursor.style.top = `${cursorY}px`;
       cursor.style.opacity = '1';
       hasMoved = true;
+    } else {
+      cursor.style.opacity = '1';
     }
-  });
+  };
+
+  window.addEventListener('mousemove', onPointerMove, { passive: true });
+  window.addEventListener('pointermove', onPointerMove, { passive: true });
+  document.addEventListener('mousemove', onPointerMove, { passive: true });
 
   window.addEventListener('mouseenter', () => {
     if (hasMoved) cursor.style.opacity = '1';
@@ -2041,7 +2154,8 @@ function initCustomCursor() {
     cursor.style.opacity = '0';
   });
 
-  window.addEventListener('mousedown', () => {
+  window.addEventListener('mousedown', (e) => {
+    onPointerMove(e);
     cursor.classList.add('cursor-clicking');
   });
 
@@ -2050,8 +2164,8 @@ function initCustomCursor() {
   });
 
   function renderCursor() {
-    cursorX += (mouseX - cursorX) * 0.16;
-    cursorY += (mouseY - cursorY) * 0.16;
+    cursorX += (mouseX - cursorX) * 0.18;
+    cursorY += (mouseY - cursorY) * 0.18;
     cursor.style.left = `${cursorX.toFixed(2)}px`;
     cursor.style.top = `${cursorY.toFixed(2)}px`;
     requestAnimationFrame(renderCursor);
@@ -2059,7 +2173,7 @@ function initCustomCursor() {
   requestAnimationFrame(renderCursor);
 
   // Hover states on interactive elements using event delegation
-  const interactiveSelectors = 'a, button, .project__card, .projects__card, .slider-handle, .showreel__wrapper, .filter-btn, input, textarea, select, label[for], [role="button"]';
+  const interactiveSelectors = 'a, button, .project__card, .projects__card, .slider-handle, .showreel__wrapper, .filter-btn, input, textarea, select, label[for], [role="button"], .modal-ctrl-pill, .modal-close-btn';
 
   document.addEventListener('mouseover', (e) => {
     if (e.target.closest(interactiveSelectors)) {

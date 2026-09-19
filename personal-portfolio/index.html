@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <!-- CUSTOM CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css?v=1789858460">
+  <link rel="stylesheet" href="../assets/css/style.css?v=1789859155">
 </head>
 <body>
 
@@ -1956,6 +1956,14 @@
         <div class="modal-watermark">
           <i class="ri-shield-check-line"></i> SATURN STUDIO • ALL RIGHTS RESERVED
         </div>
+        <div class="modal-mode-controls">
+          <button type="button" class="modal-ctrl-pill" id="modal-mode-toggle" title="تبديل وضع المؤشر">
+            <i class="ri-cursor-fill"></i> <span id="modal-mode-text">تتبع الماوس</span>
+          </button>
+          <a id="modal-yt-ext-link" href="#" target="_blank" rel="noopener noreferrer" class="modal-ctrl-pill modal-ctrl-yt" title="مشاهدة على YouTube" style="display: none;">
+            <i class="ri-youtube-line"></i> <span>YouTube</span>
+          </a>
+        </div>
         <iframe id="modal-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <video id="modal-video" controls playsinline preload="auto" controlslist="nodownload noplaybackrate" disablePictureInPicture oncontextmenu="return false;" style="display: none; width: 100%; height: 100%; border-radius: 12px; background: #000;"></video>
         <!-- Center Play Button & Buffering Spinner Overlay -->
@@ -1966,6 +1974,10 @@
           <div class="modal-video-spinner" id="modal-video-spinner" style="display: none;">
             <i class="ri-loader-4-line ri-spin"></i>
           </div>
+        </div>
+        <!-- Click Feedback Pulse (Play / Pause Indicator) -->
+        <div class="video-play-pulse" id="video-play-pulse">
+          <i class="ri-play-fill" id="video-play-pulse-icon"></i>
         </div>
       </div>
       <div class="modal-header-meta">
@@ -1984,7 +1996,7 @@
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-  <script src="../assets/js/data.js?v=1789858460"></script>
-  <script src="../assets/js/main.js?v=1789858460"></script>
+  <script src="../assets/js/data.js?v=1789859155"></script>
+  <script src="../assets/js/main.js?v=1789859155"></script>
 </body>
 </html>

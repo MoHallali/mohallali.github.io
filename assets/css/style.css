@@ -460,6 +460,12 @@ img, svg {
   .cursor-outline {
     display: none !important;
   }
+  .modal-video-wrapper iframe {
+    pointer-events: auto !important;
+  }
+  .modal-mode-controls {
+    display: none !important;
+  }
 }
 
 /*=============== HEADER & NAV ===============*/
@@ -2365,9 +2371,22 @@ html[dir="rtl"] .modal-close-btn {
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #000000;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.modal-video-wrapper iframe,
+.modal-video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none; /* Allows cursor tracking across 100% of video surface */
+  transition: opacity 0.3s ease;
+}
+
+.modal-video-wrapper.direct-mode iframe {
+  pointer-events: auto !important; /* Direct player control mode */
+}
+
 .modal-video-wrapper video {
   width: 100%;
   height: 100%;
@@ -2401,6 +2420,91 @@ html[dir="rtl"] .modal-close-btn {
 html[dir="rtl"] .modal-watermark {
   left: auto;
   right: 0.85rem;
+}
+
+/* Modal Mode Controls (Cursor Follow vs Direct Controls & YouTube Ext Link) */
+.modal-mode-controls {
+  position: absolute;
+  top: 0.85rem;
+  right: 3.8rem;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+html[dir="rtl"] .modal-mode-controls {
+  right: auto;
+  left: 3.8rem;
+}
+
+.modal-ctrl-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.32rem 0.75rem;
+  background: rgba(15, 12, 29, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #c084fc;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+}
+
+.modal-ctrl-pill:hover,
+.modal-ctrl-pill.active {
+  background: rgba(124, 58, 237, 0.45);
+  border-color: #c084fc;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 0 15px rgba(167, 139, 250, 0.4);
+}
+
+.modal-ctrl-yt {
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.modal-ctrl-yt:hover {
+  background: rgba(239, 68, 68, 0.35);
+  border-color: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+/* Center Play/Pause Feedback Pulse */
+.video-play-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: rgba(15, 12, 29, 0.82);
+  border: 2px solid rgba(167, 139, 250, 0.6);
+  box-shadow: 0 0 35px rgba(124, 58, 237, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: #a78bfa;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 8;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+.video-play-pulse.pulse-active {
+  transform: translate(-50%, -50%) scale(1.15);
+  opacity: 1;
 }
 
 /* Video Modal Overlay Controller & Buffering Spinner */
