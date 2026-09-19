@@ -368,7 +368,7 @@ let projectVideos = {
     "titleAr": "شهادة وإشادة صانع المحتوى عبد الرحمان عطيف (قناة D7MANc)",
     "titleEn": "Creator Abdulrahman Otaif's Live On-Camera Tribute",
     "tag": "Live Creator Tribute",
-    "url": "assets/video/abdulrahman-tribute.mp4?v=20260919",
+    "url": "assets/video/abdulrahman-tribute.mp4",
     "type": "video"
   },
   "proj-1": {
@@ -397,24 +397,49 @@ let projectVideos = {
   }
 };
 
-/*=============== DOM INITIALIZATION ===============*/
+/*=============== DOM INITIALIZATION (FAILSAFE & ANTI-BLANK ENGINE) ===============*/
+function safeInit(fn, name) {
+  try {
+    fn();
+  } catch (err) {
+    console.warn(`[Saturn Engine Warning] Module '${name}' initial failure bypassed safely:`, err);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  initGpuParticles();
-  applySiteData();
-  initLanguage(currentLang);
-  initDynamicTyping();
-  initBeforeAfterSlider();
-  initVideoModal();
-  initSpotlightTabs();
-  initProjectsSwiper(true);
-  initProjectFilters();
-  initSwiperTestimonials();
-  initContactActions();
-  initReviewModal();
-  initCustomCursor();
-  initScrollNav();
-  initMobileMenu();
-  initScrollFadeEngine();
+  safeInit(initGpuParticles, 'GpuParticles');
+  safeInit(applySiteData, 'SiteData');
+  safeInit(() => initLanguage(currentLang), 'Language');
+  safeInit(initDynamicTyping, 'DynamicTyping');
+  safeInit(initBeforeAfterSlider, 'BeforeAfterSlider');
+  safeInit(initVideoModal, 'VideoModal');
+  safeInit(initSpotlightTabs, 'SpotlightTabs');
+  safeInit(() => initProjectsSwiper(true), 'ProjectsSwiper');
+  safeInit(initProjectFilters, 'ProjectFilters');
+  safeInit(initSwiperTestimonials, 'SwiperTestimonials');
+  safeInit(initContactActions, 'ContactActions');
+  safeInit(initReviewModal, 'ReviewModal');
+  safeInit(initCustomCursor, 'CustomCursor');
+  safeInit(initScrollNav, 'ScrollNav');
+  safeInit(initMobileMenu, 'MobileMenu');
+  safeInit(initScrollFadeEngine, 'ScrollFadeEngine');
+
+  // Anti-Blank Safety Watchdog: Ensures 100% of critical elements are completely visible immediately
+  const enforceFullVisibility = () => {
+    const targets = document.querySelectorAll(
+      '.hero__data, .hero__visual, .hero__frame, .floating-stat, .section__title, .section__subtitle, .section__badge, .metric__item, .showreel__wrapper, .compare-box, .projects__card, .service__card, .workflow__step, .testimonial__card, .contact__card-inner, .contact__form'
+    );
+    targets.forEach((el) => {
+      el.style.visibility = 'visible';
+      el.style.opacity = '1';
+      el.classList.add('ui-fade-revealed');
+    });
+  };
+
+  // Run at 300ms, 800ms, and 1500ms checkpoints to guarantee no client ever sees an empty space
+  setTimeout(enforceFullVisibility, 300);
+  setTimeout(enforceFullVisibility, 800);
+  setTimeout(enforceFullVisibility, 1500);
 });
 
 /*=============== GPU ACCELERATED PARTICLE MESH CANVAS ===============*/
@@ -639,7 +664,7 @@ function applySiteData() {
         titleAr: tr.titleAr || "شهادة وإشادة صانع المحتوى عبد الرحمان عطيف (قناة D7MANc)",
         titleEn: tr.titleEn || "Creator Abdulrahman Otaif's Live On-Camera Tribute",
         tag: "Live Creator Tribute",
-        url: tr.videoUrl || "assets/video/abdulrahman-tribute.mp4?v=20260919",
+        url: (tr.videoUrl ? tr.videoUrl.replace(/\?v=[^&]+/, '') : "assets/video/abdulrahman-tribute.mp4"),
         type: (tr.videoUrl && (tr.videoUrl.includes('.mp4') || tr.videoUrl.includes('.webm'))) ? "video" : (tr.videoUrl && tr.videoUrl.includes('youtu') ? "youtube" : "video")
       };
     }
@@ -1211,6 +1236,10 @@ function initVideoModal() {
 
     const isDirectVideo = videoData.type === 'video' || (videoData.url && (videoData.url.includes('.mp4') || videoData.url.includes('.webm')));
 
+    const overlayCtrl = document.getElementById('modal-video-overlay-ctrl');
+    const playBtn = document.getElementById('modal-video-play-trigger');
+    const spinner = document.getElementById('modal-video-spinner');
+
     if (isDirectVideo) {
       if (iframe) {
         iframe.style.display = 'none';
@@ -1218,11 +1247,83 @@ function initVideoModal() {
       }
       if (videoEl) {
         videoEl.style.display = 'block';
-        videoEl.src = videoData.url;
+
+        // 1. Resolve relative path for root and subdirectories (/personal-portfolio/)
+        const isSubDir = window.location.pathname.includes('/personal-portfolio') || window.location.pathname.includes('/mohallali');
+        const prefix = isSubDir ? '../' : '';
+        let resolvedUrl = videoData.url || '';
+        if (!resolvedUrl.startsWith('http') && !resolvedUrl.startsWith('/') && !resolvedUrl.startsWith('../')) {
+          resolvedUrl = prefix + resolvedUrl;
+        }
+        // Clean query strings to allow HTTP 206 Partial Content range requests
+        resolvedUrl = resolvedUrl.replace(/\?v=[^&]+/, '');
+
+        // 2. Set Poster Image Immediately: ZERO black screen void!
+        const posterImg = isAr 
+          ? (prefix + 'assets/img/abdulrahman-thumb-ar.jpg') 
+          : (prefix + 'assets/img/abdulrahman-thumb-en.jpg');
+        videoEl.poster = posterImg;
+
+        // 3. Preload auto and assign source
+        videoEl.preload = 'auto';
+        videoEl.src = resolvedUrl;
         videoEl.load();
-        videoEl.play().catch(() => {});
+
+        // 4. Setup Overlay Spinner & Play Button
+        if (overlayCtrl && spinner && playBtn) {
+          overlayCtrl.style.display = 'flex';
+          spinner.style.display = 'block';
+          playBtn.style.display = 'none';
+
+          const hideOverlay = () => {
+            overlayCtrl.style.display = 'none';
+            spinner.style.display = 'none';
+            playBtn.style.display = 'none';
+          };
+
+          const showPlayBtn = () => {
+            overlayCtrl.style.display = 'flex';
+            spinner.style.display = 'none';
+            playBtn.style.display = 'flex';
+          };
+
+          const showSpinner = () => {
+            overlayCtrl.style.display = 'flex';
+            spinner.style.display = 'block';
+            playBtn.style.display = 'none';
+          };
+
+          videoEl.onplaying = hideOverlay;
+          videoEl.onwaiting = showSpinner;
+          videoEl.onpause = () => {
+            if (!videoEl.ended) showPlayBtn();
+          };
+
+          overlayCtrl.onclick = (e) => {
+            e.stopPropagation();
+            showSpinner();
+            videoEl.play().then(hideOverlay).catch(() => showPlayBtn());
+          };
+        }
+
+        // 5. Trigger playback (with autoplay failure handling)
+        const playPromise = videoEl.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            if (overlayCtrl) overlayCtrl.style.display = 'none';
+          }).catch(err => {
+            // Autoplay with audio was blocked by browser policy: show illuminated center play button
+            console.warn('[Video Player] Autoplay policy blocked audio playback, showing play button:', err);
+            if (overlayCtrl && playBtn && spinner) {
+              spinner.style.display = 'none';
+              playBtn.style.display = 'flex';
+              overlayCtrl.style.display = 'flex';
+            }
+          });
+        }
       }
     } else {
+      if (overlayCtrl) overlayCtrl.style.display = 'none';
       if (videoEl) {
         videoEl.pause();
         videoEl.style.display = 'none';
@@ -1254,8 +1355,12 @@ function initVideoModal() {
     if (iframe) iframe.src = '';
     if (videoEl) {
       videoEl.pause();
-      videoEl.src = '';
+      videoEl.removeAttribute('src');
+      videoEl.load();
+      videoEl.style.display = 'none';
     }
+    const overlayCtrl = document.getElementById('modal-video-overlay-ctrl');
+    if (overlayCtrl) overlayCtrl.style.display = 'none';
     document.body.style.overflow = '';
   };
 
@@ -2049,60 +2154,53 @@ function initMobileMenu() {
   }
 }
 
-/*=============== 11. CINEMATIC SCROLL FADE & REVEAL ENGINE ===============*/
+/*=============== 11. CINEMATIC SCROLL FADE & REVEAL ENGINE (ANTI-BLANK SAFE) ===============*/
 function initScrollFadeEngine() {
-  // 1. If ScrollReveal library is available, setup cinematic slow spring reveals
-  if (typeof ScrollReveal !== 'undefined') {
+  // 1. If ScrollReveal library is available on Desktop, setup smooth micro-reveals
+  // NOTE: mobile is set to false to prevent mobile touch-scroll blank element bugs
+  if (typeof ScrollReveal !== 'undefined' && window.innerWidth > 768) {
     const sr = ScrollReveal({
       origin: 'bottom',
-      distance: '45px',
-      duration: 1600,
-      delay: 180,
-      easing: 'cubic-bezier(0.19, 1, 0.22, 1)',
+      distance: '30px',
+      duration: 1100,
+      delay: 100,
+      easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
       reset: false,
-      mobile: true
+      mobile: false
     });
 
     // Reveal Section Badges & Titles
-    sr.reveal('.section__badge', { origin: 'top', delay: 120, distance: '30px', duration: 1400 });
-    sr.reveal('.section__title', { delay: 240, duration: 1600, distance: '45px' });
-    sr.reveal('.section__subtitle', { delay: 380, duration: 1600 });
+    sr.reveal('.section__badge', { origin: 'top', delay: 80, distance: '20px', duration: 1000 });
+    sr.reveal('.section__title', { delay: 120, duration: 1100, distance: '25px' });
+    sr.reveal('.section__subtitle', { delay: 160, duration: 1100 });
 
-    // Reveal Hero elements & 3D Badges
-    sr.reveal('.hero__greeting-wrap', { delay: 180, origin: 'top', duration: 1400 });
-    sr.reveal('.hero__title', { delay: 300, duration: 1650, distance: '50px' });
-    sr.reveal('.profession-badge-wrap', { delay: 450, duration: 1500 });
-    sr.reveal('.hero__description', { delay: 550, duration: 1550 });
-    sr.reveal('.hero__btns .btn', { delay: 680, interval: 200, origin: 'bottom', duration: 1450 });
-    sr.reveal('.hero__socials .social-link', { delay: 780, interval: 110, scale: 0.85, duration: 1300 });
-    sr.reveal('.hero__frame', { delay: 450, scale: 0.94, duration: 1700 });
-    sr.reveal('.floating-stat', { delay: 850, interval: 300, scale: 0.88, duration: 1500 });
+    // NOTE: Hero elements (.hero__*, .floating-stat) are kept 100% visible immediately without ScrollReveal
 
     // Reveal Metrics strip
-    sr.reveal('.metric__item', { delay: 200, interval: 160, origin: 'bottom', duration: 1500, distance: '40px' });
+    sr.reveal('.metric__item', { delay: 100, interval: 80, origin: 'bottom', duration: 1000, distance: '25px' });
 
     // Reveal Showreel & Compare Box
-    sr.reveal('.showreel__wrapper', { delay: 220, scale: 0.95, duration: 1600 });
-    sr.reveal('.compare-box', { delay: 220, scale: 0.95, duration: 1600 });
+    sr.reveal('.showreel__wrapper', { delay: 120, scale: 0.98, duration: 1100 });
+    sr.reveal('.compare-box', { delay: 120, scale: 0.98, duration: 1100 });
 
     // Reveal Projects Section
-    sr.reveal('.work__tabs', { delay: 180, origin: 'top', duration: 1400 });
-    sr.reveal('.projects__swiper', { delay: 280, scale: 0.96, duration: 1650 });
+    sr.reveal('.work__tabs', { delay: 80, origin: 'top', duration: 900 });
+    sr.reveal('.projects__swiper', { delay: 120, scale: 0.98, duration: 1100 });
 
-    // Reveal Services Cards (Cascade Stagger)
-    sr.reveal('.service__card', { delay: 200, interval: 180, origin: 'bottom', duration: 1600, distance: '40px' });
+    // Reveal Services Cards
+    sr.reveal('.service__card', { delay: 100, interval: 90, origin: 'bottom', duration: 1100, distance: '25px' });
 
-    // Reveal Workflow Steps (Cascade Stagger)
-    sr.reveal('.workflow__step', { delay: 180, interval: 160, origin: 'bottom', duration: 1550, distance: '35px' });
+    // Reveal Workflow Steps
+    sr.reveal('.workflow__step', { delay: 100, interval: 90, origin: 'bottom', duration: 1100, distance: '25px' });
 
     // Reveal Testimonials & Contact
-    sr.reveal('.testimonials__swiper', { delay: 220, scale: 0.96, duration: 1600 });
-    sr.reveal('.btn-review-cta', { delay: 350, origin: 'bottom', duration: 1400 });
-    sr.reveal('.contact__card-inner', { delay: 220, origin: 'right', duration: 1600 });
-    sr.reveal('.contact__form', { delay: 320, origin: 'left', duration: 1600 });
+    sr.reveal('.testimonials__swiper', { delay: 120, scale: 0.98, duration: 1100 });
+    sr.reveal('.btn-review-cta', { delay: 140, origin: 'bottom', duration: 900 });
+    sr.reveal('.contact__card-inner', { delay: 120, origin: 'right', duration: 1100 });
+    sr.reveal('.contact__form', { delay: 160, origin: 'left', duration: 1100 });
   }
 
-  // 2. High-Performance IntersectionObserver Fallback / Supplement
+  // 2. High-Performance IntersectionObserver Fallback
   const revealElements = document.querySelectorAll(
     '.showreel__wrapper, .compare-box, .contact__card-inner, .contact__form, .service__card, .workflow__step'
   );
@@ -2116,15 +2214,21 @@ function initScrollFadeEngine() {
         }
       });
     }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.08,
+      rootMargin: '0px 0px -20px 0px'
     });
 
     revealElements.forEach((el) => {
-      el.classList.add('ui-fade-init');
       observer.observe(el);
     });
   }
+
+  // Fail-safe: Ensure all elements are 100% visible and revealed within 1.2s max
+  setTimeout(() => {
+    revealElements.forEach((el) => {
+      el.classList.add('ui-fade-revealed');
+    });
+  }, 1200);
 }
 
 /*=============== 12. ADVANCED PRIVACY & SOURCE CODE SHIELD (300% HARDENED) ===============*/
