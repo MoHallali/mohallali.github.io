@@ -26,14 +26,14 @@ window.SITE_DATA = {
     ],
     "descAr": "أساعد كبار اليوتيوبرز، صناع المحتوى، والبراندات العالمية في مضاعفة معدل الاحتفاظ بالمشاهدين (Retention Rate) عبر مونتاج فائق الدقة، تلوين سينمائي، ومؤثرات صوتية تجذب الانتباه من الثانية الأولى.",
     "descEn": "I help top YouTubers, creators, and global brands skyrocket their retention rate with elite narrative pacing, cinema-grade color grading, and dynamic sound design that hooks viewers from the first second.",
-    "badgeViewsAr": "أكثر من 50 مليون",
-    "badgeViewsEn": "50M+ Views",
+    "badgeViewsAr": "أكثر من 20 مليون",
+    "badgeViewsEn": "20M+ Views",
     "badgeViewsSubAr": "مشاهدة محققة للعملاء",
     "badgeViewsSubEn": "Generated for clients",
     "badgeColorAr": "تلوين سينمائي 4K",
     "badgeColorEn": "4K Color Grade",
-    "badgeColorSubAr": "DaVinci Resolve Pro",
-    "badgeColorSubEn": "DaVinci Resolve Pro"
+    "badgeColorSubAr": "DaVinci Resolve",
+    "badgeColorSubEn": "DaVinci Resolve"
   },
   "contact": {
     "whatsapp": "+213697970981",
