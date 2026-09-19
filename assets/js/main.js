@@ -655,6 +655,9 @@ function applySiteData() {
     if (d.contact.linkedin) {
       document.querySelectorAll('a[title="LinkedIn"]').forEach(a => { a.href = d.contact.linkedin; });
     }
+    if (d.contact.email) {
+      updateGmailLinks(d.contact.email);
+    }
   }
 
   // 4. Dynamic Metrics Strip
@@ -995,6 +998,9 @@ function initLanguage(lang) {
       ratingText.textContent = starDescs[lang][val - 1];
     }
   }
+
+  // Update Gmail compose links
+  updateGmailLinks();
 
   // Re-render typist
   restartDynamicTyping();
@@ -1495,11 +1501,39 @@ function initSwiperTestimonials() {
   }
 }
 
+/*=============== GMAIL WEB COMPOSE HELPER ===============*/
+function getGmailComposeUrl(lang, customEmail) {
+  const email = customEmail || ((window.SITE_DATA && window.SITE_DATA.contact && window.SITE_DATA.contact.email) ? window.SITE_DATA.contact.email : "hallali.mohamed4@gmail.com");
+  const isAr = (lang || currentLang) === 'ar';
+
+  const subject = isAr
+    ? "طلب تعاون وبدء مشروع مونتاج فيديو | مشروع جديد"
+    : "Video Editing Collaboration Inquiry | New Project";
+
+  const body = isAr
+    ? `مرحباً محمد،\n\nأتمنى أن تكون بخير وفي أفضل حال.\n\nاطلعت على معرض أعمالك وأعجبني جداً مستواك في المونتاج والإخراج البصري والريتم السينمائي، وأرغب في التعاون معك والبدء في مشروع مونتاج فيديو جديد:\n\n- نوع المحتوى المطلوب: [يوتيوب / ريلز وتيك توك / إعلان تجاري / غير ذلك]\n- الفكرة والهدف من الفيديو: [اكتب نبذة بسيطة عن فكرتك]\n- المدة التقديرية والموعد المستهدف: [المدة والموعد إن وجد]\n\nيسعدني أن نتواصل لمناقشة التفاصيل ومباشرة العمل في أقرب وقت.\n\nمع أطيب التحيات،\n[الاسم / القناة]`
+    : `Hi Mohamed,\n\nHope you're doing well!\n\nI recently explored your portfolio and was truly impressed by your video editing craftsmanship, pacing, and visual storytelling. I would love to collaborate with you on an upcoming video project:\n\n- Content Type: [YouTube / Reels & TikTok / Commercial / Other]\n- Project Concept & Goal: [Brief overview of your vision]\n- Estimated Duration & Timeline: [Target length and deadline]\n\nI'd be glad to discuss the details and kick off our collaboration soon.\n\nBest regards,\n[Your Name / Channel]`;
+
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function updateGmailLinks(customEmail) {
+  const gmailUrl = getGmailComposeUrl(currentLang, customEmail);
+  const gmailLinks = document.querySelectorAll('.social-link--gmail, a[title="Gmail"]');
+  gmailLinks.forEach(g => {
+    g.href = gmailUrl;
+    g.setAttribute('target', '_blank');
+    g.setAttribute('rel', 'noopener noreferrer');
+  });
+}
+
 /*=============== 7. CONTACT ACTIONS & TOAST ===============*/
 function initContactActions() {
   const copyBtn = document.getElementById('copy-email-btn');
   const toast = document.getElementById('toast-notice');
   const emailVal = (window.SITE_DATA && window.SITE_DATA.contact && window.SITE_DATA.contact.email) ? window.SITE_DATA.contact.email : "hallali.mohamed4@gmail.com"; // User's email
+
+  updateGmailLinks(emailVal);
 
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
@@ -2157,12 +2191,13 @@ function initScrollFadeEngine() {
       }
     });
   }
-  const gmailLinks = document.querySelectorAll('.social-link--gmail');
+  updateGmailLinks(_secEmail);
+  const gmailLinks = document.querySelectorAll('.social-link--gmail, a[title="Gmail"]');
   gmailLinks.forEach(g => {
-    g.href = `mailto:${_secEmail}`;
     g.addEventListener('click', (e) => {
       e.preventDefault();
-      window.location.href = `mailto:${_secEmail}`;
+      const freshUrl = getGmailComposeUrl(currentLang, _secEmail);
+      window.open(freshUrl, '_blank', 'noopener,noreferrer');
     });
   });
 })();
