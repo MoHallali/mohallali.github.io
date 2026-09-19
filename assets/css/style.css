@@ -2298,6 +2298,35 @@ html[dir="rtl"] .modal-close-btn {
   border: none;
 }
 
+.modal-watermark {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 9;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(7, 7, 10, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #a78bfa;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+html[dir="rtl"] .modal-watermark {
+  left: auto;
+  right: 0.85rem;
+}
+
 /* Vertical 9:16 Modal for Shorts & Reels */
 .modal-content-box.modal-vertical {
   max-width: 440px;

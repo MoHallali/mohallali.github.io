@@ -1960,27 +1960,71 @@ function initScrollFadeEngine() {
   // 1. Digital Signature & Professional Imprint
   try {
     console.log(
-      '%c🎬 SATURN STUDIO | MOHAMED HALLALI %c\n%c🔒 هذا البورتفوليو محمي بأنظمة تشفير وأمان عالي.\n© 2026 جميع الحقوق محفوظة لـ Mohamed Hallali.',
+      '%c🎬 SATURN STUDIO | MOHAMED HALLALI %c\n%c🔒 هذا البورتفوليو محمي بأنظمة تشفير وأمان متقدمة.\n© 2026 جميع الحقوق محفوظة لـ Mohamed Hallali.',
       'background: #7c3aed; color: #fff; font-size: 13px; font-weight: bold; padding: 6px 12px; border-radius: 6px;',
       '',
       'color: #06b6d4; font-size: 12px; font-weight: bold; line-height: 1.6;'
     );
   } catch (_) {}
 
-  // 2. Anti-Harvesting: Secure Email Copy & Dynamic Mailto
-  const emailDisplay = document.getElementById('contact-email-display');
-  const copyBtn = document.getElementById('copy-email-btn');
+  // 2. Anti-Theft: Media Context Menu Protection
+  document.addEventListener('contextmenu', (e) => {
+    const target = e.target;
+    const isMedia = target.tagName === 'VIDEO' || 
+                    target.tagName === 'IMG' || 
+                    target.tagName === 'CANVAS' ||
+                    target.closest('.spotlight-media') || 
+                    target.closest('.projects__card') || 
+                    target.closest('#video-modal');
+    if (isMedia) {
+      e.preventDefault();
+      showToast(currentLang === 'ar' ? '🔒 جميع الوسائط والمقاطع محمية بحقوق الطبع والنشر' : '🔒 Media assets are protected by copyright');
+    }
+  });
+
+  // 3. Anti-Theft: Drag & Drop Shield on Media
+  document.addEventListener('dragstart', (e) => {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO' || e.target.closest('.spotlight-media')) {
+      e.preventDefault();
+    }
+  });
+
+  // 4. Source Shield: Common Developer Inspection Shortcuts
+  window.addEventListener('keydown', (e) => {
+    const isInput = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName);
+    if (isInput) return;
+
+    if (
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) ||
+      (e.ctrlKey && ['U', 'u', 'S', 's'].includes(e.key))
+    ) {
+      e.preventDefault();
+      showToast(currentLang === 'ar' ? '🛡️ الكود المصدري ومحتويات الموقع محمية ضد النسخ' : '🛡️ Source code and assets are protected against copying');
+    }
+  });
+
+  // 5. Dynamic Obfuscation & Hydration for Email & Phone (Anti-Scraper Harvesting)
   const _u = 'hallali.mohamed4';
   const _d = 'gmail.com';
   const _secEmail = `${_u}@${_d}`;
 
+  // Hydrate email display text dynamically
+  const emailTextEl = document.getElementById('contact-email-text');
+  if (emailTextEl) {
+    emailTextEl.textContent = _secEmail;
+  }
+
+  const emailDisplay = document.getElementById('contact-email-display');
   if (emailDisplay) {
+    emailDisplay.href = `mailto:${_secEmail}`;
     emailDisplay.addEventListener('click', (e) => {
       e.preventDefault();
       window.location.href = `mailto:${_secEmail}`;
     });
   }
 
+  const copyBtn = document.getElementById('copy-email-btn');
   if (copyBtn) {
     copyBtn.addEventListener('click', (e) => {
       e.preventDefault();
