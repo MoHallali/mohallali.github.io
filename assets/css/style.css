@@ -2677,10 +2677,56 @@ html[dir="rtl"] .toast-notice {
   width: 100%;
 }
 
+/* Cinematic Edge Blur & Fade Vignettes (Eliminates side cutoff & softens card boundaries) */
+.projects__container::before,
+.projects__container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 130px;
+  z-index: 5;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.projects__container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(7, 7, 10, 0.98) 0%, rgba(7, 7, 10, 0.7) 45%, rgba(7, 7, 10, 0) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  mask-image: linear-gradient(to right, black 25%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 25%, transparent 100%);
+}
+
+.projects__container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(7, 7, 10, 0.98) 0%, rgba(7, 7, 10, 0.7) 45%, rgba(7, 7, 10, 0) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  mask-image: linear-gradient(to left, black 25%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 25%, transparent 100%);
+}
+
 .projects__swiper {
   width: 100%;
   padding-block: 1.5rem 3.5rem;
   overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 90px, black calc(100% - 90px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 90px, black calc(100% - 90px), transparent 100%);
+}
+
+@media screen and (max-width: 768px) {
+  .projects__container::before,
+  .projects__container::after {
+    width: 45px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .projects__swiper {
+    mask-image: linear-gradient(to right, transparent 0%, black 35px, black calc(100% - 35px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35px, black calc(100% - 35px), transparent 100%);
+  }
 }
 
 .projects__swiper .swiper-wrapper {
