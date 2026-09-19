@@ -175,8 +175,9 @@ const translations = {
     toast_email_copied: "تم نسخ البريد الإلكتروني بنجاح!",
 
     // Footer
-    footer_rights: "جميع الحقوق محفوظة © لمونتير الفيديو المحترف",
-    footer_tagline: "صناعة قصص بصرية تأسر العالم"
+    footer_rights: "جميع الحقوق محفوظة © 2026 محمد هلالي | SATURN Studio",
+    footer_tagline: "صناعة قصص بصرية تأسر العالم",
+    footer_ip_notice: "جميع الوسائط، الفيديوهات، الأكواد، والتصاميم محمية بموجب قوانين حماية الملكية الفكرية وحقوق النشر الدولية. يمنع منعاً باتاً النسخ أو إعادة النشر دون تصريح مسبق."
   },
   en: {
     // Navigation
@@ -333,8 +334,9 @@ const translations = {
     toast_email_copied: "Email address successfully copied to clipboard!",
 
     // Footer
-    footer_rights: "All Rights Reserved © Professional Video Editor",
-    footer_tagline: "Crafting visual stories that inspire and convert."
+    footer_rights: "All Rights Reserved © 2026 Mohamed Hallali | SATURN Studio",
+    footer_tagline: "Crafting visual stories that inspire and convert.",
+    footer_ip_notice: "All media, videos, source code, and design assets are protected under international copyright and intellectual property laws. Unauthorized copying, scraping, or redistribution is strictly prohibited."
   }
 };
 
@@ -2107,12 +2109,12 @@ function initScrollFadeEngine() {
   }
 }
 
-/*=============== 12. ADVANCED PRIVACY & SOURCE CODE SHIELD ===============*/
+/*=============== 12. ADVANCED PRIVACY & SOURCE CODE SHIELD (300% HARDENED) ===============*/
 (function initCodeShield() {
   // 1. Digital Signature & Professional Imprint
   try {
     console.log(
-      '%c🎬 SATURN STUDIO | MOHAMED HALLALI %c\n%c🔒 هذا البورتفوليو محمي بأنظمة تشفير وأمان متقدمة.\n© 2026 جميع الحقوق محفوظة لـ Mohamed Hallali.',
+      '%c🎬 SATURN STUDIO | MOHAMED HALLALI %c\n%c🔒 هذا البورتفوليو محمي بأنظمة أمان وتشفير متقدمة 300%%.\n© 2026 جميع الحقوق محفوظة لـ Mohamed Hallali.\nجميع الأكواد، الفيديوهات، والوسائط محمية بموجب القوانين الدولية لحماية الملكية الفكرية.',
       'background: #7c3aed; color: #fff; font-size: 13px; font-weight: bold; padding: 6px 12px; border-radius: 6px;',
       '',
       'color: #06b6d4; font-size: 12px; font-weight: bold; line-height: 1.6;'
@@ -2125,34 +2127,52 @@ function initScrollFadeEngine() {
     const isMedia = target.tagName === 'VIDEO' || 
                     target.tagName === 'IMG' || 
                     target.tagName === 'CANVAS' ||
+                    target.tagName === 'IFRAME' ||
                     target.closest('.spotlight-media') || 
                     target.closest('.projects__card') || 
-                    target.closest('#video-modal');
+                    target.closest('#video-modal') ||
+                    target.closest('.compare-box') ||
+                    target.closest('.hero__frame');
     if (isMedia) {
       e.preventDefault();
-      showToast(currentLang === 'ar' ? '🔒 جميع الوسائط والمقاطع محمية بحقوق الطبع والنشر' : '🔒 Media assets are protected by copyright');
+      showToast(currentLang === 'ar' ? '🔒 جميع الوسائط والمقاطع محمية بحقوق الطبع والنشر والملكية الفكرية الدولية' : '🔒 Media assets are protected by international copyright laws');
     }
   });
 
   // 3. Anti-Theft: Drag & Drop Shield on Media
   document.addEventListener('dragstart', (e) => {
-    if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO' || e.target.closest('.spotlight-media')) {
+    if (
+      e.target.tagName === 'IMG' || 
+      e.target.tagName === 'VIDEO' || 
+      e.target.tagName === 'CANVAS' ||
+      e.target.closest('.spotlight-media') ||
+      e.target.closest('.projects__card') ||
+      e.target.closest('.hero__frame')
+    ) {
       e.preventDefault();
     }
   });
 
-  // 4. Source Shield: Common Developer Inspection Shortcuts
+  // 4. Source Shield: Common Developer Inspection & Save Shortcuts (Windows & Mac)
   window.addEventListener('keydown', (e) => {
     const isInput = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName);
     if (isInput) return;
 
-    if (
-      e.key === 'F12' ||
+    // F12
+    const isF12 = (e.key === 'F12');
+    // Ctrl+Shift+I / J / C (Windows) or Cmd+Alt+I / J / C (Mac)
+    const isDevTools = (
       (e.ctrlKey && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) ||
-      (e.ctrlKey && ['U', 'u', 'S', 's'].includes(e.key))
-    ) {
+      (e.metaKey && e.altKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key))
+    );
+    // Ctrl+U (View Source), Ctrl+S (Save), Ctrl+P (Print) on Windows or Cmd on Mac
+    const isSaveOrSource = (
+      ((e.ctrlKey || e.metaKey) && ['U', 'u', 'S', 's', 'P', 'p'].includes(e.key))
+    );
+
+    if (isF12 || isDevTools || isSaveOrSource) {
       e.preventDefault();
-      showToast(currentLang === 'ar' ? '🛡️ الكود المصدري ومحتويات الموقع محمية ضد النسخ' : '🛡️ Source code and assets are protected against copying');
+      showToast(currentLang === 'ar' ? '🛡️ الكود المصدري ومحتويات الموقع محمية ضد النسخ والسرقة' : '🛡️ Source code and assets are protected against copying');
     }
   });
 
@@ -2160,6 +2180,9 @@ function initScrollFadeEngine() {
   const _u = 'hallali.mohamed4';
   const _d = 'gmail.com';
   const _secEmail = `${_u}@${_d}`;
+  const _cc = '213';
+  const _pn = '697970981';
+  const _secPhone = `${_cc}${_pn}`;
 
   // Hydrate email display text dynamically
   const emailTextEl = document.getElementById('contact-email-text');
@@ -2191,6 +2214,13 @@ function initScrollFadeEngine() {
       }
     });
   }
+
+  // Dynamic WhatsApp links hydration
+  const waDefaultMsg = '%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%21+%D8%A7%D8%B7%D9%84%D8%B9%D8%AA+%D8%B9%D9%84%D9%89+%D9%85%D8%B9%D8%B1%D8%B6+%D8%A3%D8%B9%D9%85%D8%A7%D9%84%D9%83+%D9%88%D8%A3%D9%88%D8%AF+%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9+%D9%85%D8%B4%D8%B1%D9%88%D8%B9+%D9%81%D9%8A%D8%AF%D9%8A%D9%88';
+  document.querySelectorAll('a.social-link--whatsapp, a.contact-action-btn--whatsapp').forEach(a => {
+    a.href = `https://wa.me/${_secPhone}?text=${waDefaultMsg}`;
+  });
+
   updateGmailLinks(_secEmail);
   const gmailLinks = document.querySelectorAll('.social-link--gmail, a[title="Gmail"]');
   gmailLinks.forEach(g => {
@@ -2201,3 +2231,4 @@ function initScrollFadeEngine() {
     });
   });
 })();
+

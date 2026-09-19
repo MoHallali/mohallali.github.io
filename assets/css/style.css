@@ -858,6 +858,36 @@ html[dir="rtl"] .profession-dynamic {
   box-shadow: 0 16px 36px rgba(234, 67, 53, 0.45), 0 0 28px rgba(234, 67, 53, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
+.social-link--tiktok {
+  color: #06b6d4;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.social-link--tiktok:hover {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.28), rgba(244, 63, 94, 0.28));
+  border-color: #06b6d4;
+  color: #ffffff;
+  transform: translate3d(0, -5px, 0) scale(1.08);
+  box-shadow: 0 16px 36px rgba(6, 182, 212, 0.45), 0 0 28px rgba(244, 63, 94, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.social-link--youtube {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.social-link--youtube:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #ef4444;
+  color: #ffffff;
+  transform: translate3d(0, -5px, 0) scale(1.08);
+  box-shadow: 0 16px 36px rgba(239, 68, 68, 0.45), 0 0 28px rgba(239, 68, 68, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
 .contact__socials-wrap .hero__socials {
   display: flex;
   align-items: center;
@@ -2636,6 +2666,42 @@ html[dir="rtl"] .toast-notice {
   font-weight: 600;
 }
 
+.footer__legal-shield {
+  width: 100%;
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: center;
+  text-align: center;
+}
+
+.footer__shield-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  padding: 0.3rem 0.85rem;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 9999px;
+  letter-spacing: 0.5px;
+}
+
+.footer__ip-notice {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  max-width: 840px;
+  line-height: 1.6;
+  margin: 0;
+}
+
 .back-to-top {
   width: 42px;
   height: 42px;
@@ -3863,12 +3929,49 @@ html[dir="rtl"] .projects__button {
   }
 }
 
-/*=============== SECURITY & ASSET SHIELD ===============*/
-img, video, .showreel__video, .author-avatar, .nav__logo-img {
+/*=============== SECURITY & ASSET SHIELD (300% HARDENED) ===============*/
+img, video, canvas, .showreel__video, .author-avatar, .nav__logo-img, .projects__img, .spotlight-media img {
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
+  -webkit-touch-callout: none;
 }
+
+/* Prevent accidental text selection on UI interactive elements */
+.nav, .hero__frame, .projects__card, .work__tabs, .swiper-nav-btn, .testimonial__card, .btn, .service__card, .workflow__step, .compare-box {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Eliminate 300ms tap delay on touch devices */
+button, a, input, select, textarea, .filter-btn, .work__button, .social-link, .swiper-nav-btn, .projects__button, .btn-review-cta {
+  touch-action: manipulation;
+}
+
+/* Mobile & Tablet form zoom prevention: Enforce min 16px font size on inputs */
+@media screen and (max-width: 768px) {
+  .form__input,
+  .form__select,
+  .form__textarea,
+  #review-form input,
+  #review-form textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Responsive Modal for 9:16 Shorts/Reels on smartphones */
+@media screen and (max-width: 480px) {
+  .modal-content-box.modal-vertical {
+    max-width: min(92vw, 380px) !important;
+    max-height: 85vh !important;
+  }
+  .modal-content-box.modal-vertical .modal-video-wrapper {
+    max-height: calc(85vh - 70px) !important;
+  }
+}
+
 

@@ -39,7 +39,7 @@ window.SITE_DATA = {
     "whatsapp": "+213697970981",
     "email": "hallali.mohamed4@gmail.com",
     "youtube": "https://youtube.com",
-    "instagram": "https://www.instagram.com/mimo.hallali/?__pwa=1",
+    "instagram": "https://www.instagram.com/mimo.hallali/",
     "tiktok": "https://www.tiktok.com/@mo.hallali",
     "linkedin": "https://linkedin.com",
     "behance": "https://behance.net"
