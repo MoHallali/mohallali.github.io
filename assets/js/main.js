@@ -160,6 +160,17 @@ const translations = {
     type_opt_2: "فيديو يوتيوب طويل / وثائقي",
     type_opt_3: "إعلان تجاري لعلامة تجارية",
     type_opt_4: "تلوين سينمائي ومؤثرات بصرية",
+    contact_info_title: "تواصل مباشر وسريع",
+    contact_info_desc: "أنا جاهز للرد على استفسارك ومناقشة تفاصيل مشروعك أو إرسال عرض سعر مخصص خلال ساعات معدودة.",
+    contact_socials_title: "حساباتي على الشبكات",
+    placeholder_name: "اسمك أو اسم قناتك",
+    placeholder_email: "example@domain.com",
+    placeholder_message: "أخبرني عن أسلوب الفيديو، مدته التقديرية، أو رابط لقناتك...",
+    placeholder_review_name: "مثال: يوسف القحطاني",
+    placeholder_review_role: "مثال: صانع محتوى (300K مشترك)",
+    placeholder_review_quote: "اكتب تجربتك مع المونتاج، الجودة، سرعة التسليم، أو أثرها على قناتك...",
+    placeholder_review_avatar: "https://... أو يمكنك تركها للصورة الافتراضية",
+    modal_review_note: "يتم إشعار محمد فوراً عبر الواتساب لمراجعة التقييم واعتماده في الموقع",
     form_submit_btn: "إرسال الطلب الآن",
     toast_email_copied: "تم نسخ البريد الإلكتروني بنجاح!",
 
@@ -291,17 +302,29 @@ const translations = {
     modal_review_avatar: "Avatar / Logo URL (Optional)",
     modal_review_submit: "Submit Review for Approval",
 
+    modal_review_note: "Mohamed is immediately notified via WhatsApp to review and approve your submission.",
+
     // Contact
     contact_badge: "Let's Collaborate",
     contact_title: "Ready To Level Up <span>Your Video Content?</span>",
     contact_subtitle: "Let's discuss your upcoming project and build a high-impact editing strategy for your channel.",
+    contact_info_title: "Direct & Fast Communication",
+    contact_info_desc: "I'm ready to answer your inquiries, discuss project details, or provide a tailored quote within hours.",
     contact_whatsapp_btn: "Instant WhatsApp Chat",
     contact_copy_email_btn: "Copy Email Address",
     contact_form_title: "Send Project Inquiry",
+    contact_socials_title: "My Social Networks",
     label_name: "Your Name",
     label_email: "Email Address",
     label_type: "Project Type",
     label_message: "Project Vision & Details",
+    placeholder_name: "Your Name or Channel Name",
+    placeholder_email: "example@domain.com",
+    placeholder_message: "Tell me about your video vision, estimated length, or channel link...",
+    placeholder_review_name: "e.g., Yousef Al-Qahtani",
+    placeholder_review_role: "e.g., Content Creator (300K Subs)",
+    placeholder_review_quote: "Share your experience with editing quality, turnaround time, retention impact...",
+    placeholder_review_avatar: "https://... or leave empty for default avatar",
     type_opt_1: "Viral Shorts / Reels / TikToks",
     type_opt_2: "Long-Form YouTube / Documentary",
     type_opt_3: "Commercial / Brand Ad",
@@ -659,150 +682,223 @@ function applySiteData() {
     });
 
     const pWrapper = document.getElementById('projects-swiper-wrapper') || document.getElementById('projects-grid-container');
-    if (pWrapper && pWrapper.children.length === 0) {
-      const catIcons = {
-        shorts: 'ri-smartphone-line',
-        youtube: 'ri-youtube-line',
-        commercial: 'ri-megaphone-line',
-        motion: 'ri-magic-line'
-      };
+    if (pWrapper) {
+      const pSlides = pWrapper.querySelectorAll('.projects__card');
+      if (pSlides.length > 0) {
+        const pMap = {};
+        d.projects.forEach((p, idx) => {
+          pMap[p.id || `proj-${idx + 1}`] = p;
+        });
 
-      pWrapper.innerHTML = d.projects.map((p, idx) => {
-        const num = p.num || (idx < 9 ? `0${idx + 1}` : `${idx + 1}`);
-        const cat = p.category || 'youtube';
-        const catLabel = (currentLang === 'ar' ? p.categoryLabelAr : p.categoryLabelEn) || cat;
-        const title = currentLang === 'ar' ? p.titleAr : (p.titleEn || p.titleAr);
-        const subtitle = (currentLang === 'ar' ? p.subtitleAr : p.subtitleEn) || (currentLang === 'ar' ? 'أسلوب المونتاج والريتم' : 'Editing Style & Techstack');
-        const desc = currentLang === 'ar' ? p.descAr : (p.descEn || p.descAr);
+        pSlides.forEach((slide, idx) => {
+          let pid = null;
+          const playerBox = slide.querySelector('.ui-player-box');
+          if (playerBox) {
+            const match = (playerBox.getAttribute('onclick') || '').match(/openVideoModal\(['"]([^'"]+)['"]\)/);
+            if (match) pid = match[1];
+          }
+          let realIdx = parseInt(slide.getAttribute('data-swiper-slide-index'), 10);
+          if (isNaN(realIdx)) realIdx = idx;
 
-        // Thumbnail detection
-        const ytMatch = (p.url || '').match(/(?:embed\/|v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-        const ytId = ytMatch ? ytMatch[1] : null;
-        let img = p.image || '';
-        if (img && !img.endsWith('.svg')) {
-          // keep custom img
-        } else if (ytId) {
-          img = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
-        } else {
-          img = img || `assets/img/project-${(idx % 6) + 1}.svg`;
+          const p = (pid && pMap[pid]) ? pMap[pid] : d.projects[realIdx % d.projects.length];
+          if (!p) return;
+
+          const cat = p.category || 'youtube';
+          const catLabel = (currentLang === 'ar' ? p.categoryLabelAr : p.categoryLabelEn) || cat;
+          const title = currentLang === 'ar' ? p.titleAr : (p.titleEn || p.titleAr);
+          const subtitle = (currentLang === 'ar' ? p.subtitleAr : p.subtitleEn) || (currentLang === 'ar' ? 'أسلوب المونتاج والأدوات' : 'Editing Style & Techstack');
+          const desc = currentLang === 'ar' ? p.descAr : (p.descEn || p.descAr);
+
+          const catEl = slide.querySelector('.ui-cat-chip span:last-child');
+          const titleEl = slide.querySelector('.projects__title');
+          const subEl = slide.querySelector('.projects__subtitle');
+          const descEl = slide.querySelector('.projects__description');
+          const imgEl = slide.querySelector('.projects__img');
+
+          if (catEl) catEl.textContent = catLabel;
+          if (titleEl) titleEl.textContent = title;
+          if (subEl) subEl.innerHTML = `<i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> ${escapeHTML(subtitle)}`;
+          if (descEl) descEl.textContent = desc;
+          if (imgEl) imgEl.setAttribute('alt', title);
+        });
+
+        if (projectsSwiperInstance) {
+          try { projectsSwiperInstance.update(); } catch(e) {}
         }
+      } else {
+        const catIcons = {
+          shorts: 'ri-smartphone-line',
+          youtube: 'ri-youtube-line',
+          commercial: 'ri-megaphone-line',
+          motion: 'ri-magic-line'
+        };
 
-        const reach = p.reach || '🔥 +400K Views';
-        const tools = (p.tools || []).map(t => `<span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> ${escapeHTML(t)}</span>`).join('');
+        pWrapper.innerHTML = d.projects.map((p, idx) => {
+          const num = p.num || (idx < 9 ? `0${idx + 1}` : `${idx + 1}`);
+          const cat = p.category || 'youtube';
+          const catLabel = (currentLang === 'ar' ? p.categoryLabelAr : p.categoryLabelEn) || cat;
+          const title = currentLang === 'ar' ? p.titleAr : (p.titleEn || p.titleAr);
+          const subtitle = (currentLang === 'ar' ? p.subtitleAr : p.subtitleEn) || (currentLang === 'ar' ? 'أسلوب المونتاج والريتم' : 'Editing Style & Techstack');
+          const desc = currentLang === 'ar' ? p.descAr : (p.descEn || p.descAr);
 
-        return `
-          <article class="projects__card swiper-slide" data-category="${escapeHTML(cat)}">
-            <div class="blob"></div>
+          // Thumbnail detection
+          const ytMatch = (p.url || '').match(/(?:embed\/|v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+          const ytId = ytMatch ? ytMatch[1] : null;
+          let img = p.image || '';
+          if (img && !img.endsWith('.svg')) {
+            // keep custom img
+          } else if (ytId) {
+            img = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+          } else {
+            img = img || `assets/img/project-${(idx % 6) + 1}.svg`;
+          }
 
-            <!-- UI Window Header Bar -->
-            <div class="ui-window-header">
-              <div class="ui-window-controls">
-                <span class="ui-dot ui-dot--red"></span>
-                <span class="ui-dot ui-dot--yellow"></span>
-                <span class="ui-dot ui-dot--green"></span>
-              </div>
-              <div class="ui-window-badge">
-                <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
-              </div>
-              <div class="ui-reach-pill">
-                ${escapeHTML(reach)}
-              </div>
-            </div>
+          const reach = p.reach || '🔥 +400K Views';
+          const tools = (p.tools || []).map(t => `<span class="ui-tool-chip"><i class="ri-check-line" style="color: #06b6d4;"></i> ${escapeHTML(t)}</span>`).join('');
 
-            <!-- Projects Number & Category in UI Style -->
-            <div class="projects__number">
-              <h1 class="ui-card-num">${escapeHTML(num)}</h1>
-              <div class="ui-cat-chip">
-                <span class="ui-live-dot"></span>
-                <i class="${escapeHTML(catIcons[cat] || 'ri-film-line')}"></i>
-                <span>${escapeHTML(catLabel)}</span>
-              </div>
-            </div>
+          return `
+            <article class="projects__card swiper-slide" data-category="${escapeHTML(cat)}">
+              <div class="blob"></div>
 
-            <!-- Projects Data in UI Style -->
-            <div class="projects__data">
-              <h1 class="projects__title">${escapeHTML(title)}</h1>
-              <p class="projects__subtitle">
-                <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> ${escapeHTML(subtitle)}
-              </p>
-              <p class="projects__description">${escapeHTML(desc)}</p>
-              <div class="projects__tools">
-                ${tools}
-              </div>
-            </div>
-
-            <!-- UI Video Player Mockup in Media Box -->
-            <div class="projects__image ui-player-box" onclick="openVideoModal('${escapeHTML(p.id)}')">
-              <img src="${escapeHTML(img)}" alt="${escapeHTML(title)}" class="projects__img" loading="lazy" decoding="async" onerror="this.src='assets/img/project-${(idx % 6) + 1}.svg'" />
-              <div class="ui-player-overlay"></div>
-
-              <!-- Resolution Tag -->
-              <span class="ui-player-res-tag">
-                <i class="ri-hd-line"></i> 4K PRORES
-              </span>
-
-              <!-- Center Frosted Glass Play Controller -->
-              <div class="ui-center-play">
-                <div class="ui-play-ring-pulse"></div>
-                <i class="ri-play-fill"></i>
-              </div>
-
-              <!-- Bottom UI Player HUD Bar -->
-              <div class="ui-player-hud">
-                <div class="ui-player-time">
-                  <i class="ri-play-mini-fill"></i> <span>04:25</span>
+              <!-- UI Window Header Bar -->
+              <div class="ui-window-header">
+                <div class="ui-window-controls">
+                  <span class="ui-dot ui-dot--red"></span>
+                  <span class="ui-dot ui-dot--yellow"></span>
+                  <span class="ui-dot ui-dot--green"></span>
                 </div>
-                <div class="ui-player-scrubber">
-                  <div class="ui-player-progress" style="width: 76%;"></div>
+                <div class="ui-window-badge">
+                  <i class="ri-terminal-window-line"></i> <span>TIMELINE 4K</span>
                 </div>
-                <div class="ui-player-waves">
-                  <span class="wave-bar" style="animation-delay: 0s;"></span>
-                  <span class="wave-bar" style="animation-delay: 0.25s;"></span>
-                  <span class="wave-bar" style="animation-delay: 0.5s;"></span>
-                  <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                <div class="ui-reach-pill">
+                  ${escapeHTML(reach)}
                 </div>
               </div>
 
-              <!-- Hover Arrow Link Button -->
-              <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
-                <i class="ri-arrow-right-up-long-line"></i>
-              </a>
-            </div>
-          </article>
-        `;
-      }).join('');
+              <!-- Projects Number & Category in UI Style -->
+              <div class="projects__number">
+                <h1 class="ui-card-num">${escapeHTML(num)}</h1>
+                <div class="ui-cat-chip">
+                  <span class="ui-live-dot"></span>
+                  <i class="${escapeHTML(catIcons[cat] || 'ri-film-line')}"></i>
+                  <span>${escapeHTML(catLabel)}</span>
+                </div>
+              </div>
+
+              <!-- Projects Data in UI Style -->
+              <div class="projects__data">
+                <h1 class="projects__title">${escapeHTML(title)}</h1>
+                <p class="projects__subtitle">
+                  <i class="ri-sparkling-fill" style="font-size: 0.8rem; vertical-align: middle;"></i> ${escapeHTML(subtitle)}
+                </p>
+                <p class="projects__description">${escapeHTML(desc)}</p>
+                <div class="projects__tools">
+                  ${tools}
+                </div>
+              </div>
+
+              <!-- UI Video Player Mockup in Media Box -->
+              <div class="projects__image ui-player-box" onclick="openVideoModal('${escapeHTML(p.id)}')">
+                <img src="${escapeHTML(img)}" alt="${escapeHTML(title)}" class="projects__img" loading="lazy" decoding="async" onerror="this.src='assets/img/project-${(idx % 6) + 1}.svg'" />
+                <div class="ui-player-overlay"></div>
+
+                <!-- Resolution Tag -->
+                <span class="ui-player-res-tag">
+                  <i class="ri-hd-line"></i> 4K PRORES
+                </span>
+
+                <!-- Center Frosted Glass Play Controller -->
+                <div class="ui-center-play">
+                  <div class="ui-play-ring-pulse"></div>
+                  <i class="ri-play-fill"></i>
+                </div>
+
+                <!-- Bottom UI Player HUD Bar -->
+                <div class="ui-player-hud">
+                  <div class="ui-player-time">
+                    <i class="ri-play-mini-fill"></i> <span>04:25</span>
+                  </div>
+                  <div class="ui-player-scrubber">
+                    <div class="ui-player-progress" style="width: 76%;"></div>
+                  </div>
+                  <div class="ui-player-waves">
+                    <span class="wave-bar" style="animation-delay: 0s;"></span>
+                    <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                    <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                    <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                  </div>
+                </div>
+
+                <!-- Hover Arrow Link Button -->
+                <a href="javascript:void(0)" class="projects__button" aria-label="Watch Video">
+                  <i class="ri-arrow-right-up-long-line"></i>
+                </a>
+              </div>
+            </article>
+          `;
+        }).join('');
+      }
     }
   }
 
   // 6. Dynamic Testimonials (Bilingual & Strictly Moderated)
-  if (d.testimonials) {
+  if (d.testimonials && d.testimonials.length) {
     const tContainer = document.getElementById('testimonials-wrapper-container');
-    if (tContainer && tContainer.children.length === 0) {
-      tContainer.innerHTML = d.testimonials.map((t, idx) => {
-        const name = currentLang === 'ar' ? (t.nameAr || t.name) : (t.nameEn || t.name || t.nameAr);
-        const role = currentLang === 'ar' ? (t.roleAr || t.role) : (t.roleEn || t.role || t.roleAr);
-        const quote = currentLang === 'ar' ? (t.quoteAr || t.quote) : (t.quoteEn || t.quote || t.quoteAr);
-        const ratingCount = Math.min(Math.max(parseInt(t.rating, 10) || 5, 1), 5);
-        return `
-        <div class="swiper-slide">
-          <div class="testimonial__card">
-            <div>
-              <div class="testimonial__rating">
-                ${'<i class="ri-star-fill"></i>'.repeat(ratingCount)}
-              </div>
-              <p class="testimonial__quote">"${escapeHTML(quote)}"</p>
-            </div>
-            <div class="testimonial__author">
-              <img src="${escapeHTML(t.avatar || `assets/img/avatar-${(idx%4)+1}.svg`)}" alt="${escapeHTML(name)}" class="author-avatar" onerror="this.src='assets/img/avatar-${(idx%4)+1}.svg'">
+    if (tContainer) {
+      const tSlides = tContainer.querySelectorAll('.swiper-slide');
+      if (tSlides.length > 0) {
+        tSlides.forEach((slide, idx) => {
+          let realIdx = parseInt(slide.getAttribute('data-swiper-slide-index'), 10);
+          if (isNaN(realIdx)) realIdx = idx;
+
+          const t = d.testimonials[realIdx % d.testimonials.length];
+          if (!t) return;
+
+          const name = currentLang === 'ar' ? (t.nameAr || t.name) : (t.nameEn || t.name || t.nameAr);
+          const role = currentLang === 'ar' ? (t.roleAr || t.role) : (t.roleEn || t.role || t.roleAr);
+          const quote = currentLang === 'ar' ? (t.quoteAr || t.quote) : (t.quoteEn || t.quote || t.quoteAr);
+
+          const quoteEl = slide.querySelector('.testimonial__quote');
+          const nameEl = slide.querySelector('.author-name');
+          const roleEl = slide.querySelector('.author-role');
+          const avatarEl = slide.querySelector('.author-avatar');
+
+          if (quoteEl) quoteEl.textContent = `"${quote}"`;
+          if (nameEl) nameEl.textContent = name;
+          if (roleEl) roleEl.textContent = role;
+          if (avatarEl) avatarEl.setAttribute('alt', name);
+        });
+
+        if (testimonialsSwiperInstance) {
+          try { testimonialsSwiperInstance.update(); } catch(e) {}
+        }
+      } else {
+        tContainer.innerHTML = d.testimonials.map((t, idx) => {
+          const name = currentLang === 'ar' ? (t.nameAr || t.name) : (t.nameEn || t.name || t.nameAr);
+          const role = currentLang === 'ar' ? (t.roleAr || t.role) : (t.roleEn || t.role || t.roleAr);
+          const quote = currentLang === 'ar' ? (t.quoteAr || t.quote) : (t.quoteEn || t.quote || t.quoteAr);
+          const ratingCount = Math.min(Math.max(parseInt(t.rating, 10) || 5, 1), 5);
+          return `
+          <div class="swiper-slide">
+            <div class="testimonial__card">
               <div>
-                <div class="author-name">${escapeHTML(name)}</div>
-                <div class="author-role">${escapeHTML(role)}</div>
+                <div class="testimonial__rating">
+                  ${'<i class="ri-star-fill"></i>'.repeat(ratingCount)}
+                </div>
+                <p class="testimonial__quote">"${escapeHTML(quote)}"</p>
+              </div>
+              <div class="testimonial__author">
+                <img src="${escapeHTML(t.avatar || `assets/img/avatar-${(idx%4)+1}.svg`)}" alt="${escapeHTML(name)}" class="author-avatar" onerror="this.src='assets/img/avatar-${(idx%4)+1}.svg'">
+                <div>
+                  <div class="author-name">${escapeHTML(name)}</div>
+                  <div class="author-role">${escapeHTML(role)}</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      `;
-      }).join('');
+        `;
+        }).join('');
+      }
     }
   }
 
@@ -877,6 +973,28 @@ function initLanguage(lang) {
       el.innerHTML = translations[lang][key];
     }
   });
+
+  // Update all elements with data-i18n-placeholder attribute
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (translations[lang] && translations[lang][key]) {
+      el.setAttribute('placeholder', translations[lang][key]);
+    }
+  });
+
+  // Update rating label text in review modal if present
+  const ratingInput = document.getElementById('review-rating');
+  const ratingText = document.getElementById('star-rating-text');
+  if (ratingInput && ratingText) {
+    const val = parseInt(ratingInput.value, 10) || 5;
+    const starDescs = {
+      ar: ["1 نجمة (مقبول)", "2 نجمتان (جيد)", "3 نجوم (جيد جداً)", "4 نجوم (ممتاز)", "5 نجوم (استثنائي وممتاز جداً)"],
+      en: ["1 Star (Acceptable)", "2 Stars (Good)", "3 Stars (Very Good)", "4 Stars (Excellent)", "5 Stars (Exceptional)"]
+    };
+    if (starDescs[lang] && starDescs[lang][val - 1]) {
+      ratingText.textContent = starDescs[lang][val - 1];
+    }
+  }
 
   // Re-render typist
   restartDynamicTyping();
