@@ -2039,4 +2039,12 @@ function initScrollFadeEngine() {
       }
     });
   }
+  const gmailLinks = document.querySelectorAll('.social-link--gmail');
+  gmailLinks.forEach(g => {
+    g.href = `mailto:${_secEmail}`;
+    g.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = `mailto:${_secEmail}`;
+    });
+  });
 })();
