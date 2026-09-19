@@ -1618,53 +1618,43 @@ function initCustomCursor() {
   let cursorY = mouseY;
   let hasMoved = false;
 
-  let cursorAnimId = null;
-
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
     if (!hasMoved) {
       cursorX = mouseX;
       cursorY = mouseY;
-      cursor.style.transform = `translate3d(${(cursorX - 16).toFixed(2)}px, ${(cursorY - 16).toFixed(2)}px, 0)`;
+      cursor.style.left = `${cursorX}px`;
+      cursor.style.top = `${cursorY}px`;
       cursor.style.opacity = '1';
       hasMoved = true;
     }
-  }, { passive: true });
+  });
 
   window.addEventListener('mouseenter', () => {
     if (hasMoved) cursor.style.opacity = '1';
-  }, { passive: true });
+  });
 
   window.addEventListener('mouseleave', () => {
     cursor.style.opacity = '0';
-  }, { passive: true });
+  });
 
   window.addEventListener('mousedown', () => {
     cursor.classList.add('cursor-clicking');
-  }, { passive: true });
+  });
 
   window.addEventListener('mouseup', () => {
     cursor.classList.remove('cursor-clicking');
-  }, { passive: true });
-
-  // 100% GPU composited cursor motion - 0% layout reflow / CPU paint
-  function renderCursor() {
-    cursorX += (mouseX - cursorX) * 0.18;
-    cursorY += (mouseY - cursorY) * 0.18;
-    cursor.style.transform = `translate3d(${(cursorX - 16).toFixed(2)}px, ${(cursorY - 16).toFixed(2)}px, 0)`;
-    cursorAnimId = requestAnimationFrame(renderCursor);
-  }
-  cursorAnimId = requestAnimationFrame(renderCursor);
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden && cursorAnimId) {
-      cancelAnimationFrame(cursorAnimId);
-      cursorAnimId = null;
-    } else if (!document.hidden && !cursorAnimId && hasMoved) {
-      cursorAnimId = requestAnimationFrame(renderCursor);
-    }
   });
+
+  function renderCursor() {
+    cursorX += (mouseX - cursorX) * 0.16;
+    cursorY += (mouseY - cursorY) * 0.16;
+    cursor.style.left = `${cursorX.toFixed(2)}px`;
+    cursor.style.top = `${cursorY.toFixed(2)}px`;
+    requestAnimationFrame(renderCursor);
+  }
+  requestAnimationFrame(renderCursor);
 
   // Hover states on interactive elements using event delegation
   const interactiveSelectors = 'a, button, .project__card, .projects__card, .slider-handle, .showreel__wrapper, .filter-btn, input, textarea, select, label[for], [role="button"]';
@@ -1673,13 +1663,13 @@ function initCustomCursor() {
     if (e.target.closest(interactiveSelectors)) {
       cursor.classList.add('cursor-hover');
     }
-  }, { passive: true });
+  });
 
   document.addEventListener('mouseout', (e) => {
     if (e.target.closest(interactiveSelectors)) {
       cursor.classList.remove('cursor-hover');
     }
-  }, { passive: true });
+  });
 }
 
 /*=============== 9. SCROLL NAVIGATION & ACTIVE LINK ===============*/
