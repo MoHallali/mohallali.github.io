@@ -381,6 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBeforeAfterSlider();
   initVideoModal();
   initSpotlightTabs();
+  initProjectsSwiper(true);
   initProjectFilters();
   initSwiperTestimonials();
   initContactActions();
@@ -658,7 +659,7 @@ function applySiteData() {
     });
 
     const pWrapper = document.getElementById('projects-swiper-wrapper') || document.getElementById('projects-grid-container');
-    if (pWrapper) {
+    if (pWrapper && pWrapper.children.length === 0) {
       const catIcons = {
         shorts: 'ri-smartphone-line',
         youtube: 'ri-youtube-line',
@@ -770,15 +771,13 @@ function applySiteData() {
           </article>
         `;
       }).join('');
-
-      initProjectsSwiper();
     }
   }
 
   // 6. Dynamic Testimonials (Bilingual & Strictly Moderated)
   if (d.testimonials) {
     const tContainer = document.getElementById('testimonials-wrapper-container');
-    if (tContainer && d.testimonials.length) {
+    if (tContainer && tContainer.children.length === 0) {
       tContainer.innerHTML = d.testimonials.map((t, idx) => {
         const name = currentLang === 'ar' ? (t.nameAr || t.name) : (t.nameEn || t.name || t.nameAr);
         const role = currentLang === 'ar' ? (t.roleAr || t.role) : (t.roleEn || t.role || t.roleAr);
@@ -804,14 +803,6 @@ function applySiteData() {
         </div>
       `;
       }).join('');
-
-      // Re-init swiper if already rendered
-      if (testimonialsSwiperInstance) {
-        try {
-          testimonialsSwiperInstance.destroy(true, true);
-        } catch (e) {}
-        initSwiperTestimonials();
-      }
     }
   }
 
@@ -1837,61 +1828,17 @@ function initScrollFadeEngine() {
 
 /*=============== 12. ADVANCED PRIVACY & SOURCE CODE SHIELD ===============*/
 (function initCodeShield() {
-  // 1. Digital Signature & Security Imprint
+  // 1. Digital Signature & Professional Imprint
   try {
-    console.clear();
     console.log(
-      '%c🎬 SATURN STUDIO | MOHAMED HALLALI %c\n%c🔒 هذا البورتفوليو محمي بأنظمة تشفير وأمان عالي ضد النسخ والقرصنة.\n© 2026 جميع الحقوق محفوظة لـ Mohamed Hallali.',
+      '%c🎬 SATURN STUDIO | MOHAMED HALLALI %c\n%c🔒 هذا البورتفوليو محمي بأنظمة تشفير وأمان عالي.\n© 2026 جميع الحقوق محفوظة لـ Mohamed Hallali.',
       'background: #7c3aed; color: #fff; font-size: 13px; font-weight: bold; padding: 6px 12px; border-radius: 6px;',
       '',
       'color: #06b6d4; font-size: 12px; font-weight: bold; line-height: 1.6;'
     );
   } catch (_) {}
 
-  // 2. Disable Right-Click Context Menu on desktop with polite protection notice
-  document.addEventListener('contextmenu', (e) => {
-    if (e.pointerType === 'touch' || ('ontouchstart' in window && window.innerWidth <= 1024)) {
-      return; // Do not block mobile touch
-    }
-    e.preventDefault();
-    showToast(currentLang === 'ar' ? '🔒 جميع الحقوق والمحتوى محفوظ لـ SATURN Studio © محمد هلّالي' : '🔒 All rights reserved © Mohamed Hallali');
-    return false;
-  }, { capture: true });
-
-  // 3. Block Drag-and-Drop Theft on all Media
-  document.addEventListener('dragstart', (e) => {
-    if (['IMG', 'VIDEO', 'CANVAS'].includes(e.target.tagName)) {
-      e.preventDefault();
-      return false;
-    }
-  }, { capture: true });
-
-  // 4. Block Inspect & View Source Keyboard Shortcuts
-  document.addEventListener('keydown', (e) => {
-    // Block F12
-    if (e.key === 'F12' || e.keyCode === 123) {
-      e.preventDefault();
-      return false;
-    }
-    // Block Ctrl+Shift+I (DevTools), Ctrl+Shift+J (Console), Ctrl+Shift+C (Inspect)
-    if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes((e.key || '').toUpperCase())) {
-      e.preventDefault();
-      return false;
-    }
-    // Block Ctrl+U (View Source)
-    if (e.ctrlKey && (e.key || '').toUpperCase() === 'U') {
-      e.preventDefault();
-      return false;
-    }
-    // Block Ctrl+S (Save Webpage)
-    if (e.ctrlKey && (e.key || '').toUpperCase() === 'S') {
-      e.preventDefault();
-      showToast(currentLang === 'ar' ? '⚠️ حفظ المحتوى محمي بحقوق الملكية الفكرية.' : '⚠️ Content saving is protected.');
-      return false;
-    }
-  }, { capture: true });
-
-  // 5. Anti-Harvesting: Secure Email Copy & Dynamic Mailto
+  // 2. Anti-Harvesting: Secure Email Copy & Dynamic Mailto
   const emailDisplay = document.getElementById('contact-email-display');
   const copyBtn = document.getElementById('copy-email-btn');
   const _u = 'hallali.mohamed4';
@@ -1919,15 +1866,4 @@ function initScrollFadeEngine() {
       }
     });
   }
-
-  // 6. Silence debug console logs in production
-  if (!['localhost', '127.0.0.1'].includes(window.location.hostname)) {
-    try {
-      console.log = function() {};
-      console.info = function() {};
-      console.debug = function() {};
-      console.warn = function() {};
-    } catch (_) {}
-  }
 })();
-
