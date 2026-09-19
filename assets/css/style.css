@@ -82,10 +82,6 @@ html {
   scroll-padding-top: var(--header-height);
   font-size: 16px;
   background-color: var(--bg-dark);
-  overflow-x: hidden;
-  overflow-x: clip;
-  max-width: 100%;
-  width: 100%;
 }
 
 body {
@@ -94,9 +90,6 @@ body {
   color: var(--text-body);
   line-height: 1.6;
   overflow-x: hidden;
-  overflow-x: clip;
-  max-width: 100%;
-  width: 100%;
   position: relative;
   min-height: 100vh;
 }
@@ -2775,12 +2768,9 @@ html[dir="rtl"] .toast-notice {
     backdrop-filter: blur(25px);
     border-left: 1px solid var(--border-subtle);
     padding: 3rem 2rem;
-    transition: right 0.4s ease, visibility 0.4s ease, opacity 0.4s ease;
+    transition: right 0.4s ease;
     flex-direction: column;
     align-items: flex-start;
-    visibility: hidden;
-    pointer-events: none;
-    opacity: 0;
   }
 
   html[dir="rtl"] .nav__menu {
@@ -2788,21 +2778,15 @@ html[dir="rtl"] .toast-notice {
     left: -100%;
     border-left: none;
     border-right: 1px solid var(--border-subtle);
-    transition: left 0.4s ease, visibility 0.4s ease, opacity 0.4s ease;
+    transition: left 0.4s ease;
   }
 
   .nav__menu.show-menu {
     right: 0;
-    visibility: visible;
-    pointer-events: auto;
-    opacity: 1;
   }
 
   html[dir="rtl"] .nav__menu.show-menu {
     left: 0;
-    visibility: visible;
-    pointer-events: auto;
-    opacity: 1;
   }
 
   .nav__list {
@@ -3788,52 +3772,37 @@ html[dir="rtl"] .projects__button {
     padding: 0.4rem 0.85rem;
   }
 
-  .hero__frame {
-    max-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
   .floating-stat {
-    padding: 0.5rem 0.85rem;
-    font-size: 0.82rem;
-    max-width: calc(100% - 16px);
-    z-index: 5;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
   }
 
-  .floating-stat-1,
-  html[dir="rtl"] .floating-stat-1 {
-    top: -10px !important;
-    left: 8px !important;
-    right: auto !important;
+  .floating-stat-1 {
+    top: -10px;
+    right: 0;
   }
 
-  .floating-stat-2,
-  html[dir="rtl"] .floating-stat-2 {
-    bottom: 10px !important;
-    right: 8px !important;
-    left: auto !important;
-  }
-
-  .tribute-spotlight-card {
-    border-radius: 20px;
-    overflow: hidden;
-  }
-
-  .spotlight-media {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    height: auto;
-    min-height: unset !important;
-  }
-
-  .spotlight-card-content {
-    padding: 1.5rem 1.25rem !important;
+  .floating-stat-2 {
+    bottom: 10px;
+    left: 0;
   }
 }
 
 /* 3. Small Smartphones (max-width: 480px) */
 @media screen and (max-width: 480px) {
+  /* Phone Screen Containment: Zero Horizontal Drift & Zero Black Margins */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-x: clip !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .main, .section, .container, .hero {
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
   :root {
     --header-height: 4rem;
   }
@@ -3879,6 +3848,12 @@ html[dir="rtl"] .projects__button {
 
   .nav__actions .btn-sm {
     display: none;
+  }
+
+  .hero__frame {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .floating-stat {
@@ -4094,19 +4069,6 @@ button, a, input, select, textarea, .filter-btn, .work__button, .social-link, .s
   .modal-content-box.modal-vertical .modal-video-wrapper {
     max-height: calc(85vh - 70px) !important;
   }
-}
-
-/* Universal Viewport Containment: Zero Horizontal Drift & Zero Black Margins */
-html, body {
-  overflow-x: clip !important;
-  overflow-x: hidden !important;
-  max-width: 100% !important;
-  width: 100% !important;
-}
-
-.main, .section, .container, .hero, .metrics-strip, .showreel, .compare, .projects, .services, .workflow, .testimonials, .contact, .footer {
-  max-width: 100% !important;
-  box-sizing: border-box;
 }
 
 
