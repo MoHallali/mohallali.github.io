@@ -527,7 +527,7 @@ function initGpuParticles() {
       this.vy = (Math.random() - 0.5) * 0.32;
 
       const isHeroStar = Math.random() > 0.82;
-      this.radius = isHeroStar ? (Math.random() * 1.5 + 2.4) : (Math.random() * 1.1 + 1.2);
+      this.radius = isHeroStar ? (Math.random() * 0.8 + 1.8) : (Math.random() * 0.6 + 0.85);
       this.isHeroStar = isHeroStar;
 
       const colorRand = Math.random();
@@ -541,7 +541,7 @@ function initGpuParticles() {
         this.color = '241, 245, 249'; // Diamond Star White #f1f5f9
       }
 
-      this.baseAlpha = Math.random() * 0.35 + 0.65;
+      this.baseAlpha = Math.random() * 0.25 + 0.38;
       this.pulse = Math.random() * Math.PI * 2;
       this.pulseSpeed = 0.02 + Math.random() * 0.025;
     }
@@ -573,13 +573,13 @@ function initGpuParticles() {
 
     draw() {
       const twinkle = (Math.sin(this.pulse) + 1) * 0.5;
-      const currentAlpha = Math.min(this.baseAlpha + twinkle * 0.25, 1);
-      const currentRadius = this.radius * (1 + twinkle * 0.22);
+      const currentAlpha = Math.min(this.baseAlpha + twinkle * 0.2, 0.85);
+      const currentRadius = this.radius * (1 + twinkle * 0.18);
 
-      // Soft luminous corona
+      // Soft refined luminous corona
       ctx.beginPath();
-      ctx.arc(this.x, this.y, currentRadius * 2.8, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${this.color}, ${currentAlpha * 0.25})`;
+      ctx.arc(this.x, this.y, currentRadius * 1.8, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${this.color}, ${currentAlpha * 0.14})`;
       ctx.fill();
 
       // Brilliant core star
@@ -613,14 +613,14 @@ function initGpuParticles() {
 
         if (distSq < maxDistSq) {
           const dist = Math.sqrt(distSq);
-          // Rich, highly visible glowing line!
-          const lineAlpha = (1 - dist / maxDist) * 0.52;
+          // Elegant, balanced line opacity
+          const lineAlpha = (1 - dist / maxDist) * 0.26;
 
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(p2.x, p2.y);
           ctx.strokeStyle = `rgba(168, 85, 247, ${lineAlpha})`;
-          ctx.lineWidth = 1.0;
+          ctx.lineWidth = 0.75;
           ctx.stroke();
 
           // 2. Closed Triangle Constellation Facets (Shapes)
@@ -635,8 +635,8 @@ function initGpuParticles() {
               const dSq23 = dx3 * dx3 + dy3 * dy3;
               if (dSq23 < maxDistSq) {
                 const maxSide = Math.sqrt(Math.max(distSq, dSq13, dSq23));
-                const triAlpha = (1 - maxSide / maxDist) * 0.14;
-                if (triAlpha > 0.015) {
+                const triAlpha = (1 - maxSide / maxDist) * 0.055;
+                if (triAlpha > 0.008) {
                   ctx.beginPath();
                   ctx.moveTo(p1.x, p1.y);
                   ctx.lineTo(p2.x, p2.y);
@@ -658,12 +658,12 @@ function initGpuParticles() {
       const mouseConnectDist = isMobile ? 130 : 165;
       if (mDistSq < mouseConnectDist * mouseConnectDist) {
         const mDist = Math.sqrt(mDistSq);
-        const mAlpha = (1 - mDist / mouseConnectDist) * 0.55;
+        const mAlpha = (1 - mDist / mouseConnectDist) * 0.28;
         ctx.beginPath();
         ctx.moveTo(p1.x, p1.y);
         ctx.lineTo(mouse.x, mouse.y);
         ctx.strokeStyle = `rgba(6, 182, 212, ${mAlpha})`;
-        ctx.lineWidth = 1.2;
+        ctx.lineWidth = 0.85;
         ctx.stroke();
       }
     }
