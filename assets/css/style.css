@@ -160,11 +160,62 @@ img, svg {
   max-width: 1240px;
   margin-inline: auto;
   padding-inline: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.main {
+  position: relative;
+  z-index: 2;
 }
 
 .section {
   padding-block: 5.5rem 2.5rem;
   position: relative;
+  z-index: 2;
+}
+
+/* Stacking Layering: Ensure text, images, cards, and videos are strictly above the background canvas */
+.hero__container,
+.hero__data,
+.hero__title,
+.hero__description,
+.hero__btns,
+.hero__visual,
+.hero__frame,
+.hero__image-inner,
+.hero__image-inner img,
+.hero__img,
+img,
+video,
+iframe,
+.floating-stat,
+.profession-badge-wrap,
+.section__title,
+.section__subtitle,
+.section__header,
+.projects__card,
+.projects__image,
+.projects__img,
+.projects__content,
+.ui-player-box,
+.showreel__wrapper,
+.compare-box,
+.spotlight-card,
+.spotlight-media,
+.spotlight-media img,
+.spotlight-media video,
+.spotlight-media iframe,
+.service__card,
+.workflow__step,
+.testimonial__card,
+.contact__info-card,
+.contact__form,
+.metric__item,
+.modal-content-box,
+.footer__content {
+  position: relative;
+  z-index: 2;
 }
 
 .section::after {
@@ -375,7 +426,7 @@ img, svg {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   contain: strict;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
