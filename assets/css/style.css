@@ -1169,48 +1169,66 @@ html[dir="rtl"] .metric__item:not(:last-child)::after {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(7, 7, 10, 0.45);
+  background: rgba(7, 7, 10, 0.38);
   backdrop-filter: blur(2px);
-  transition: var(--tr-smooth);
+  -webkit-backdrop-filter: blur(2px);
+  transition: all 0.4s var(--ease-cinema);
+  z-index: 5;
+  pointer-events: none;
 }
 
 .showreel__wrapper:hover .showreel__play-center {
-  background: rgba(7, 7, 10, 0.2);
+  background: rgba(7, 7, 10, 0.15);
 }
 
 .play-ring-pulse {
   width: 86px;
   height: 86px;
   border-radius: 50%;
-  background: var(--primary-gradient);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(6, 182, 212, 0.9) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2.5px solid rgba(6, 182, 212, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 2.25rem;
-  box-shadow: 0 0 35px var(--primary-glow);
+  font-size: 2.35rem;
+  box-shadow: 0 0 35px rgba(124, 58, 237, 0.7), 0 0 15px rgba(6, 182, 212, 0.4);
   position: relative;
-  transition: transform 0.7s var(--ease-cinema), box-shadow 0.7s var(--ease-cinema);
+  z-index: 6;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.6s var(--ease-cinema), box-shadow 0.6s var(--ease-cinema), border-color 0.4s ease;
+}
+
+.play-ring-pulse i {
+  display: inline-block;
+  transform: translateX(3px);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+  color: #ffffff;
 }
 
 .play-ring-pulse::before {
   content: '';
   position: absolute;
-  inset: -14px;
+  inset: -12px;
   border-radius: 50%;
-  border: 2px solid var(--primary-light);
-  animation: ringPulse 3.5s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+  border: 2px solid rgba(6, 182, 212, 0.5);
+  animation: ringPulse 3.2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+  pointer-events: none;
 }
 
 @keyframes ringPulse {
-  0% { transform: scale(0.88); opacity: 0.95; box-shadow: 0 0 15px var(--primary-glow); }
+  0% { transform: scale(0.9); opacity: 0.95; box-shadow: 0 0 15px rgba(124, 58, 237, 0.6); }
   50% { opacity: 0.5; }
-  100% { transform: scale(1.6); opacity: 0; box-shadow: 0 0 35px var(--accent-cyan-glow); }
+  100% { transform: scale(1.5); opacity: 0; box-shadow: 0 0 35px rgba(6, 182, 212, 0.7); }
 }
 
 .showreel__wrapper:hover .play-ring-pulse {
   transform: scale(1.12);
-  box-shadow: 0 0 55px rgba(124, 58, 237, 0.9), 0 0 30px rgba(6, 182, 212, 0.5);
+  border-color: #38bdf8;
+  box-shadow: 0 0 55px rgba(124, 58, 237, 0.95), 0 0 35px rgba(6, 182, 212, 0.75);
 }
 
 .showreel__play-text {
@@ -1377,6 +1395,7 @@ html[dir="rtl"] .metric__item:not(:last-child)::after {
   inset: 0;
   background: linear-gradient(to top, rgba(10, 12, 20, 0.8) 0%, transparent 60%);
   pointer-events: none;
+  z-index: 3;
 }
 
 .spotlight-play-center {
@@ -1387,7 +1406,10 @@ html[dir="rtl"] .metric__item:not(:last-child)::after {
   justify-content: center;
   background: rgba(7, 7, 10, 0.35);
   backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   transition: background 0.3s ease;
+  z-index: 5;
+  pointer-events: none;
 }
 
 .spotlight-card:hover .spotlight-play-center {
@@ -1395,18 +1417,61 @@ html[dir="rtl"] .metric__item:not(:last-child)::after {
 }
 
 .play-ring-pulse--tribute {
-  background: linear-gradient(135deg, #ef4444 0%, #a855f7 100%);
-  box-shadow: 0 0 35px rgba(239, 68, 68, 0.6);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.9) 0%, rgba(168, 85, 247, 0.9) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2.5px solid rgba(239, 68, 68, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 2.05rem;
+  box-shadow: 0 0 35px rgba(239, 68, 68, 0.65), 0 0 18px rgba(168, 85, 247, 0.45);
+  position: relative;
+  z-index: 6;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.6s var(--ease-cinema), box-shadow 0.6s var(--ease-cinema), border-color 0.4s ease;
+}
+
+.play-ring-pulse--tribute i {
+  display: inline-block;
+  transform: translateX(3px);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+  color: #ffffff;
 }
 
 .play-ring-pulse--tribute::before {
-  border-color: rgba(239, 68, 68, 0.7);
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px solid rgba(239, 68, 68, 0.6);
+  animation: ringPulseTribute 3.2s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes ringPulseTribute {
+  0% { transform: scale(0.9); opacity: 0.95; box-shadow: 0 0 15px rgba(239, 68, 68, 0.6); }
+  50% { opacity: 0.5; }
+  100% { transform: scale(1.5); opacity: 0; box-shadow: 0 0 35px rgba(168, 85, 247, 0.7); }
+}
+
+.spotlight-card:hover .play-ring-pulse--tribute,
+.spotlight-media:hover .play-ring-pulse--tribute {
+  transform: scale(1.12);
+  border-color: #fca5a5;
+  box-shadow: 0 0 55px rgba(239, 68, 68, 0.95), 0 0 35px rgba(168, 85, 247, 0.75);
 }
 
 .ui-player-res-tag--live {
   background: rgba(239, 68, 68, 0.2);
   border-color: rgba(239, 68, 68, 0.4);
   color: #fca5a5;
+  z-index: 4;
 }
 
 .live-dot {
@@ -3897,6 +3962,18 @@ html[dir="rtl"] .projects__button {
     width: 54px !important;
     height: 54px !important;
     font-size: 1.55rem !important;
+  }
+
+  .play-ring-pulse {
+    width: 64px !important;
+    height: 64px !important;
+    font-size: 1.75rem !important;
+  }
+
+  .play-ring-pulse--tribute {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 1.6rem !important;
   }
 
   /* Show player HUD scrubber and time clearly on touch screens */
