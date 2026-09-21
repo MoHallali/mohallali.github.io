@@ -183,7 +183,8 @@ window.SITE_DATA = {
       "quoteAr": "من أفضل المونتيرين الذين تعاملت معهم. زاد معدل الاحتفاظ في قناتي بنسبة 45% في أول شهر فقط. سرعة خيالية وفهم عميق لما يريده الجمهور!",
       "quoteEn": "One of the best video editors I've ever collaborated with. My channel retention skyrocketed by 45% in the first month alone. Unmatched pacing and cinematic storytelling!",
       "rating": 5,
-      "avatar": "assets/img/avatar-1789671860.jpg"
+      "avatar": "assets/img/avatar-1789671860.jpg",
+      "hidden": true
     },
     {
       "nameAr": "دزز",
@@ -193,7 +194,8 @@ window.SITE_DATA = {
       "quoteAr": "احترافية عالية، التزام دقيق بالمواعيد، وقدرة مذهلة على تحويل المقاطع الصوتية الخام إلى بودكاست مرئي جذاب ومشوق من أول دقيقة.",
       "quoteEn": "Incredible professionalism, pinpoint deadlines, and a remarkable talent for turning raw multi-camera podcast footage into engaging visual stories.",
       "rating": 4,
-      "avatar": "assets/img/avatar-1789672075.jpg"
+      "avatar": "assets/img/avatar-1789672075.jpg",
+      "hidden": true
     },
     {
       "nameAr": "دكتور محمد شرف",
@@ -203,7 +205,8 @@ window.SITE_DATA = {
       "quoteAr": "العمل معه اختصر عليّ شهوراً من التجربة والخطأ. استوعب ما يجذب جمهوري من أول مسودة، والنتيجة كانت قفزة في تفاعل واستمرار المشاهدين مع تسليم قياسي لكل المشاريع",
       "quoteEn": "Working with him saved me months of trial and error. He understood exactly what hooks my audience from the very first draft, delivering a massive spike in viewer retention and engagement—all with record-breaking turnaround times",
       "rating": 5,
-      "avatar": "assets/img/avatar-1789672464.jpg"
+      "avatar": "assets/img/avatar-1789672464.jpg",
+      "hidden": true
     },
     {
       "nameAr": "بودز",
@@ -213,7 +216,8 @@ window.SITE_DATA = {
       "quoteAr": "فارق شاسع في جودة الإنتاج وتماسك الفيديوهات؛ نمو فوري بنسبة 150% في معدل إكمال المشاهدة، مع دقة في المواعيد وقراءة ممتازة لما يطلبه المتابعون.",
       "quoteEn": "A massive leap in production quality and video pacing. We saw an immediate 45% jump in completion rate, backed by flawless turnaround times and a sharp grasp of what keeps viewers hooked",
       "rating": 5,
-      "avatar": "assets/img/avatar-1789672356.jpg"
+      "avatar": "assets/img/avatar-1789672356.jpg",
+      "hidden": true
     }
   ],
   "services": [
