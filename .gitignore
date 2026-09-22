@@ -1,7 +1,8 @@
-# Private Studio Admin & Dev Scripts (Local only, hidden from public GitHub)
+# Private Studio Admin, Dev Scripts & Master Source Data (Local only, hidden from public GitHub)
 admin/
 admin_server.py
 compiler.py
+obfuscator.py
 Run_Studio.bat
 Sync_To_GitHub.bat
 .surgeignore
@@ -10,3 +11,12 @@ __pycache__/
 *.pyc
 .system_generated/
 pending_reviews.json
+site_data.json
+*.backup.json
+assets/js/*.src.js
+assets/css/*.src.css
+*.log
+dev/
+scratch/
+.DS_Store
+Thumbs.db

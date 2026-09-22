@@ -1,14 +1,14 @@
 # 🎬 Mohamed Hallali | SATURN STUDIO
 ### Cinematic Video Editor • High-Retention Storyteller • DaVinci Colorist
-#### المعرض الرسمي لمونتير الفيديو السينمائي ومخرج القصص البصرية | استوديو ساتورن
+#### المعرض الرسمي والإنتاج السينمائي لمونتير الفيديو ومخرج القصص البصرية | استوديو ساتورن
 
 <p align="center">
-  <a href="https://mohallali.surge.sh"><img src="https://img.shields.io/badge/Surge%20CDN-mohallali.surge.sh-7c3aed?style=for-the-badge&logo=surge&logoColor=white" alt="Live Demo" /></a>
-  <a href="https://mohallali.github.io"><img src="https://img.shields.io/badge/GitHub%20Pages-Production%20Mirror-06b6d4?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages Mirror" /></a>
-  <img src="https://img.shields.io/badge/Security-300%25%20Cyber%20Hardened-10b981?style=for-the-badge&logo=shield&logoColor=white" alt="300% Security" />
+  <a href="https://mohallali.surge.sh"><img src="https://img.shields.io/badge/Live%20Portfolio-mohallali.surge.sh-7c3aed?style=for-the-badge&logo=surge&logoColor=white" alt="Live Demo" /></a>
+  <a href="https://mohallali.github.io"><img src="https://img.shields.io/badge/GitHub%20Pages-Live%20Production-06b6d4?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages" /></a>
+  <img src="https://img.shields.io/badge/Security-Fortress%20Protected-10b981?style=for-the-badge&logo=shield&logoColor=white" alt="Fortress Security" />
   <img src="https://img.shields.io/badge/Views%20Generated-20M%2B%20Organic-ef4444?style=for-the-badge&logo=youtube&logoColor=white" alt="20M+ Views" />
   <img src="https://img.shields.io/badge/Color%20Grading-4K%20DaVinci%20Studio-f59e0b?style=for-the-badge&logo=davinciresolve&logoColor=white" alt="DaVinci Resolve" />
-  <img src="https://img.shields.io/badge/Hardware%20Acceleration-RTX%203080%20Ti%20CUDA-38bdf8?style=for-the-badge&logo=nvidia&logoColor=white" alt="GPU NVENC" />
+  <img src="https://img.shields.io/badge/Intellectual%20Property-All%20Rights%20Reserved-8b5cf6?style=for-the-badge&logo=lock&logoColor=white" alt="All Rights Reserved" />
 </p>
 
 ---
@@ -23,102 +23,6 @@
 1. **الخطف اللحظي في أول 3 ثوانٍ (The First-Second Hook)**: إيقاف التمرير وشد انتباه المشاهد من اللحظة الأولى.
 2. **منحنى الاحتفاظ المتصاعد (Retention Architecture)**: وتيرة سرد مدروسة بدقة جراحية ومؤثرات بصرية وصوتية متجددة تلغي الملل حتى آخر ثانية.
 3. **البصمة السينمائية الفاخرة (Cinema-Grade Polish)**: تلوين سينمائي 4K على DaVinci Studio، هندسة صوتية واقعية متعددة الطبقات (Foley SFX)، وحركة نصوص كيناتيك متطورة.
-
----
-
-## 🌐 شبكة الروابط والمرايا السحابية | Multi-Site Network
-
-تم تجهيز البورتفوليو ليعمل عبر شبكة سحابية متزامنة تضمن وصولاً فورياً من أي مكان في العالم مع كسر تلقائي للكاش وسرعة استجابة فائقة:
-
-| المنصة / الرابط | نوع النشر | بروتوكول التوزيع | زمن الاستجابة | الحالة |
-| :--- | :--- | :--- | :---: | :---: |
-| ⚡ **[mohallali.surge.sh](https://mohallali.surge.sh)** | السيرفر السحابي الأساسي | Anycast CDN (10 Global Edge Nodes) | < 80ms | 🟢 متصل 100% |
-| 🌐 **[mohallali.github.io](https://mohallali.github.io)** | مستودع الإنتاج الرسمي | GitHub Enterprise CDN & Fastly | < 120ms | 🟢 متصل 100% |
-| 🔀 **[mohallali.github.io/personal-portfolio/](https://mohallali.github.io/personal-portfolio/)** | مرآة المسار المباشر | SPA Fallback Router (200.html) | < 120ms | 🟢 متصل 100% |
-| 📱 **الاستوديو اللاسلكي المحلي** | شبكة Wi-Fi LAN | `http://<Local-IP>:4321/admin/` | < 15ms | 🟢 جاهز للعمل |
-| 💻 **محرك الاستوديو المكتبي** | Localhost Engine | `http://localhost:4321/admin/` | < 5ms | 🟢 نشط |
-
----
-
-## 📱 التوافق والتجاوب التام مع كافة الأجهزة | Universal Responsiveness
-
-تمت هندسة التصميم وكافة الواجهات البرمجية لتتجاوب بنسبة 100% وبدون أي شوائب أو انزياح أفقي (Zero Horizontal Scroll):
-
-- **🖥️ الحواسيب وشاشات الـ 4K (PC & Ultra-Wide 1440px - 2560px+)**:
-  - عرض سينمائي فخم، توزيع متزن للحاويات، ومؤشر نيون انسيابي ذكي يتبع حركة الفأرة بسلاسة فائقة.
-  - مشغل فيديو سينمائي بمحاكاة واجهة الاستوديو الاحترافي (UI Player HUD & Waveforms).
-- **💻 الحواسيب المحمولة (Laptops 1024px - 1366px)**:
-  - ملاحة سلسة، ضبط دقيق لشبكات الخدمات والخطوات والمشاريع دون أي تداخل في النصوص أو الأزرار.
-- **📟 أجهزة الآيباد واللوحيات (iPads & Tablets 768px - 1024px)**:
-  - دعم كامل للسحب والإيماءات اللمسية السلسة على سلايدر المقارنة وسلايدر المشاريع.
-  - شريط تبويبات فئوية (Work Tabs) انسيابي يدعم التمرير الأفقي الحر بدون أشرطة تمرير مشوهة.
-- **📱 الهواتف الذكية (Smartphones 320px - 480px - iPhone & Android)**:
-  - عزل تام لمنع الانزياح الأفقي عبر `overflow-x: clip; max-width: 100%`.
-  - مشغل منبثق ذكي يدعم مقاسات الريلز والتيك توك (9:16) ومقاسات اليوتيوب (16:9) مع ملاءمة كاملة لارتفاع الشاشة.
-  - خطوط حقول الإدخال مثبتة على 16px كحد أدنى لمنع متصفح Safari على iPhone من عمل زوم تلقائي مزعج.
-  - إخفاء تلقائي لمؤشر الفأرة المخصص على الأجهزة اللمسية لمنع أي بطء في الأداء.
-
----
-
-## 🛡️ منظومة الأمان السيبراني والخصوصية 300% | Cyber Security Fortress
-
-لحماية مصالح صاحب الموقع، الحفاظ على خصوصية العملاء، وحماية حقوق الملكية الفكرية، تم تطبيق ترسانة أمنية مشددة:
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                 🔒 SATURN 300% CYBER SECURITY FORTRESS                  │
-├────────────────────────────┬────────────────────────────────────────────┤
-│ 1. حماية الملكية الفكرية     │ • منع النقر الأيمن (Context-Menu Lock) على │
-│    (Anti-Theft Shield)     │   كافة الفيديوهات، الصور، والكانفاس.       │
-│                            │ • تعطيل سحب وإفلات الوسائط (Drag Lock).    │
-│                            │ • تنبيه أنيق بحقوق النشر الدولية © 2026.   │
-├────────────────────────────┼────────────────────────────────────────────┤
-│ 2. حظر فحص الكود المصدري   │ • تعطيل اختصار F12 لفتح أدوات المطورين.     │
-│    (Anti-Inspection)       │ • حجب Ctrl+Shift+I / J / C (DevTools).     │
-│                            │ • حجب اختصارات الحفظ والعرض Ctrl+U / S / P.│
-├────────────────────────────┼────────────────────────────────────────────┤
-│ 3. إخفاء وتشفير بيانات     │ • تشفير عناوين البريد وأرقام الهواتف      │
-│    الاتصال (Obfuscation)   │   ديناميكياً لمنع زواحف الجمع الآلي.        │
-│                            │ • تشفير روابط الويب هوك وقنوات الإرسال.     │
-├────────────────────────────┼────────────────────────────────────────────┤
-│ 4. مكافحة البوتات والاسبام │ • حقل مصيدة خفي (Bot Honeypot) لإسقاط      │
-│    (Anti-Bot & Rate-Limit) │   الرسائل الآلية الخبيثة دون إزعاج المستخدم.│
-│                            │ • محدد لمعدل الطلبات (Max 60 req/min).     │
-├────────────────────────────┼────────────────────────────────────────────┤
-│ 5. ترويسات الأمان الصارمة   │ • سياسة أمان محتوى صارمة (Strict CSP):     │
-│    (Strict Headers & CSP)  │   إلغاء unsafe-eval وترقية HTTPS تلقائياً. │
-│                            │ • حماية Clickjacking عبر X-Frame-Options.   │
-│                            │ • سياسة أذونات حاسمة (Permissions-Policy). │
-├────────────────────────────┼────────────────────────────────────────────┤
-│ 6. حظر بوتات الذكاء        │ • ملف robots.txt مخصص يحظر عناكب الذكاء    │
-│    الاصطناعي غير المصرحة   │   الاصطناعي (GPTBot, CCBot, Anthropic...)   │
-│    (AI Harvesters Shield)  │   من تدريب نماذجها على أعمال البورتفوليو.  │
-└────────────────────────────┴────────────────────────────────────────────┘
-```
-
----
-
-## 🎛️ غرفة العمليات ومركز الإعدادات الشامل | Studio Command Suite
-
-يحتوي المشروع على استوديو تحكم محلي متطور يعمل عبر محرك بايثون الخفيف (`admin_server.py`) مع واجهة تحكم متقدمة (`admin/index.html`):
-
-### 1. ⚙️ مركز الإعدادات الشامل (Master Settings Center)
-- **إدارة الهوية والبراند**: تعديل اسم الاستوديو (Brand Name)، العنوان التعريفي، والوصف لمحركات البحث (SEO).
-- **مصفوفة دروع الأمان 300%**: مراقبة حية لحالة درع الوسائط، حظر أدوات الفحص، مصيدة البوتات، ومحدد الطلبات.
-- **النسخ الاحتياطي والاستعادة الفورية (Disaster Recovery)**:
-  - 💾 تنزيل نسخة احتياطية كاملة من ملف البيانات (`site_data.json`) كملف JSON محفوظ على جهازك.
-  - 📥 استيراد واستعادة البيانات من أي نسخة احتياطية سابقة في ثوانٍ مع مزامنة كاملة.
-  - 🔄 إعادة التعيين إلى الوضع المعتمد الموصى به (Factory Preset).
-- **صيانة وتطهير الكاش**: مسح ذاكرة `__pycache__` وإعادة تجميع الموقع وتحديث المسارات بنقرة واحدة.
-
-### 2. 📡 غرفة العمليات والأمان الفائق (Cyber Operations Room)
-- **فحص مباشر لزمن الاستجابة (Latency Ping)**: قياس سرعة الاتصال بالملي ثانية عبر السيرفرات الخمسة في وقت واحد.
-- **وحدة الإطلاق المتزامن الموحد (Master Multi-Deploy)**:
-  - نقرة واحدة تقوم بتشغيل `compiler.py`.
-  - رفع التعديلات فوراً إلى مستودع GitHub الرئيسي عبر Git Push.
-  - نشر وتحديث شبكة Surge Anycast CDN عالمياً.
-  - فحص استجابة المواقع وتأكيد نجاح المزامنة 100%.
-- **سجل عمليات لحظي (Real-Time Terminal Stream)**: نافذة تيرمينال حية تعرض خطوات النشر والفحص بالألوان مع طوابع زمنية دقيقة.
 
 ---
 
@@ -147,38 +51,31 @@
 
 ---
 
-## 🛠️ الترسانة البرمجية والتقنية | Tech Stack
+## 🛠️ الترسانة البرمجية والإنتاجية | Tech Stack
 
 - **المونتاج والتلوين**: DaVinci Resolve Studio (4K ACES), Adobe Premiere Pro, After Effects, Soundly.
-- **العتاد والتسريع**: NVIDIA GeForce RTX 3080 Ti (12GB GDDR6X) • CUDA 13.4 • NVENC.
-- **واجهة الويب**: HTML5 Semantic • CSS3 Modern Custom Properties • Vanilla JS (Zero heavy frameworks, sub-50ms render).
-- **المكتبات التفاعلية**: Swiper.js 11 • Remix Icon 4.6 • Google Fonts (Cairo & Plus Jakarta Sans).
-- **محرك الأتمتة والسيرفر**: Python 3.11 Threading Engine • Multi-target Compiler (`compiler.py`) • Cloud Webhooks.
+- **العتاد والتسريع**: NVIDIA GeForce RTX 3080 Ti (12GB GDDR6X) • CUDA Cores • NVENC Hardware Encoding.
+- **واجهة العرض**: High-Performance Ultra-Responsive Frontend Engine (Sub-50ms latency, zero-framework overhead).
+- **التوزيع السحابي**: Anycast Edge CDN Network (Surge CDN & GitHub Pages Mirror).
 
 ---
 
-## 🚀 كيفية تشغيل وإدارة الاستوديو محلياً | Local Development
+## ⚖️ تنبيه قانوني وحماية الملكية الفكرية | Legal Notice & Anti-AI Protection
 
-### 1. تشغيل الاستوديو بنقرة واحدة:
-قم بتشغيل الملف:
-```cmd
-Run_Studio.bat
 ```
-أو عبر الطرفية:
-```powershell
-python admin_server.py
-```
-- سيفتح الاستوديو تلقائياً على المتصفح: `http://localhost:4321/admin/`
-- وعلى هاتفك والآيباد عبر نفس شبكة الواي فاي: `http://<Local-IP>:4321/admin/`
-
-### 2. إعادة تجميع الملفات يدوياً:
-```powershell
-python compiler.py
-```
-
-### 3. المزامنة والرفع إلى GitHub:
-```cmd
-Sync_To_GitHub.bat
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ⚠️ NOTICE: PROPRIETARY WORK - ALL RIGHTS RESERVED (© 2026 MOHAMED HALLALI)  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ 1. هذا المستودع وكافة محتوياته، الأكواد البرمجية، التصاميم البصرية،        │
+│    والوسائط محمية بموجب القوانين الدولية للملكية الفكرية ومعاهدة بيرن (WIPO).│
+│ 2. يُحظر تماماً نسخ أو استنساخ أو إعادة استخدام أو توزيع أي جزء من هذا     │
+│    الكود البرمجي لإنشاء بورتفوليو أو موقع مشابه لنفسك أو لأي طرف آخر.       │
+│ 3. يُحظر حظراً باتاً تغذية أو تمرير أي من ملفات هذا المشروع إلى نماذج     │
+│    الذكاء الاصطناعي (ChatGPT / Claude / Gemini / Copilot / Open-Source)      │
+│    لأغراض التدريب أو الاستنساخ أو التوليد البرمجي المشتق.                     │
+│ 4. أي انتهاك أو نسخ للمحتوى أو الهيكل سيتم ملاحقته قضائياً فوراً وإشعار     │
+│    استضافات الويب بإشعارات انتهاك حقوق الطبع الرقمية (DMCA Takedown).        │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -197,5 +94,5 @@ Sync_To_GitHub.bat
 
 <p align="center">
   <b>© 2026 محمد هلّالي — SATURN STUDIO. جميع الحقوق محفوظة ومحمية دولياً بموجب قوانين الملكية الفكرية.</b><br>
-  <sub>Crafted with passion, cinema-grade precision & relentless pursuit of storytelling perfection.</sub>
+  <sub>Strictly Proprietary • Unauthorized Duplication, Scraping, or AI Model Mining is Prohibited by Law.</sub>
 </p>
